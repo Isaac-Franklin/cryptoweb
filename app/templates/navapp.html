@@ -1,0 +1,101 @@
+{% load static %} 
+<body>
+    {% comment %} <div class='overlay'></div> {% endcomment %}
+    <div class='navmainmenu'>
+        <div class='navmainmenuintro'>
+            <p>Exodus Trade</p>
+            <img src={% static 'appgen/img/hidearrow.png' %} />
+        </div>
+        <a href={% url 'Dashboard' %}>
+            <div class='allsection'>
+                <img src={% static 'appgen/img/dashboardicon.png' %} />
+                <p>Dashbaord</p>
+            </div>
+        </a>
+        <a href={% url 'Deposite' %}>
+            <div class='allsection'>
+                <img src={% static 'appgen/img/depositeicon.png' %} />
+                <p>Deposite Funds</p>
+            </div>
+        </a>
+        <a href={% url 'Withdraw' %}>
+            <div class='allsection'>
+                <img src={% static 'appgen/img/withdrawicon.png' %} />
+                <p>Withdraw Funds</p>
+            </div>
+        </a>
+        <a href={% url 'Invest' %}>
+            <div class='allsection'>
+                <img src={% static 'appgen/img/investicon.png' %} />
+                <p>Investment Plan</p>
+            </div>
+        </a>
+        <a href={% url 'History' %}>
+            <div class='allsection'>
+                <img src={% static 'appgen/img/historyicon.png' %} />
+                <p>History</p>
+            </div>
+        </a>
+        <a href={% url 'Support' %}>
+            <div class='allsection'>
+                <img src={% static 'appgen/img/supporticon.png' %} />
+                <p>Support</p>
+            </div>
+        </a>
+        <a href={% url 'Profile' %}>
+            <div class='allsection'>
+                <img src={% static 'appgen/img/profileicon.png' %} />
+                <p>Profile</p>
+            </div>
+        </a>
+        <a href={% url 'UserLogout' %}>
+            <div class='allsection'>
+                <img src={% static 'appgen/img/logouticon.png' %} />
+                <p>Logout</p>
+            </div>
+        </a>
+    </div>
+    <div class='navmainmenumini'>
+        <div class='navminimenuintro'>
+            <img src={% static 'appgen/img/showarrow.png' %} />
+        </div>
+        <a href={% url 'Dashboard' %}>
+            <div class='allsection' title='Dashbaord'>
+                <img src={% static 'appgen/img/dashboardicon.png' %} />
+            </div>
+        </a>
+        <a href={% url 'Deposite' %}>
+            <div class='allsection' title='Deposite Funds'>
+                <img src={% static 'appgen/img/depositeicon.png' %} />
+            </div>
+        </a>
+        <a  href={% url 'Withdraw' %}>
+            <div class='allsection'>
+                <img src={% static 'appgen/img/withdrawicon.png' %} />
+            </div>
+        </a>
+        <a  href={% url 'Invest' %}>
+            <div class='allsection'>
+                <img src={% static 'appgen/img/investicon.png' %} />
+            </div>
+        </a>
+        <a  href={% url 'History' %}>
+            <div class='allsection'>
+                <img src={% static 'appgen/img/historyicon.png' %} />
+            </div>
+        </a>
+        <a  href={% url 'Support' %}>
+            <div class='allsection'>
+                <img src={% static 'appgen/img/supporticon.png' %} />
+            </div>
+        </a>
+        <div class='Profile'>
+            <img src={% static 'appgen/img/profileicon.png' %} />
+        </div>
+        <a href={% url 'UserLogout' %}>
+            <div class='allsection'>
+                <img src={% static 'appgen/img/logouticon.png' %} />
+            </div>
+        </a>
+    </div>
+</body>

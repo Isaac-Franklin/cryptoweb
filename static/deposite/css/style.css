@@ -1,0 +1,360 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    /* color: black; */
+}
+
+
+body{
+    background-color: #181A20;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.overlay{
+    position: fixed; 
+    width: 100%;
+    height: 100%; 
+    top: 0;
+    display: none;
+    left: 20;
+    right: 0;
+    bottom: 0;
+    background-color: #181A20; 
+    z-index: 1;
+}
+
+.chooseplanmaininform{
+    font-size: 1.3rem;
+    padding: 10px;
+}
+
+.chooseplanmain form select, .chooseplanmain form input{
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    padding: 10px;
+}
+
+.chooseplanmain form button{
+    background-color: #0275be;
+    padding: 10px;
+    color: white;
+    border: none;
+    font-size: 1.4rem;
+    margin-left: 0px;
+    border-radius: 5%;
+    font-weight: bold;
+    width:  100%;
+    transition: ease-in-out .2s;
+}
+
+.chooseplanmainin{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    justify-content: space-between;
+    height: 70vh;
+    overflow: hidden;
+}
+
+
+
+.chooseplanmaininimgmain img{
+    width: 100%;
+    object-fit: contain;
+    object-position: right;
+    /* height: 100%; */
+}
+
+
+.chooseplanmaininimgmainmobile img{
+    width: 100%;
+    object-fit: contain;
+    object-position: right;
+    height: 100%;
+}
+
+.chooseplanmain{
+    padding: 0px;
+}
+
+.chooseplanmaininimgmainmobile img{
+    display: none;
+}
+
+.confirminvestment{
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);    
+    border-radius: 10px;
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.confirminvestmentproceed button{
+    background-color: #0275be;
+    padding: 10px;
+    color: white;
+    border: none;
+    font-size: 1.4rem;
+    margin-left: 0px;
+    border-radius: 5%;
+    font-weight: bold;
+    width:  100%;
+    transition: ease-in-out .2s;
+}
+
+.confirminvestment h1 strong{
+    color: #0275be;
+} 
+
+.confirminvestment h3 strong{
+    color: #0275be;
+}
+
+.chooseplanmain{
+    background-color: #233239;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 70px;
+}
+
+
+.google_element_local{
+    overflow: scroll;
+    color: black;
+}
+
+.google_element_local::-webkit-scrollbar{
+    display: none;
+}
+
+
+.confirminvestmentreturn button{
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #0275be;
+    color: #0275be;
+    margin-top: 10px;
+    font-size: 1.4rem;
+    margin-left: 0px;
+    border-radius: 5%;
+    font-weight: bold;
+    width:  100%;
+    transition: ease-in-out .2s;
+}
+
+
+.chooseplan{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: space-around;
+}
+
+.chooseplaninout:hover{
+    transform: scale(1.1);
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.chooseplaninout{
+    display: flex;
+    padding: 10px;
+    height: 150px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #181A20;
+    transition: ease-in-out .3s;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.planpopup{
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+    width: 400px;
+    padding: 10px;
+    font-size: 1.3rem;
+    margin: auto;
+    border-radius: 10px;
+    z-index: 15;
+    position: fixed;
+    top: 10%;
+    left: 35%;
+    background-color: #181A20;
+    display: none;
+}
+
+.planpopup h1 strong{
+    color: #0275be;
+}
+
+.planpopupcancel{
+    cursor: pointer;
+}
+
+.planpopup form p{
+    color: red;
+}
+
+.shadow{
+    background-color: rgba(0, 0, 0, 0.386);
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    display: none;
+}
+
+.planpopup p {
+    margin: auto;
+    text-align: center;
+    margin: 10px;
+    color: #0275be;
+    font-weight: bolder;
+    font-weight: 1.3rem;
+}
+
+.planpopup button{
+    background-color: #0275be;
+    padding: 10px;
+    color: white;
+    border: none;
+    font-size: 1.4rem;
+    margin:auto;
+    border-radius: 10%;
+    font-weight: bold;
+    width: 100%;
+    height: 50px;
+    transition: ease-in-out .2s;    
+}
+
+.planpopup select,.planpopup  input{
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1102px) {
+    .chooseplanmainin{
+        display: inline;
+        flex-direction: column-reverse;
+        grid-template-columns: 60% 40%;
+        justify-content: space-between;
+        height: 70vh;
+        overflow: hidden;
+    }
+
+    
+
+    .chooseplan{
+        padding: 10px;
+        display: inline;
+        justify-content: space-between;
+    }
+
+    .chooseplaninout{
+        display: flex;
+        padding: 10px;
+        height: 100%;
+        align-items: center;
+        margin-bottom: 10px;
+        background-color: #181A20;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+    
+    }
+    
+    .chooseplanmaininimgmainmobile img{
+        display: block;
+    }
+
+    .chooseplanmaininimgmain img{
+        display: none;
+    }
+    
+    .chooseplanmain form select, .chooseplanmain form input{
+        width: 100%;
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid black;
+        padding: 10px;
+        color: black;
+    }
+
+    .chooseplanmain form button{
+        width:  100%;
+    }
+    
+
+    .confirminvestment{
+        padding: 10px;
+        text-align: center;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);    
+        border-radius: 10px;
+        width: 100%;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    .planpopup{
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+        width: 100%;
+        margin: auto;
+        padding: 10px;
+        font-size: 1.3rem;
+        text-align: center;
+        border-radius: 10px;
+        z-index: 15;
+        position: fixed;
+        top: 10%;
+        left: 0%;
+        background-color: #181A20;
+        display: none;
+    }
+    .planpopup button{
+        background-color: #0275be;
+        padding: 10px;
+        color: white;
+        border: none;
+        font-size: 1.8rem;
+        margin:auto;
+        border-radius: 0px;
+        font-weight: bold;
+        width: 100%;
+        height: 50px;
+        transition: ease-in-out .2s;    
+    }
+
+
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,226 @@
+/* body{
+    overflow-y: scroll;
+} */
+
+
+.field__label{
+    font-size: 1.5rem !important;
+}
+
+.field__input{
+    font-size: 1.5rem !important;
+    height: 50px;
+}
+
+
+.signupformproper{
+    z-index: 10;
+    background-color: white;
+    border-radius: 10px;
+    height: 85vh;
+    width: 500px;
+    position: fixed;
+    left: 34%;
+    top: 13%;
+    padding: 10px;
+    padding-bottom: 40px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    overflow-y: scroll;
+    transition: ease-in-out 1s;
+}
+
+.signupformproperinner{
+    display: none;
+}
+
+.loginformproper{
+    z-index: 10;
+    background-color: transparent;
+    border-radius: 10px;
+    height: 75vh;
+    width: 500px;
+    position: fixed;
+    left: 34%;
+    top: 13%;
+    padding: 10px;
+    padding-bottom: 40px;
+    overflow-y: scroll;
+    margin-top: 50px;
+    transition: ease-in-out 1s;
+}
+
+.loginformproper::-webkit-scrollbar {
+    display: none;
+}
+.signupformproper::-webkit-scrollbar {
+    display: none;
+}
+
+.returntosignup, .returntologin{
+    color: #0275be;
+    cursor: pointer;
+}
+
+.fadout{
+    animation: 1s fadeIn;
+    animation-fill-mode: forwards;
+    animation-delay: .3s;
+    visibility: hidden;
+}
+
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    /* 50%{
+        opacity: .5;
+    } */
+    100% {
+      /* visibility: visible; */
+      opacity: 1;
+    }
+  }
+
+
+.countryandphone select{
+    border: none;
+    border-bottom: 2px solid #d1c4e9;
+    border-right: 2px solid #d1c4e9;
+    font-size: 1.4rem;
+    margin-bottom: -16px;
+}
+.countryandphone{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.google_element_local::-webkit-scrollbar{
+    display: none;
+}
+
+.formintro{
+    text-align: center;
+}
+
+.formintro img{
+    width: 100px;
+}
+
+.google_element_local{
+    text-align: center;
+}
+
+.alert strong{
+    font-size: 1.3rem;
+}
+
+.regformproper button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #0275be;
+    width: 98%;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+
+
+.createAcctPrompt{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    margin-top: 20px;
+}
+
+.copyrightSection{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    /* background-color: red; */
+    margin-top: 40px;
+}
+
+.copyrightSectionInner{
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+
+.copyrightSection p{
+    margin-top: 20px;
+}
+
+.copyrightSection img{
+    margin-right: 10px;
+}
+
+
+@media only screen and (max-width: 1102px){
+    .signupformproperinner{
+        display: none;
+    }
+
+    .signupformproper{
+        z-index: 10;
+        background-color: white;
+        border-radius: 10px;
+        height: 85vh;
+        width: 90vw;
+        position: fixed;
+        left: 5%;
+        top: 13%;
+        padding: 10px;
+        padding-bottom: 40px;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+        overflow-y: scroll;
+    }
+
+    .loginformproper{
+        z-index: 10;
+        background-color: white;
+        border-radius: 10px;
+        height: 78vh;
+        width: 90vw;
+        position: fixed;
+        left: 5%;
+        top: 13%;
+        padding: 10px;
+        padding-bottom: 40px;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+        overflow-y: scroll;
+    }
+        
+    .createAcctPrompt{
+        display: inline;
+        margin-top: 20px;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        font-size: 1.3rem;
+        margin-top: 20px;
+    }
+
+    .phonenumersection{
+        margin-top: 30px;
+        width: 100%;
+    }
+    
+    
+    .countryandphone{
+        display: inline;
+        grid-template-columns: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+}

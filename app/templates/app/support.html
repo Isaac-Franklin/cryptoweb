@@ -1,0 +1,27 @@
+{% include 'generalapp.html' %} 
+{% load static %} 
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/x-icon" href={% static 'general/img/itsalogo.PNG' %}> 
+		<link rel="stylesheet" href={% static 'dashboard/css/style.css' %} />
+		<link rel="stylesheet" href={% static 'deposite/css/style.css' %} />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		{% comment %} <link rel="stylesheet" href={% static 'onboard/css/formcss.css' %} />
+		<link rel="stylesheet" href={% static 'onboard/css/style.css' %} /> {% endcomment %}
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<title>Support </title>
+	</head>
+	<body style="background: #181A20" >
+        <div class='shadow'></div>
+        <main>
+            <div> </div>
+        </main>
+    </body>
+</html>
+{% endblock content %}

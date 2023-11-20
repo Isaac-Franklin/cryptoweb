@@ -1,0 +1,195 @@
+{% include 'generalapp.html' %} 
+{% load static %} 
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/x-icon" href={% static 'general/img/itsalogo.PNG' %}> 
+		<link rel="stylesheet" href={% static 'dashboard/css/style.css' %} />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		{% comment %} <link rel="stylesheet" href={% static 'onboard/css/formcss.css' %} />
+		<link rel="stylesheet" href={% static 'onboard/css/style.css' %} /> {% endcomment %}
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<title> Dashboard </title>
+	</head>
+	<body style="background: #181A20" >
+		<div class='overlay'></div>
+		<main>
+            <div class='dashboadherotop'>
+				<div class='blinkingintro'>
+					<div><h1 class='introtext'>Welcome back <br/><strong>{{ request.user }}</strong>,</h1></div>
+					<div>
+						<div class="blinking">
+						</div><br/>					  
+						<div class="blinking-green">
+						</div>
+					</div>
+				</div>
+				{% comment %} <div class='google_element_local'><div id="google_translate_element"></div><br/></div><br/> {% endcomment %}
+				
+				<div><h3 id="clock">0:00:00</h3></div>
+				
+				<div id="flash">
+					{% if messages %} {% for message in messages %}
+					<div class="alert alert-{{ message.tags}} m-0" role="alert">
+						<strong style="color: #0275be">{{ message }}</strong>
+					</div>
+					{% endfor %} {% endif %}
+				</div>
+
+
+				<div>
+					<div class='dashherodepositeout'>
+						<div class='dashherodeposite'>
+							<img src={% static 'appgen/img/depositeicon.png' %} />
+							<p>Click To Deposite</p>
+						</div>
+						<div class='dashherodepositeuser'>
+							<div>
+								{% comment %} <p>Grade Card</p> {% endcomment %}
+								<h5>{{ request.user.first_name }}</h5>
+								<p>Your Plan: Nil</p>
+							</div>
+							<div>
+								<img src={% static 'appgen/img/profileicon.png' %} />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><br/>
+			{% comment %} account details starts here {% endcomment %}
+			<div class='amountssectionout'>
+				<div class='amountssection'>
+					<img src={% static 'dashboard/img/bit3.png' %} />
+					<div>
+						<h2>$0.00</h2>
+						<h4>Balance</h4>
+					</div>
+				</div>
+				<div class='amountssection'>
+					<img src={% static 'dashboard/img/bitcoin1.png' %} />
+					<div>
+						<h2>$0.00</h2>
+						<h4>Active Deposite</h4>
+					</div>
+				</div>
+				<div class='amountssection'>
+					<img src={% static 'dashboard/img/bit2.png' %} />
+					<div>
+						<h2>$0.00</h2>
+						<h4>Withdrawals</h4>
+					</div>
+				</div>
+				<div class='amountssection'>
+					<img src={% static 'dashboard/img/coins.png' %} />
+					<div>
+						<h2>$0.00</h2>
+						<h4>Earnings</h4>
+					</div>
+				</div>
+			</div>
+			{% comment %} account details ends here {% endcomment %}			
+			<br/>
+			{% comment %} WIDGET STARTS HERE {% endcomment %}
+			<div class='tradinggraphhero'>
+				<div>
+					<coingecko-coin-compare-chart-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" locale="en"></coingecko-coin-compare-chart-widget>
+				</div>
+				<!-- TradingView Widget BEGIN -->
+				<div class="tradingview-widget-container">
+					<div class="tradingview-widget-container__widget"></div>
+					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+						{
+						"width": "100%",
+						"height": 500,
+						"defaultColumn": "overview",
+						"screener_type": "crypto_mkt",
+						"displayCurrency": "USD",
+						"colorTheme": "light",
+						"locale": "en"
+					}
+					</script>
+				</div>
+				<!-- TradingView Widget END -->
+			</div>
+			{% comment %} WIDGET ENDS HERE {% endcomment %}
+			<div class='chooseplanmain'>
+				<h2 class='chooseplanmaintext'>Choose an investment plan</h2>
+				<div class='chooseplan'>
+					<div>
+						<div class='chooseplanin'>
+							<div class='chooseplaninout chooseplaninout4'>
+								<div>
+									<img src={% static 'dashboard/img/diamond.png' %} />
+								</div>
+								<div>
+									<h2>Plan A - The Diamond Plan</h2>
+									<h4>Amount: $30, 000 to $Unlimited</h4>
+									<h4>Profit: 100% After 168 Hours</h4>
+									<a href={% url 'Invest' %}><button>Choose This Plan</button></a>
+								</div>
+							</div>
+						</div>					
+						<div class='chooseplanin'>
+							<div class='chooseplaninout chooseplaninout1'>
+								<div>
+									<img src={% static 'dashboard/img/gold.png' %} />
+								</div>
+								<div>
+									<h2>Plan B - The Gold Plan</h2>
+									<h4>Amount: $4,000 to $29,999</h4>
+									<h4>Profit: 50% After 72 Hours</h4>
+									<a href={% url 'Invest' %}><button>Choose This Plan</button></a>
+								</div>
+							</div>
+						</div>
+					</div>					
+					<div>
+						<div class='chooseplanin'>
+							<div class='chooseplaninout chooseplaninout2'>
+								<div>
+									<img src={% static 'dashboard/img/silver.png' %} />
+								</div>
+								<div>
+									<h2>Plan C - The Silver Plan</h2>
+									<h4>Amount: $500 to $3,999</h4>
+									<h4>Profit: 25% After 24 Hours</h4>
+									<a href={% url 'Invest' %}><button>Choose This Plan</button></a>
+								</div>
+							</div>
+						</div>
+						<div class='chooseplanin'>
+							<div class='chooseplaninout chooseplaninout3'>
+								<div>
+									<img src={% static 'dashboard/img/bronze.png' %} />
+								</div>
+								<div>
+									<h2>Plan D - The Bronze Plan</h2>
+									<h4>Amount: $30 to $499</h4>
+									<h4>Profit: 7% After 12 Hours</p>
+										<a href={% url 'Invest' %}><button>Choose This Plan</button></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class='footer'>
+				{% comment %} <p>Copyrights | Exodus Trade</p> {% endcomment %}
+				<div class='copyrightSection'>
+					<div class='copyrightSectionInner'>
+						<img src={% static 'general/img/copyright.png' %} />
+						<h4>2023. Exodus - Trade. All rights reserved</h4>
+					</div>
+				</div>
+			</div>
+        </main>
+		<script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script>	
+		<script src={% static 'dashboard/js/main.js' %}></script>	
+    </body>
+</html>
+{% endblock content %}

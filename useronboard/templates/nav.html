@@ -1,0 +1,51 @@
+{% load static %} 
+{% block content %}
+<body>
+    <div class='backgroundingout'></div>
+    <div class='backgrounding'>
+        {% comment %} <img src={% static 'general/img/herolady2.jpg' %} /> {% endcomment %}
+        {% comment %} <coingecko-coin-compare-chart-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" locale="en"></coingecko-coin-compare-chart-widget> {% endcomment %}
+        <coingecko-coin-market-ticker-list-widget  coin-id="bitcoin" currency="usd" locale="en"></coingecko-coin-market-ticker-list-widget>
+    </div>
+    <div class='nav'>
+        <div class='navlogo'>
+            <img src={% static 'general/img/etlogowhite.PNG' %} />
+        </div>
+        <div class='navmenu'>
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Plans</li>
+                <li>FAQs</li>
+                <li>Get Support</li>
+            </ul>
+        </div>
+        {% comment %} <div class='navbtns'>
+            <button>Create An Account</button>
+            <button>Go to Dashboard</button>
+        </div> {% endcomment %}
+        <div class='hamburgerMain'>
+            <a class="hamburger" href="#"><span></span></a>
+        </div>
+    </div>
+    {% comment %} RESPONSIVE NAV STARTS HERE {% endcomment %}    
+    <div class='userSectionResponsiveOut'>
+        <p><a href=>Home</a></p>
+        <p><a href=>About Us</a></p>
+        <p><a target = '_blank' href= >Contact Us</a></p>
+        <p><a target = '_blank' href= >Plan</a></p>
+        <p><a target = '_blank' href= >FAQs</a></p>
+        <p><a target = '_blank' href= >Get Support</a></p><br/>
+
+        {% if request.user.username %}
+            <a href=><div class='userSectionResponsive'><p>Log Out</p><img src={% static 'general/img/user.png' %} /></div></a>
+        {% else %}
+            <div><a href = > <button>Create An Account</button></a></div><br/>
+            <div><a href = > <button>Go To Your Dashboard</button></a></div>
+        {% endif %}
+    </div>
+    {% comment %} RESPONSIVE NAV ENDS HERE {% endcomment %}
+</body>
+{% endblock content %}
+
+

@@ -1,0 +1,74 @@
+{% include 'generalapp.html' %} 
+{% load static %} 
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/x-icon" href={% static 'general/img/itsalogo.PNG' %}> 
+		<link rel="stylesheet" href={% static 'dashboard/css/style.css' %} />
+		<link rel="stylesheet" href={% static 'withdraw/css/style.css' %} />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		{% comment %} <link rel="stylesheet" href={% static 'onboard/css/formcss.css' %} />
+		<link rel="stylesheet" href={% static 'onboard/css/style.css' %} /> {% endcomment %}
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<title>Withdraw Funds </title>
+	</head>
+	<body style="background: #181A20" >
+		<main>
+            <div>
+				<h1>Withdraw Funds</h1>
+				<h4>Fill the form below to make a withdrawal</h4>
+			</div>
+			<div class='withdrawintro'>
+				<div>
+					<div>
+						<h2>Account Balances</h2>
+						<table>
+							<tr>
+							<th>Cryptocurrency</th>
+							<th>Amount</th>
+							</tr>
+							<tr>
+								<td>Bitcoint</td>
+								<td>000</td>
+							</tr>
+							<tr>
+								<td>USDT</td>
+								<td>000</td>
+							</tr>
+							<tr>
+								<td>Etherum</td>
+								<td>000</td>
+							</tr>
+							<tr>
+								<td>Litecoin</td>
+								<td>000</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div>
+					<h2>Fill the form to make a withdrawal</h2>					
+					<form>
+						<label><h5>Enter an amount to withdraw</h5></label><br/>
+						<input name='amount' required type='text' placeholder='Amount' /><br/><br/>
+						<label><h5>Select a wallet to withdraw these funds to:</h5></label><br/>
+						<select required name='wallet' style="color:black" >
+							<option style="color:black" >--Select Wallet--</option>
+							<option style="color:black" >Bitcoin</option>
+							<option style="color:black" >USDT</option>
+							<option style="color:black" >Tron</option>
+							<option style="color:black" >BnB</option>
+						</select><br/><br/>
+						<button>Confirm Withdrawal</button>
+					</form>
+				</div>
+			</div>
+        </main>
+    </body>
+</html>
+{% endblock content %}

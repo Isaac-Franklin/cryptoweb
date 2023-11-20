@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap" rel="stylesheet">
+<style>
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body{
+        color: white;
+        background-color: black;
+    }
+    .slider-container {
+        position: absolute;
+        display: inline;
+        height: 200vh;
+        /* display: none; */
+        /* animation-delay: 35s; */
+        z-index: 2;
+        
+        animation: slider 26s infinite;
+    }
+
+    .containerInner{
+        overflow: hidden;
+        height: 80vh;
+        width: 50vw;
+        z-index: 5;
+        background-color: red;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+    
+    .slide {
+        position: relative;
+        height: 100%;
+        float: left;
+        overflow: hidden;
+        font-weight: 400;
+        width: 700px;
+        margin-left: 20px;
+    }
+    
+    .slideA{
+        margin-top: 0px;
+    }
+
+
+    @keyframes slider {    
+        0%, 25%, 100%{top: 0}    
+        60%, 85%{top: -205%}
+    }
+
+    .slidelistimg img{
+        width: 20px;
+        margin-right: 10px;
+    }
+
+    .slidelistimg{
+        display: flex;
+        align-items: center;
+    }
+
+    .slidelistA{
+        margin-top: 20px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        color: #0275BE;
+        cursor: pointer;
+        border: none;
+        margin-right: 20px;
+    }
+
+    .slidelistB{
+        margin-top: 20px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        background-color: #0275BE;
+        color: white;
+        cursor: pointer;
+        border: none;
+    }
+
+    .slidelist button{
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        transition: ease-in-out .3s;
+    }
+
+    .slidelist button:hover{
+        transform: scale(1.1);
+    }
+    
+    </style>
+</head>
+<body>
+    
+    <div class="slider-container">    
+       <!-- <div class="containerInner"> -->
+            <div class="slide slideA">
+                <h3>Our Focus on Cryptocurrency​</h3><br/>
+                <p>
+                    Having emerged as a digital alternative to more traditional methods of exchange like cash or credit cards, cryptographic or cryptocurrencies have also generated alternative points of view.
+                </p><br/>
+                <div class="slidelist">
+                    <ul>
+                        <li class="slidelistimg">
+                            <img src="https://img.icons8.com/ios-filled/50/FFFFFF/arrow.png" alt="arrow"/>
+                            <p>Security High Tech</p>
+                        </li>
+                        <li class="slidelistimg">
+                            <img src="https://img.icons8.com/ios-filled/50/FFFFFF/arrow.png" alt="arrow"/>
+                            <p>Corporate Blueblack Global</p>
+                        </li>
+                        <li class="slidelistimg">
+                            <img src="https://img.icons8.com/ios-filled/50/FFFFFF/arrow.png" alt="arrow"/>
+                            <p>Insured AIICO Insurance America Limited</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="slidelist">
+                    <button class="slidelistA">Sign up</button>
+                    <button class="slidelistB">Log in</button>
+                </div>
+            </div>
+            
+            <div class="slide slideB">
+                <h3>PREMIUM CLOUD MINING <div>INVESTMENT PLATFORM</div></h3><br/>
+                <p>exness-finance.com is brand new trading and mining investment platform in field of crypto currency
+                    multiplying your investments in no time. Unlike any other company, zafirotrades.com offers safe and lucrative
+                    investments regardless of market condition
+                </p><br/>
+                <div class="slidelist">
+                    <ul>
+                        <li class="slidelistimg">
+                            <img src="https://img.icons8.com/ios/50/FFFFFF/circled-chevron-right--v1.png" alt="circled-chevron-right--v1"/>
+                            <p>Security High Tech</p>
+                        </li>
+                        <li class="slidelistimg">
+                            <img src="https://img.icons8.com/ios/50/FFFFFF/circled-chevron-right--v1.png" alt="circled-chevron-right--v1"/>
+                            <p>Corporate Blueblack Global</p>
+                        </li>
+                        <li class="slidelistimg">
+                            <img src="https://img.icons8.com/ios/50/FFFFFF/circled-chevron-right--v1.png" alt="circled-chevron-right--v1"/>
+                            <p>Insured AIICO Insurance America Limited</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="slidelist">
+                    <button class="slidelistA">Sign up</button>
+                    <button class="slidelistB">Log in</button>
+                </div>
+            </div>   
+       <!-- </div>      -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,495 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: whitesmoke;
+    /* z-index: 5; */
+}
+
+
+.overlay{
+    position: fixed; 
+    width: 100%;
+    height: 100%; 
+    top: 0;
+    display: none;
+    left: 20;
+    right: 0;
+    bottom: 0;
+    background-color: #181A20; 
+    z-index: 1;
+}
+
+main{
+    z-index: 5;
+    background-color: transparent;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    /* background: red; */
+}
+
+.tradinggraphhero{
+    background-color: #233239;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+    height: 400px;
+    overflow: scroll;
+    padding-bottom: 50px;
+}
+
+main{
+    margin-left: 60px;
+    margin-right: 3%;
+    padding-bottom: 20px;
+}
+
+/* blinking dots starts here */
+
+.blinking{
+    animation: 1s blink ease infinite;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%
+  }
+  
+  .blinking-green {
+      animation: 1s blink-green ease infinite;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%
+  }
+  
+  
+  @-webkit-keyframes blink-green {
+    from, to {
+      opacity: 0;
+      background-color: green;
+    }
+    25% {
+      opacity: 1;
+      background-color: darkorange;
+    }
+     
+      50% {
+      opacity: 0;
+      background-color: yellow; 
+    }
+    
+    75%{
+      opacity: 1;
+      background-color: red; 
+    }
+    100%{
+      opacity: 0;
+      background-color: green;
+    }
+  }
+  
+  @-webkit-keyframes blink {
+    0% {
+      opacity: 0;
+      background-color: red;
+    }
+    25% {
+      opacity: 1;
+      background-color: red;
+    }
+     
+      50% {
+      opacity: 0;
+      background-color: darkorange; 
+    }
+    
+    75%{
+      opacity: 1;
+      background-color: darkorange; 
+    }
+    100%{
+      opacity: 0;
+      background-color: darkorange;
+    }
+  }
+  
+  
+  
+
+/* blinking dots ends here */
+
+.dashboadherotop{
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: whitesmoke;
+    background-color: #233239;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.dashherodeposite{
+    padding: 3px;
+    border-radius: 5px;
+    color: white;
+    /* width: 100px; */
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.3rem;
+    align-items: center;
+    cursor: pointer;
+    background-color: black;
+    /* background-image: linear-gradient(105deg, #233239 0%, rgba(0,0,0,0.8463760504201681) 100%) */
+}
+
+.dashherodeposite img{
+    width: 20px;
+    margin-right: 5px;
+}
+
+.dashherodeposite p{
+    margin-top: 10px;
+}
+
+.dashherodepositeuser img{
+    width: 50px;
+    margin: 4px;
+}
+
+.dashherodepositeuser{
+    padding: 5px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    justify-content: space-around;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    height: 50px;
+    margin-left: 20px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.dashherodepositeout{
+    display: flex;
+    align-items: center;
+}
+
+.introtext strong{
+    color: Yellow;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.amountssection{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+    background-color: #233239;
+    width: 200px;
+}
+
+.amountssection h2{
+    font-weight: bold;
+}
+
+.amountssection img{
+    width: 50px;
+}
+
+.amountssection h4{
+    margin-top: 10px;
+}
+
+.amountssectionout{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chooseplan{
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.chooseplanin{
+    margin-bottom: 20px;
+}
+
+.chooseplaninout:hover{
+    transform: scale(1.1);
+}
+
+.chooseplaninout{
+    display: flex;
+    padding: 10px;
+    height: 150px;
+    align-items: center;
+    background-color: #233239;
+    border-radius: 10px;
+    transition: ease-in-out .3s;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+
+}
+
+.chooseplaninout img{
+    margin-right: 5px;
+}
+
+.chooseplaninout h2{
+    font-weight: bold;
+}
+
+.chooseplaninout1 button{
+    background-color: #fab005;
+    color: white;
+    font-size: 1.3rem;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.chooseplanmaintext{
+    font-weight: bold;
+}
+
+
+.chooseplanmain{
+    background-color: #233239;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 70px;
+}
+
+
+
+.chooseplaninout2 button{
+    background-color: #228be6;
+    color: white;
+    font-size: 1.3rem;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.chooseplaninout3 button{
+    background-color: #40c057;
+    color: white;
+    font-size: 1.3rem;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.chooseplaninout4 button{
+    background-color: #4ccff1;
+    color: white;
+    font-size: 1.3rem;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.footer{
+    margin: 20px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 70px;
+}
+
+.google_element_local{
+    overflow: scroll;
+    color: black;
+}
+
+
+/* TRAFFIC STARTS HERE */
+
+
+
+
+/* TRAFFIC ENDS HERE */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1102px){
+    
+    .tradingview-widget-container{
+        display: block;
+        width: 90vw;
+        overflow: scroll;
+    }
+
+    .tradinggraphhero{
+        background-color: #233239;
+        display: inline;
+        grid-template-columns: 80%;
+        border-radius: 5px;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+        height: 400px;
+        overflow: scroll;
+        padding-bottom: 50px;
+    }
+    .navmainmenumini{
+        background-color: #233239;    
+        height: 100vh;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        transition: ease-in-out .8s;
+    }
+
+    .dashboadherotop{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content:unset;
+        align-items:start;
+        padding: 10px;
+        overflow-x: scroll;
+        margin-top: 20px;
+        width: 100%;
+        border-radius: 5px;
+        background-color: #233239;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+    }
+    
+    .dashboadherotop::-webkit-scrollbar{
+        display: none;
+    }
+
+
+    .dashherodepositeout{
+        display: inline;
+        margin-top: 20px;
+        align-items: center;
+    }
+
+    .amountssectionout{
+        display: inline;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .amountssection{
+        width: 90%;
+        margin: auto;
+        margin-bottom: 10px;
+        justify-content:start;
+    }
+    .amountssection img{
+        margin-top: 10px;
+        margin-right: 50px;
+        margin-left: 20px;
+    }
+    
+
+    .chooseplan{
+        padding: 10px;
+        display: inline;
+        justify-content: space-between;
+    }
+
+    .chooseplaninout{
+        display: flex;
+        padding: 10px;
+        height: 100%;
+        align-items: center;
+        margin-bottom: 10px;
+        background-color: #233239;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
+    
+    }
+
+    
+.dashherodepositeuser{
+    padding: 5px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    justify-content: space-around;
+    display: flex;
+    width: 100%;
+
+    border-radius: 5px;
+    align-items: center;
+    height: 50px;
+    margin-left: 0px;
+    }
+
+    .blinkingintro{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
