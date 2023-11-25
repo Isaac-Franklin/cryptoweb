@@ -319,6 +319,12 @@ video {
 
 .summaryjourneyinnermain{
     width: 150px;
+    margin-bottom: 20px;
+}
+
+.summaryjourneyinnermain p{
+    margin-top: -20px;
+    /* font-size: 2.5rem; */
 }
 
   
@@ -334,12 +340,12 @@ font-size: 2.5rem;
 color: white;
 font-weight: bold;
 text-align: center;
-margin: 0px;
+margin-top: 40px;
 height: 100px;
 }
 
 .counter p{
-font-size: 1rem;
+    font-size: 1rem;
 }
 
 /*  */
@@ -746,6 +752,79 @@ footer a:hover{
     
     animation: spin 1s infinite linear;
 }
+
+.ourproducts{
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+.ourproducts h1{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.ourproductsinner {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: space-around;
+}
+
+.ourproductsinner img{
+    width: 400px;
+    height: 300px;
+    position: relative;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.ourproductsinner p{
+    text-align: right;
+    width: 98%;
+    padding-right: 10px;
+    margin-bottom: 50px;
+    z-index: 10;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    bottom: 0px;
+    right: 0px;
+}
+
+.getstarted{
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: space-around;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.getstarted button{
+    background-color: #2f37ca;
+    padding: 5px;
+    font-size: .9rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: ease-in-out .3s;
+}
+
+.getstarted button img{
+    width: 20px;
+}
+
+
+.getstarted input{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+}
+
+.getstarted textarea{
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+}
+
 
 
 
@@ -1284,10 +1363,11 @@ footer a{
     margin: 20px;
 }
 
-.aboutusinner p{
+p{
     font-size: .8rem;
-    margin-bottom: -20px;
+    margin-bottom: 0px;
 }
+
 .testimonialsmain{
     background-color: #F6F6F6;
     padding: 20px;
@@ -1327,6 +1407,7 @@ footer a{
 
 .plansin3 p{
     margin-top: 0px;
+    text-align: left;
 }
 
 .plansin2 p{
@@ -1361,5 +1442,63 @@ footer a{
     font-weight: bold;
     margin-top: 5px;
 }
+
+
+.takeactioninnermain img{
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 30px;
+}
+
+
+.ourproductsinner {
+    display: inline;
+    grid-template-columns: 100%;
+    justify-content: space-between;
+}
+
+.ourproductsinner img{
+    width: 90%;
+    margin: 20px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.ourproductsinner p{
+    font-size: 1rem;
+    /* padding-bottom: 100px; */
+}
+
+
+.getstarted{
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: safe;
+    margin-top: 100px;
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+}
+
+.getstartedmain{
+    margin-bottom: 30px;
+}
+
+
+
+.getstarted input{
+    width: 90%;
+    height: 50px;
+    padding: 10px;
+}
+
+.getstarted textarea{
+    width: 90%;
+    height: 150px;
+    padding: 10px;
+}
+
+
+
 
 }
