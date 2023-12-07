@@ -12,17 +12,12 @@ let nav = document.querySelector('.nav')
 
 hamburgerMain.addEventListener('click', () => {
     userSectionResponsiveOut.classList.toggle('showIt')
-    // nav.classList.toggle('navtowhite')
 })
 
 
 // if (document.body.scrollTop >= 200 || document.documentElement.scrollTop >= 200 )
 const myNav = document.querySelector('.nav');
-window.onscroll = function () { 
-    // if(userSectionResponsiveOut.classList.add('showIt')){
-    //     userSectionResponsiveOut.classList.remove('showIt')
-    //     hamburger.classList.remove("active");
-    // }
+window.onscroll = function () {
     if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50 ) {
         myNav.classList.add("nav-colored");
         myNav.classList.remove("nav-transparent");

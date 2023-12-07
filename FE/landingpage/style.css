@@ -674,6 +674,13 @@ height: 100px;
     /* grid-template-columns: 30% 70%; */
 }
 
+
+.plansin3 p{
+    margin-top: 10px;
+    text-align: left;
+    /* display: none; */
+}
+
 .hideonmobile{
     display: none;
 }
@@ -681,8 +688,9 @@ height: 100px;
 
 .plansin3 img{
     width: 20px;
-    margin-top: 15px;
-    margin-bottom: -15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 20px;
 }
 
 .proof{    
@@ -1408,6 +1416,8 @@ p{
 .plansin3 p{
     margin-top: 0px;
     text-align: left;
+    align-items: left;
+    /* display: none; */
 }
 
 .plansin2 p{
@@ -1416,6 +1426,7 @@ p{
 }
 .plansin2 button{
     background-color: #2f37ca;
+    /* background-color: #181a204f; */
     padding: 5px;
     font-size: .9rem;
     color: white;

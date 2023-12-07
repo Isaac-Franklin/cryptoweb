@@ -6,10 +6,10 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('mainadmin/', admin.site.urls),
     path('', include("useronboard.urls")),
-    path('app', include("app.urls")),
     path('app/', include("app.urls")),
+    path('admin/', include("adminapp.urls")),
     # path('member/', include("userarea.urls")),
 
     # path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='password/password_reset_done.html'), name='password_reset_done'),

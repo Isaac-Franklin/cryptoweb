@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-cmwm+-a@9^1fiptby!y&6l)wp@pz39byiwknbwdy^!yu0jd3$('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'useronboard.apps.UseronboardConfig',
+    'adminapp.apps.AdminappConfig',
     'app.apps.AppConfig'
 ]
 

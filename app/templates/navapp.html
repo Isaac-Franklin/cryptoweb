@@ -1,101 +1,240 @@
 {% load static %} 
 <body>
-    {% comment %} <div class='overlay'></div> {% endcomment %}
-    <div class='navmainmenu'>
-        <div class='navmainmenuintro'>
-            <p>Exodus Trade</p>
-            <img src={% static 'appgen/img/hidearrow.png' %} />
+    <div>
+        <div class='navsection'>
+            <div class='intrologo'>
+                <img src={% static 'general/img/etlogowhite2.png' %} />
+                <h4>Exness<br/>Finance </h4>
+            </div>
+            <div class='dateandprofile'>
+                <div>
+                    <p class='datehere'></p>
+                </div>
+                <div class='profilesection'>
+                    <div class='profilesectioninner'><img src={% static 'general/img/user.jpg' %} /></div>
+                    <div class='profilesectionmain'>
+                        <p>{{ request.user }}</p>
+                        <div class='profilesectioninner'><img src={% static 'general/img/arrow.png' %} /></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a href={% url 'Dashboard' %}>
-            <div class='allsection'>
-                <img src={% static 'appgen/img/dashboardicon.png' %} />
-                <p>Dashbaord</p>
+
+       <div class='responsivenav'>
+            <div class='responsivenavsection1'>
+                <div class='intrologo'>
+                    <img src={% static 'general/img/etlogowhite2.png' %} />
+                    <h4>Exness<br/>Finance </h4>
+                </div>
+                <div class='hamburgerMain'>
+                    <a class="hamburger" href="#"><span></span></a>
+                </div>
             </div>
-        </a>
-        <a href={% url 'Deposite' %}>
-            <div class='allsection'>
-                <img src={% static 'appgen/img/depositeicon.png' %} />
-                <p>Deposite Funds</p>
+            <hr/>
+            <div>
+                <div class='dateandprofile dateandprofile2'>
+                    <div>
+                        <p class='dateheremobile'></p>
+                    </div>
+                    <div class='profilesection'>
+                        <div class='profilesectioninner profilesectioninner2'><img src={% static 'general/img/user.jpg' %} /></div>
+                        <div class='profilesectionmain'>
+                            <div class='profilesectioninner profilesectioninner2'><img src={% static 'general/img/arrow.png' %} /></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </a>
-        <a href={% url 'Withdraw' %}>
-            <div class='allsection'>
-                <img src={% static 'appgen/img/withdrawicon.png' %} />
-                <p>Withdraw Funds</p>
+       </div>
+
+       <div class='responsivesidebar'>
+            <div class='resposidemini'>
+                <ul>
+                    <li>
+                        <img src={% static 'general/img/dashboard.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/handcash.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/withdraw.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/cash.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/cashturn.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/partner.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/banner.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/qa.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/support.png' %} />
+                    </li>
+                </ul>
             </div>
-        </a>
-        <a href={% url 'Invest' %}>
-            <div class='allsection'>
-                <img src={% static 'appgen/img/investicon.png' %} />
-                <p>Investment Plan</p>
+            <div class='resposidebar'>
+                <div class='sidebarsectioninner sidebarsectioninner2'>
+                    <div class='acctbalance acctbalance2'>
+                        <div>
+                            <h1>0</h1>
+                            <p>Account Balance</p>
+                        </div>
+                        <div class='acctbalanceimg'>
+                            <img src={% static 'general/img/rightarrow.png' %} />
+                        </div>
+                    </div>
+                    <hr/>
+                    <div>
+                        <p class='navigationtextmobile'>Navigation</p>
+                        <div class='sidenavlist'>
+                            <ul>
+                                <li>
+                                    <img src={% static 'general/img/dashboard.png' %} />
+                                    <p>Dashboard</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/handcash.png' %} />
+                                    <p>Make A Deposite</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/withdraw.png' %} />
+                                    <p>Withdrawal</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/cash.png' %} />
+                                    <p>Active Deposite</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/cashturn.png' %} />
+                                    <p>Acount History</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/partner.png' %} />
+                                    <p>Referal Program</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/banner.png' %} />
+                                    <p>Banner Ads</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/qa.png' %} />
+                                    <p>FAQs</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/support.png' %} />
+                                    <p>Support</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>    
+
             </div>
-        </a>
-        <a href={% url 'History' %}>
-            <div class='allsection'>
-                <img src={% static 'appgen/img/historyicon.png' %} />
-                <p>History</p>
+            <div class='closearrow2 turnarrow'>
+                <img src={% static 'general/img/closearrow.png' %} />
             </div>
-        </a>
-        <a href={% url 'Support' %}>
-            <div class='allsection'>
-                <img src={% static 'appgen/img/supporticon.png' %} />
-                <p>Support</p>
+       </div>
+
+        {% comment %} SIDE BAR STARTS HERE {% endcomment %}
+       <div class='navigationall'>
+            <div class='sidebarsection'>
+                <div class='sidebarsectioninner'>
+                    <div class='acctbalance'>
+                        <div>
+                            <h1>0</h1>
+                            <p>Account Balance</p>
+                        </div>
+                        <div class='acctbalanceimg'>
+                            <img src={% static 'general/img/rightarrow.png' %} />
+                        </div>
+                    </div>
+                    <hr/>
+                    <div>
+                        <p>Navigation</p>
+                        <div class='sidenavlist'>
+                            <ul>
+                                <li>
+                                    <img src={% static 'general/img/dashboard.png' %} />
+                                    <p>Dashboard</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/handcash.png' %} />
+                                    <p>Make A Deposite</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/withdraw.png' %} />
+                                    <p>Withdrawal</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/cash.png' %} />
+                                    <p>Active Deposite</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/cashturn.png' %} />
+                                    <p>Acount History</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/partner.png' %} />
+                                    <p>Referal Program</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/banner.png' %} />
+                                    <p>Banner Ads</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/qa.png' %} />
+                                    <p>FAQs</p>
+                                </li>
+                                <li>
+                                    <img src={% static 'general/img/support.png' %} />
+                                    <p>Support</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>      
             </div>
-        </a>
-        <a href={% url 'Profile' %}>
-            <div class='allsection'>
-                <img src={% static 'appgen/img/profileicon.png' %} />
-                <p>Profile</p>
+            <div class='sidebarmini'>
+                <ul>
+                    <li>
+                        <img src={% static 'general/img/dashboard.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/handcash.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/withdraw.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/cash.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/cashturn.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/partner.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/banner.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/qa.png' %} />
+                    </li>
+                    <li>
+                        <img src={% static 'general/img/support.png' %} />
+                    </li>
+                </ul>
+            </div>  
+            <div class='closearrow'>
+                <img src={% static 'general/img/closearrow.png' %} />
             </div>
-        </a>
-        <a href={% url 'UserLogout' %}>
-            <div class='allsection'>
-                <img src={% static 'appgen/img/logouticon.png' %} />
-                <p>Logout</p>
-            </div>
-        </a>
-    </div>
-    <div class='navmainmenumini'>
-        <div class='navminimenuintro'>
-            <img src={% static 'appgen/img/showarrow.png' %} />
-        </div>
-        <a href={% url 'Dashboard' %}>
-            <div class='allsection' title='Dashbaord'>
-                <img src={% static 'appgen/img/dashboardicon.png' %} />
-            </div>
-        </a>
-        <a href={% url 'Deposite' %}>
-            <div class='allsection' title='Deposite Funds'>
-                <img src={% static 'appgen/img/depositeicon.png' %} />
-            </div>
-        </a>
-        <a  href={% url 'Withdraw' %}>
-            <div class='allsection'>
-                <img src={% static 'appgen/img/withdrawicon.png' %} />
-            </div>
-        </a>
-        <a  href={% url 'Invest' %}>
-            <div class='allsection'>
-                <img src={% static 'appgen/img/investicon.png' %} />
-            </div>
-        </a>
-        <a  href={% url 'History' %}>
-            <div class='allsection'>
-                <img src={% static 'appgen/img/historyicon.png' %} />
-            </div>
-        </a>
-        <a  href={% url 'Support' %}>
-            <div class='allsection'>
-                <img src={% static 'appgen/img/supporticon.png' %} />
-            </div>
-        </a>
-        <div class='Profile'>
-            <img src={% static 'appgen/img/profileicon.png' %} />
-        </div>
-        <a href={% url 'UserLogout' %}>
-            <div class='allsection'>
-                <img src={% static 'appgen/img/logouticon.png' %} />
-            </div>
-        </a>
+       </div>
     </div>
 </body>

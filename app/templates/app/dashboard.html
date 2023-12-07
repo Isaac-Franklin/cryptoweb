@@ -5,7 +5,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="icon" type="image/x-icon" href={% static 'general/img/itsalogo.PNG' %}> 
+		<link rel="icon" type="image/x-icon" href={% static 'general/img/etlogoblue2.PNG' %}> 
 		<link rel="stylesheet" href={% static 'dashboard/css/style.css' %} />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
@@ -15,181 +15,1224 @@
 		<link rel="stylesheet" href={% static 'onboard/css/style.css' %} /> {% endcomment %}
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 		<title> Dashboard </title>
+		<style>
+		</style>
 	</head>
-	<body style="background: #181A20" >
-		<div class='overlay'></div>
-		<main>
-            <div class='dashboadherotop'>
-				<div class='blinkingintro'>
-					<div><h1 class='introtext'>Welcome back <br/><strong>{{ request.user }}</strong>,</h1></div>
+	<body>		
+    {% comment %} MAIN BODY SECTION STARTS HERE {% endcomment %}
+    <div class='main'>
+		<div class='balancebox'>
+			<div class='balanceboxinner1'>
+				<div class='laptopsvg'>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-30 10 430 400" width="100%" height="100%" style="margin-bottom: -70px; margin-top: -70px;">
+						<defs>
+							<style>
+								#code-cover-screen {
+									animation: scrollCodeIn 4s;
+									-webkit-animation-fill-mode: forwards;
+									animation-fill-mode: forwards;
+								}
+	
+								@keyframes scrollCodeIn {
+									0% {
+										transform: translateY(0);
+										opacity: 1;
+									}
+	
+									100% {
+										transform: translateY(180px);
+										opacity: 1;
+									}
+								}
+	
+								#scrolling-code {
+									animation: scrollCode 3s 1.65s linear infinite;
+								}
+	
+								#scrolling-code-2 {
+									animation: scrollCode2 3s 1.65s linear infinite;
+									transform: translateY(87px);
+								}
+	
+								@keyframes scrollCode {
+									0% {
+										transform: translateY(0);
+										opacity: 1;
+									}
+	
+									49.99% {
+										transform: translateY(-80px);
+										opacity: 1;
+									}
+	
+									50% {
+										transform: translatey(87px);
+										opacity: 0;
+									}
+	
+									50.01% {
+										opacity: 1;
+									}
+	
+									100% {
+										transform: translateY(0);
+										opacity: 1;
+									}
+								}
+	
+								@keyframes scrollCode2 {
+									0% {
+										transform: translateY(87);
+										opacity: 1;
+									}
+	
+									49.99% {
+										transform: translateY(0);
+										opacity: 1;
+									}
+	
+									99.98% {
+										transform: translatey(-80px);
+										opacity: 1;
+									}
+	
+									99.99% {
+										transform: translateY(87);
+										opacity: 0;
+									}
+	
+									100% {
+										opacity: 1;
+									}
+								}
+	
+							</style>
+							<filter id="f1" x="0" y="0" width="200%" height="200%">
+								<feGaussianBlur stdDeviation="7"></feGaussianBlur>
+							</filter>
+						</defs>
+						<g id="shadow" filter="url(#f1)">
+							<path fill="#151618" d="m14,318l149,86l235,-136l-150,-87l-234,137z"></path>
+						</g>
+						<g id="computer">
+							<g id="screen">
+								<g id="corner-top-right">
+									<defs>
+										<path id="SVGID_1_" d="M240.8,9.2l4.5,2.6c-1-0.6-2.4-0.5-3.9,0.4l-4.5-2.6 C238.4,8.7,239.8,8.6,240.8,9.2z"></path>
+									</defs>
+									<clipPath id="SVGID_2_">
+										<use xlink:href="#SVGID_1_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_2_)">
+										<path fill="#C7C8CA" d="M241.4,12.2l-4.5-2.6c0.3-0.1,0.5-0.3,0.8-0.4l4.5,2.6C241.9,11.9,241.7,12,241.4,12.2"></path>
+										<path fill="#C3C4C6" d="M242.2,11.8l-4.5-2.6c0.2-0.1,0.4-0.2,0.6-0.2l4.5,2.6C242.6,11.6,242.4,11.7,242.2,11.8"></path>
+										<path fill="#BFC0C2" d="M242.8,11.6l-4.5-2.6c0.2,0,0.3-0.1,0.5-0.1l4.5,2.6C243.1,11.5,243,11.5,242.8,11.6"></path>
+										<path fill="#BBBCBE" d="M243.3,11.5l-4.5-2.6c0.1,0,0.3,0,0.4,0l4.5,2.6C243.6,11.4,243.4,11.4,243.3,11.5"></path>
+										<path fill="#B7B9BA" d="M243.7,11.4l-4.5-2.6c0.1,0,0.2,0,0.4,0l4.5,2.6C243.9,11.4,243.8,11.4,243.7,11.4"></path>
+										<path fill="#B3B5B6" d="M244.1,11.4l-4.5-2.6c0.1,0,0.2,0,0.3,0l4.5,2.6C244.3,11.4,244.2,11.4,244.1,11.4"></path>
+										<path fill="#AFB1B3" d="M244.4,11.5l-4.5-2.6c0.1,0,0.2,0,0.3,0.1l4.5,2.6C244.6,11.5,244.5,11.5,244.4,11.5"></path>
+										<path fill="#ABADAF" d="M244.7,11.5l-4.5-2.6c0.1,0,0.2,0.1,0.3,0.1l4.5,2.6C244.9,11.6,244.8,11.6,244.7,11.5"></path>
+										<path fill="#A7A9AB" d="M245,11.6L240.5,9c0.1,0,0.2,0.1,0.3,0.1l4.5,2.6C245.2,11.7,245.1,11.7,245,11.6"></path>
+										<path fill="#A3A5A7" d="M245.3,11.8l-4.5-2.6c0,0,0,0,0,0L245.3,11.8C245.3,11.8,245.3,11.8,245.3,11.8"></path>
+									</g>
+								</g>
+								<g id="corner-bottom-left">
+									<defs>
+										<path id="SVGID_3_" d="M16.3,315.7l-4.5-2.6c-1-0.6-1.6-1.8-1.6-3.5l4.5,2.6
+											C14.7,313.9,15.4,315.1,16.3,315.7z">
+											</path>
+									</defs>
+									<clipPath id="SVGID_4_">
+										<use xlink:href="#SVGID_3_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_4_)">
+										<path fill="#909294" d="M16.3,315.7l-4.5-2.6c-1-0.6-1.6-1.8-1.6-3.5l4.5,2.6C14.7,313.9,15.4,315.1,16.3,315.7"></path>
+									</g>
+								</g>
+								<polygon id="border-left" fill="#939497" points="14.7,312.2 10.2,309.5 9.8,147 14.3,149.6"></polygon>
+								<polygon id="border-top" fill="#D3D4D5" points="19.8,140.1 15.2,137.5 236.9,9.5 241.4,12.2"></polygon>
+								<path id="frame" fill="#606161" d="M241.4,12.2c3-1.7,5.5-0.3,5.5,3.1l0.5,162.5c0,3.5-2.5,7.7-5.5,9.5l-221.6,128c-3,1.7-5.5,0.3-5.5-3.1
+									l-0.5-162.5c0-3.5,2.5-7.7,5.5-9.5L241.4,12.2z"></path>
+								<g id="corner-top-left">
+									<defs>
+										<path id="SVGID_5_" d="M14.3,149.6L9.8,147c0-3.5,2.5-7.7,5.5-9.5l4.5,2.6
+											C16.7,141.9,14.3,146.2,14.3,149.6z"></path>
+									</defs>
+									<clipPath id="SVGID_6_">
+										<use xlink:href="#SVGID_5_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_6_)">
+										<path fill="#909294" d="M14.3,149.6L9.8,147c0-0.3,0-0.7,0.1-1.1l4.5,2.6C14.3,148.9,14.3,149.3,14.3,149.6"></path>
+										<path fill="#949598" d="M14.3,148.6l-4.5-2.6c0-0.3,0.1-0.5,0.1-0.8l4.5,2.6C14.4,148.1,14.4,148.3,14.3,148.6"></path>
+										<path fill="#98999C" d="M14.5,147.8l-4.5-2.6c0-0.2,0.1-0.4,0.2-0.6l4.5,2.6C14.6,147.4,14.5,147.6,14.5,147.8"></path>
+										<path fill="#9B9D9F" d="M14.6,147.2l-4.5-2.6c0.1-0.2,0.1-0.4,0.2-0.6l4.5,2.6C14.7,146.8,14.7,147,14.6,147.2"></path>
+										<path fill="#9FA1A3" d="M14.8,146.6l-4.5-2.6c0.1-0.2,0.1-0.3,0.2-0.5l4.5,2.6C14.9,146.3,14.9,146.4,14.8,146.6"></path>
+										<path fill="#A3A5A7" d="M15,146.1l-4.5-2.6c0.1-0.2,0.1-0.3,0.2-0.5l4.5,2.6C15.1,145.8,15.1,145.9,15,146.1"></path>
+										<path fill="#A7A9AB" d="M15.2,145.6l-4.5-2.6c0.1-0.2,0.1-0.3,0.2-0.5l4.5,2.6C15.3,145.3,15.3,145.4,15.2,145.6"></path>
+										<path fill="#ABADAF" d="M15.4,145.1l-4.5-2.6c0.1-0.2,0.2-0.3,0.2-0.5l4.5,2.6C15.6,144.8,15.5,145,15.4,145.1"></path>
+										<path fill="#AFB1B3" d="M15.7,144.6l-4.5-2.6c0.1-0.2,0.2-0.3,0.3-0.5l4.5,2.6C15.8,144.3,15.7,144.5,15.7,144.6"></path>
+										<path fill="#B3B5B6" d="M15.9,144.2l-4.5-2.6c0.1-0.2,0.2-0.3,0.3-0.5l4.5,2.6C16.1,143.9,16,144,15.9,144.2"></path>
+										<path fill="#B7B9BA" d="M16.2,143.7l-4.5-2.6c0.1-0.2,0.2-0.3,0.3-0.5l4.5,2.6C16.4,143.4,16.3,143.6,16.2,143.7"></path>
+										<path fill="#BBBCBE" d="M16.5,143.2l-4.5-2.6c0.1-0.2,0.2-0.3,0.4-0.5l4.5,2.6C16.8,142.9,16.6,143.1,16.5,143.2"></path>
+										<path fill="#BFC0C2" d="M16.9,142.7l-4.5-2.6c0.1-0.2,0.3-0.4,0.4-0.5l4.5,2.6C17.2,142.4,17,142.5,16.9,142.7"></path>
+										<path fill="#C3C4C6" d="M17.3,142.2l-4.5-2.6c0.2-0.2,0.4-0.4,0.6-0.6l4.5,2.6C17.7,141.8,17.5,142,17.3,142.2"></path>
+										<path fill="#C7C8CA" d="M17.9,141.6l-4.5-2.6c0.6-0.6,1.2-1,1.8-1.4l4.5,2.6C19.1,140.5,18.5,141,17.9,141.6"></path>
+									</g>
+								</g>
+								<polygon id="code-blue-bg" fill="#8ED4DC" points="238.5,22.8 239,174 23.3,298.5 22.9,147.3"></polygon>
+								<path class="screen" fill="#11191A" d="M239.6,23.2c0-2.3-0.4-2.3-1.7-1.6c-0.5,0.3-1.2,0.7-2,1.2l-211.3,122c-0.8,0.5-1.3,0.7-1.7,0.9 c-0.8,0.5-0.5,0.6-0.5,2.9L22.9,302c0,2.2-0.3,2.7,0.5,2.3c0.3-0.2,0.9-0.6,1.7-1l212-122.4c0.8-0.5,1.4-0.8,1.8-1 c1-0.6,1.1-1,1.1-3.2L239.6,23.2z"></path>
+								<g>
+									<defs>
+										<path id="code-cover-screen-1" d="m26.5,210l209.5,-118.5l2,89l-213,123l1.5,-93.5z"></path>
+									</defs>
+									<clipPath id="clip-path-screen-2">
+										<use xlink:href="#code-cover-screen-1" overflow="hidden"></use>
+									</clipPath>
+									<g clip-path="url(#clip-path-screen-2">
+										<g id="scrolling-code">
+											<polygon class="code line-1" fill="#7D7E7E" points="93.9,176.3 93.9,182.2 56.6,203.8 56.5,197.9"></polygon>
+											<polygon class="code line-1" fill="#3B963D" points="47.6,203 47.7,208.9 34.6,216.4 34.6,210.5"></polygon>
+											<polygon class="code line-1" fill="#7D7E7E" points="144.7,147 144.7,152.9 98.2,179.7 98.2,173.8"></polygon>
+											<polygon class="code line-1" fill="#7D7E7E" points="187.7,122.1 187.7,128 149,150.4 149,144.5"></polygon>
+											<polygon class="code line-2" fill="#3A4488" points="51.9,211.8 51.9,217.7 29.2,230.8 29.2,224.9"></polygon>
+											<polygon class="code line-2" fill="#7D7E7E" points="179.5,138.1 179.5,144 140.8,166.3 140.8,160.4"></polygon>
+											<polygon class="code line-2" fill="#7D7E7E" points="136.2,163.1 136.2,169 98.2,191 98.2,185.1"></polygon>
+											<polygon class="code line-2" fill="#7D7E7E" points="88.5,190.6 88.5,196.5 56.6,215 56.6,209.1"></polygon>
+											<polygon class="code line-3" fill="#CA9733" points="47.7,224.8 47.7,230.7 34.7,238.3 34.7,232.4"></polygon>
+											<polygon class="code line-3" fill="#7D7E7E" points="151.4,165 151.4,170.9 126,185.6 126,179.7"></polygon>
+											<polygon class="code line-3" fill="#7D7E7E" points="121.2,182.4 121.2,188.3 98.2,201.6 98.2,195.7"></polygon>
+											<polygon class="code line-3" fill="#7D7E7E" points="183.9,146.2 183.9,152.1 158.5,166.8 158.5,160.9"></polygon>
+											<polygon class="code line-3" fill="#7D7E7E" points="93.9,198.2 93.9,204.1 56.6,225.6 56.6,219.7"></polygon>
+											<polygon class="code line-4" fill="#3A4488" points="52,231.8 52,237.7 29.3,250.8 29.3,244.9"></polygon>
+											<polygon class="code line-4" fill="#7D7E7E" points="169.8,163.8 169.8,169.7 131.1,192 131.1,186.1"></polygon>
+											<polygon class="code line-4" fill="#7D7E7E" points="126.9,188.6 126.9,194.5 98.3,211 98.2,205.1"></polygon>
+											<polygon class="code line-4" fill="#7D7E7E" points="89.3,210.3 89.3,216.2 56.7,235.1 56.6,229.1"></polygon>
+											<polygon class="code line-5" fill="#3B963D" points="47.8,246.1 47.8,252 34.7,259.5 34.7,253.6"></polygon>
+											<polygon class="code line-5" fill="#7D7E7E" points="186.3,166.1 186.4,172 167.8,182.7 167.8,176.8"></polygon>
+											<polygon class="code line-5" fill="#7D7E7E" points="163.1,179.5 163.1,185.4 135.4,201.4 135.4,195.5"></polygon>
+											<polygon class="code line-5" fill="#7D7E7E" points="93.3,219.8 93.3,225.7 56.7,246.9 56.7,241"></polygon>
+											<polygon class="code line-5" fill="#7D7E7E" points="130.7,198.2 130.7,204.1 98.3,222.8 98.3,216.9"></polygon>
+											<polygon class="code line-6" fill="#3B963D" points="47.8,256.7 47.8,262.6 34.8,270.2 34.8,264.2"></polygon>
+											<polygon class="code line-6" fill="#7D7E7E" points="182.1,178.6 182.1,184.5 158.6,198.1 158.6,192.2"></polygon>
+											<polygon class="code line-6" fill="#7D7E7E" points="131.2,208.6 131.2,214.5 98.3,233.5 98.3,227.6"></polygon>
+											<polygon class="code line-6" fill="#7D7E7E" points="154.1,195.3 154.2,201.2 135.4,212.1 135.4,206.1"></polygon>
+											<polygon class="code line-6" fill="#7D7E7E" points="94,230 94,235.9 56.7,257.5 56.7,251.6"></polygon>
+											<polygon class="code line-7" fill="#7D7E7E" points="163.1,200.2 163.1,206.1 131.2,224.5 131.2,218.6"></polygon>
+											<polygon class="code line-7" fill="#7D7E7E" points="186.4,186.8 186.4,192.7 167.9,203.4 167.9,197.5"></polygon>
+											<polygon class="code line-7" fill="#7D7E7E" points="127,221.1 127,227 98.4,243.5 98.3,237.6"></polygon>
+											<polygon class="code line-8" fill="#7D7E7E" points="121.3,235.6 121.4,241.5 98.4,254.7 98.4,248.8"></polygon>
+											<polygon class="code line-8" fill="#7D7E7E" points="184.1,199.3 184.1,205.2 158.7,219.9 158.6,214"></polygon>
+											<polygon class="code line-8" fill="#7D7E7E" points="151.5,218.1 126.1,232.8 126.1,238.7 151.6,224"></polygon>
+										</g>
+									</g>
+									<g clip-path="url(#clip-path-screen-2">
+										<g id="scrolling-code-2">
+											<polygon class="code line-1" fill="#7D7E7E" points="93.9,176.3 93.9,182.2 56.6,203.8 56.5,197.9"></polygon>
+											<polygon class="code line-1" fill="#3B963D" points="47.6,203 47.7,208.9 34.6,216.4 34.6,210.5"></polygon>
+											<polygon class="code line-1" fill="#7D7E7E" points="144.7,147 144.7,152.9 98.2,179.7 98.2,173.8"></polygon>
+											<polygon class="code line-1" fill="#7D7E7E" points="187.7,122.1 187.7,128 149,150.4 149,144.5"></polygon>
+											<polygon class="code line-2" fill="#3A4488" points="51.9,211.8 51.9,217.7 29.2,230.8 29.2,224.9"></polygon>
+											<polygon class="code line-2" fill="#7D7E7E" points="179.5,138.1 179.5,144 140.8,166.3 140.8,160.4"></polygon>
+											<polygon class="code line-2" fill="#7D7E7E" points="136.2,163.1 136.2,169 98.2,191 98.2,185.1"></polygon>
+											<polygon class="code line-2" fill="#7D7E7E" points="88.5,190.6 88.5,196.5 56.6,215 56.6,209.1"></polygon>
+											<polygon class="code line-3" fill="#CA9733" points="47.7,224.8 47.7,230.7 34.7,238.3 34.7,232.4"></polygon>
+											<polygon class="code line-3" fill="#7D7E7E" points="151.4,165 151.4,170.9 126,185.6 126,179.7"></polygon>
+											<polygon class="code line-3" fill="#7D7E7E" points="121.2,182.4 121.2,188.3 98.2,201.6 98.2,195.7"></polygon>
+											<polygon class="code line-3" fill="#7D7E7E" points="183.9,146.2 183.9,152.1 158.5,166.8 158.5,160.9"></polygon>
+											<polygon class="code line-3" fill="#7D7E7E" points="93.9,198.2 93.9,204.1 56.6,225.6 56.6,219.7"></polygon>
+											<polygon class="code line-4" fill="#3A4488" points="52,231.8 52,237.7 29.3,250.8 29.3,244.9"></polygon>
+											<polygon class="code line-4" fill="#7D7E7E" points="169.8,163.8 169.8,169.7 131.1,192 131.1,186.1"></polygon>
+											<polygon class="code line-4" fill="#7D7E7E" points="126.9,188.6 126.9,194.5 98.3,211 98.2,205.1"></polygon>
+											<polygon class="code line-4" fill="#7D7E7E" points="89.3,210.3 89.3,216.2 56.7,235.1 56.6,229.1"></polygon>
+											<polygon class="code line-5" fill="#3B963D" points="47.8,246.1 47.8,252 34.7,259.5 34.7,253.6"></polygon>
+											<polygon class="code line-5" fill="#7D7E7E" points="186.3,166.1 186.4,172 167.8,182.7 167.8,176.8"></polygon>
+											<polygon class="code line-5" fill="#7D7E7E" points="163.1,179.5 163.1,185.4 135.4,201.4 135.4,195.5"></polygon>
+											<polygon class="code line-5" fill="#7D7E7E" points="93.3,219.8 93.3,225.7 56.7,246.9 56.7,241"></polygon>
+											<polygon class="code line-5" fill="#7D7E7E" points="130.7,198.2 130.7,204.1 98.3,222.8 98.3,216.9"></polygon>
+											<polygon class="code line-6" fill="#3B963D" points="47.8,256.7 47.8,262.6 34.8,270.2 34.8,264.2"></polygon>
+											<polygon class="code line-6" fill="#7D7E7E" points="182.1,178.6 182.1,184.5 158.6,198.1 158.6,192.2"></polygon>
+											<polygon class="code line-6" fill="#7D7E7E" points="131.2,208.6 131.2,214.5 98.3,233.5 98.3,227.6"></polygon>
+											<polygon class="code line-6" fill="#7D7E7E" points="154.1,195.3 154.2,201.2 135.4,212.1 135.4,206.1"></polygon>
+											<polygon class="code line-6" fill="#7D7E7E" points="94,230 94,235.9 56.7,257.5 56.7,251.6"></polygon>
+											<polygon class="code line-7" fill="#7D7E7E" points="163.1,200.2 163.1,206.1 131.2,224.5 131.2,218.6"></polygon>
+											<polygon class="code line-7" fill="#7D7E7E" points="186.4,186.8 186.4,192.7 167.9,203.4 167.9,197.5"></polygon>
+											<polygon class="code line-7" fill="#7D7E7E" points="127,221.1 127,227 98.4,243.5 98.3,237.6"></polygon>
+											<polygon class="code line-8" fill="#7D7E7E" points="121.3,235.6 121.4,241.5 98.4,254.7 98.4,248.8"></polygon>
+											<polygon class="code line-8" fill="#7D7E7E" points="184.1,199.3 184.1,205.2 158.7,219.9 158.6,214"></polygon>
+											<polygon class="code line-8" fill="#7D7E7E" points="151.5,218.1 126.1,232.8 126.1,238.7 151.6,224"></polygon>
+										</g>
+									</g>
+								</g>
+								<polygon class="code line-0" fill="#A2A75C" points="33.7,158.5 33.7,164.4 29.1,167.1 29,161.2"></polygon>
+								<polygon class="code line-0" fill="#7D7E7E" points="114.3,111.9 114.3,117.9 101.3,125.4 101.3,119.5"></polygon>
+								<polygon class="code line-0" fill="#7D7E7E" points="156.9,87.3 156.9,93.2 119.6,114.8 119.6,108.9"></polygon>
+								<polygon class="code line-0" fill="#7D7E7E" points="97.1,121.9 97.1,127.8 73.8,141.3 73.7,135.4"></polygon>
+								<polygon class="code line-0" fill="#C1426F" points="69,138.1 69,144 37,162.5 36.9,156.6"></polygon>
+								<g class="texto">
+									<path id="superior" style="fill:#5CA6AB;" d="M140,111.4c-35,20.2-70,40.4-105,60.5v1.4c35-20.2,70-40.4,105-60.5V111.4z"></path>
+									<path id="inferior" style="fill:#5CA6AB;" d="M140,140.7c-35,20.2-70,40.4-105,60.7v1.3c35-20.2,70-40.4,105-60.6V140.7z"></path>
+									<g id="ax_trader">
+										<polyline style="fill:#5CA6AB;" points="50,184.9 47.4,186.4 47.5,189.6 50,188.1 50,184.9 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="41.9,189.6 39.3,191.1 39.4,194.3 41.9,192.8 41.9,189.6 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="41.9,176.9 39.3,178.4 39.3,182 41.9,180.5 41.9,176.9 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="50,172.2 47.4,173.7 47.4,177.3 50,175.8 50,172.2 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="50,176.7 39.3,182.9 39.3,185.7 50,179.5 50,176.7 		"></polyline>
+										<path style="fill:#5CA6AB;" d="M50,180.4l-2.6,1.5l0,3.6L50,184L50,180.4 M47.4,181.9L47.4,181.9L47.4,181.9"></path>
+										<polyline style="fill:#5CA6AB;" points="41.9,185.1 39.3,186.6 39.3,190.2 41.9,188.7 41.9,185.1 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="72.3,163.8 70.3,165 70.3,167.8 72.3,166.7 72.3,163.8 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="72.3,172 70.3,173.2 70.3,176.4 72.3,175.3 72.3,172 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="72.3,167.6 70.3,168.7 70.3,172.3 72.3,171.1 72.3,167.6 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="76.6,152.8 72.3,155.3 70.2,156.4 65.9,158.9 65.9,162.1 76.6,156 76.6,152.8 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="72.3,159.4 70.3,160.5 70.3,164.1 72.3,162.9 72.3,159.4 		"></polyline>
+										<path style="fill:#5CA6AB;" d="M83.4,161.2l-5.5,3.2l0,3.6l2.4-1.4l0-2.5L83,165l4.1-2.4l-3.6-1.3
+											C83.5,161.2,83.5,161.2,83.4,161.2"></path>
+										<polyline style="fill:#5CA6AB;" points="80.3,167.4 77.9,168.8 77.9,172 80.3,170.6 80.3,167.4 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="88.1,162.9 84,165.3 87.4,166.4 88.4,163 88.1,162.9 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="88.6,150 86,151.4 86,155 88.6,153.5 88.6,150 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="80.3,154.7 77.9,156.1 77.9,159.7 80.3,158.3 80.3,154.7 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="100.6,143 98,144.5 98,148.1 100.6,146.6 100.6,143 		"></polyline>
+										<path style="fill:#5CA6AB;" d="M92.5,155.9c-0.9,0.5-1.7,1-2.6,1.5l0,3.6l2.6-1.5l0-3.3c0,0,0-0.1,0-0.1
+												C92.5,156,92.5,156,92.5,155.9"></path>
+										<polyline style="fill:#5CA6AB;" points="100.6,151.2 98,152.7 98,153 98,156.3 100.6,154.8 100.6,151.2 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="92.5,147.7 89.9,149.2 89.9,152.8 92.5,151.3 92.5,147.7 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="100.6,147.5 89.9,153.7 89.9,156.5 100.6,150.3 100.6,147.5 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="92.5,160.4 89.9,161.9 89.9,165.1 92.5,163.6 92.5,160.4 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="100.6,155.7 98,157.2 98,160.4 100.6,158.9 100.6,155.7 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="105.8,144.6 103.6,145.9 103.6,148.7 105.8,147.5 105.8,144.6 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="112.6,140.6 110.3,141.9 110.4,144.7 112.6,143.4 112.6,140.6 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="112.5,136.1 110.3,137.4 110.3,141 112.6,139.7 112.5,136.1 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="105.8,140.2 103.6,141.4 103.6,145 105.8,143.7 105.8,140.2 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="112.6,148.8 101.9,155 101.9,156.8 101.9,158.2 103.3,157.3 108.6,154.3 111.2,152.8
+										112.6,150.7 112.6,148.8 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="105.8,148.4 103.6,149.6 103.6,153.2 105.8,151.9 105.8,148.4 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="111.2,132.7 108.6,134.3 103.1,137.4 101.9,138.2 101.9,139.4 101.9,141.4 112.5,135.2
+											112.5,133.2 111.2,132.7 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="112.6,144.3 110.4,145.6 110.4,149.2 112.6,147.9 112.6,144.3 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="124.5,125.1 113.8,131.3 113.8,134.5 124.5,128.3 124.5,125.1 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="116.1,134.1 113.8,135.4 113.9,138.9 116.1,137.7 116.1,134.1 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="116.1,146.8 113.9,148 113.9,151.3 124.6,145.1 124.6,141.9 116.1,146.8 116.1,146.8
+											"></polyline>
+										<polyline style="fill:#5CA6AB;" points="123.3,134.4 113.9,139.8 113.9,142.7 123.3,137.2 123.3,134.4 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="116.1,142.3 113.9,143.6 113.9,147.1 116.1,145.9 116.1,142.3 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="128.2,127.1 125.8,128.5 125.8,132 128.2,130.6 128.2,127.1 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="128.3,139.7 125.9,141.1 125.9,144.3 128.3,142.9 128.3,139.7 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="136.5,122.3 133.9,123.8 133.9,127.3 136.5,125.9 136.5,122.3 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="136,135.2 131.9,137.6 135.3,138.8 136.3,135.3 136,135.2 		"></polyline>
+										<path style="fill:#5CA6AB;" d="M131.3,133.5c-1.8,1.1-3.6,2.1-5.5,3.2l0,3.6l2.4-1.4l0-2.5l2.7,0.9l4.1-2.4l-3.6-1.3
+											C131.5,133.6,131.4,133.5,131.3,133.5"></path>
+										<polyline style="fill:#5CA6AB;" points="54,165.8 51.2,167.4 52.3,170 55,168.4 54,165.8 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="60.3,162.2 57.5,163.8 56.6,167.5 59.3,166 60.3,162.2 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="57.5,172.4 54,174.4 54.4,175.3 53.8,177.4 57.8,175.1 57.2,173.6 57.5,172.4 		"></polyline>
+										<path style="fill:#5CA6AB;" d="M58.1,175.8l-4.6,2.6l-1.1,4.2l2.7-1.5l0.3-1c0.1-0.3,0.2-0.6,0.2-0.9c0.1-0.2,0.1-0.4,0.1-0.6
+											c0-0.2,0.1-0.4,0.1-0.5l0.1,0c0,0.1,0,0.3,0.1,0.4c0,0.2,0.2,0.6,0.3,1.1l0.3,0.7l2.7-1.6L58.1,175.8"></path>
+										<path style="fill:#5CA6AB;" d="M59,167.1l-2.7,1.5l-0.1,0.4c-0.1,0.6-0.2,1.1-0.3,1.4c0,0.2-0.1,0.3-0.1,0.5l-0.1,0
+										c0-0.1,0-0.2-0.1-0.4c0-0.1-0.1-0.3-0.1-0.5c-0.1-0.2-0.1-0.4-0.2-0.6l-0.1-0.2l-2.7,1.6l1.2,2.9l4.1-2.4L59,167.1"></path>
+										<polyline style="fill:#5CA6AB;" points="54.8,182.2 52.1,183.7 51.1,187.5 53.8,185.9 54.8,182.2 		"></polyline>
+										<polyline style="fill:#5CA6AB;" points="59.5,179.4 56.8,181 57.8,183.6 60.6,182 59.5,179.4 		"></polyline>
+										<g>
+											<polygon style="fill:#5CA6AB;" points="48.7,168.9 40.6,173.6 40.6,176.8 48.7,172.1 			"></polygon>
+										</g>
+										<g>
+											<polygon style="fill:#5CA6AB;" points="99.3,139.7 91.2,144.3 91.2,147.6 99.3,142.9 			"></polygon>
+										</g>
+										<g>
+											<polygon style="fill:#5CA6AB;" points="77.9,152 77.9,155.2 87,150 87,146.7 			"></polygon>
+										</g>
+										<g>
+											<path style="fill:#5CA6AB;" d="M86,155.9c-1.9,1.1-3.8,2.2-5.7,3.3l-2.4,1.4l0,2.8l9.4-5.4l0-2.8L86,155.9z"></path>
+										</g>
+										<g>
+											<polygon style="fill:#5CA6AB;" points="134.9,119 125.8,124.3 125.8,127.6 135,122.3 134.9,119.1 			"></polygon>
+										</g>
+										<g>
+											<path style="fill:#5CA6AB;" d="M125.8,132.9l0,2.8l9.4-5.4l0-2.8C132.1,129.3,129,131.1,125.8,132.9z"></path>
+										</g>
+									</g>
+								</g>
+								<g>
+									<defs>
+										<path id="code-cover-screen-0" d="M239.6,23.2c0-2.3-0.4-2.3-1.7-1.6c-0.5,0.3-1.2,0.7-2,1.2l-211.3,122c-0.8,0.5-1.3,0.7-1.7,0.9 c-0.8,0.5-0.5,0.6-0.5,2.9L22.9,302c0,2.2-0.3,2.7,0.5,2.3c0.3-0.2,0.9-0.6,1.7-1l212-122.4c0.8-0.5,1.4-0.8,1.8-1 c1-0.6,1.1-1,1.1-3.2L239.6,23.2z"></path>
+									</defs>
+									<clipPath id="clip-path-screen">
+										<use xlink:href="#code-cover-screen-0" overflow="hidden"></use>
+									</clipPath>
+									<g clip-path="url(#clip-path-screen)">
+										<path id="code-cover-screen" fill="#11191A" d="M239.6,23.2c0-2.3-0.4-2.3-1.7-1.6c-0.5,0.3-1.2,0.7-2,1.2l-211.3,122c-0.8,0.5-1.3,0.7-1.7,0.9 c-0.8,0.5-0.5,0.6-0.5,2.9L22.9,302c0,2.2-0.3,2.7,0.5,2.3c0.3-0.2,0.9-0.6,1.7-1l212-122.4c0.8-0.5,1.4-0.8,1.8-1 c1-0.6,1.1-1,1.1-3.2L239.6,23.2z"></path>
+									</g>
+								</g>
+								<path class="control red" fill="#C24C4B" d="M31.8,145.3c1.4-0.8,2.6-0.2,2.6,1.5c0,1.6-1.1,3.6-2.6,4.5c-1.4,0.8-2.6,0.2-2.6-1.5
+										C29.3,148.2,30.4,146.2,31.8,145.3z"></path>
+								<path class="control yellow" fill="#CA9733" d="M40.5,140.4c1.4-0.8,2.6-0.2,2.6,1.5c0,1.6-1.1,3.6-2.6,4.5c-1.4,0.8-2.6,0.2-2.6-1.5 C37.9,143.2,39,141.2,40.5,140.4z"></path>
+								<path class="control green" fill="#3B963D" d="M49.1,135.4c1.4-0.8,2.6-0.2,2.6,1.5s-1.1,3.6-2.6,4.5c-1.4,0.8-2.6,0.2-2.6-1.5S47.7,136.2,49.1,135.4z"></path>
+								<polygon class="control title" fill="#646565" points="142,81.7 142.1,87.6 118.7,101.1 118.7,95.2"></polygon>
+								<path id="reflex" opacity="0.27" fill="#A9A8A8" d="M237,14.7l-85.7,49.5L147,74.8l-22.7,152.2l31.7-25.3l-13.4,27.8l96.7-55.4l-0.8-151.2 C238.5,22.9,247,7.6,237,14.7z"></path>
+							</g>
+							<g id="bottom">
+								<g>
+									<defs>
+										<path id="SVGID_7_" d="M397.2,268.3l0,7.3c0,1.2-0.8,2.3-2.3,3.2l0-7.3 C396.4,270.6,397.2,269.4,397.2,268.3z"></path>
+									</defs>
+									<clipPath id="SVGID_8_">
+										<use xlink:href="#SVGID_7_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_8_)">
+										<path fill="#9B9D9F" d="M397.2,268.3l0,7.3c0,0,0,0,0,0.1L397.2,268.3C397.2,268.3,397.2,268.3,397.2,268.3"></path>
+										<path fill="#9FA1A3" d="M397.2,268.3l0,7.3c0,0.2,0,0.3-0.1,0.5l0-7.3C397.2,268.6,397.2,268.5,397.2,268.3"></path>
+										<path fill="#A3A5A7" d="M397.1,268.8l0,7.3c0,0.1-0.1,0.3-0.1,0.4l0-7.3C397.1,269.1,397.1,268.9,397.1,268.8"></path>
+										<path fill="#A7A9AB" d="M397,269.2l0,7.3c-0.1,0.2-0.1,0.3-0.2,0.4l0-7.3C396.9,269.5,396.9,269.4,397,269.2"></path>
+										<path fill="#ABADAF" d="M396.8,269.7l0,7.3c-0.1,0.2-0.2,0.3-0.3,0.5l0-7.3C396.6,270,396.7,269.8,396.8,269.7"></path>
+										<path fill="#AFB1B3" d="M396.5,270.1l0,7.3c-0.1,0.2-0.3,0.4-0.5,0.5l0-7.3C396.2,270.5,396.3,270.3,396.5,270.1"></path>
+										<path fill="#B3B5B6" d="M396,270.7l0,7.3c-0.3,0.3-0.6,0.5-1,0.7l0-7.3C395.4,271.2,395.7,270.9,396,270.7"></path>
+										<path fill="#B7B9BA" d="M395,271.4l0,7.3c0,0-0.1,0-0.1,0.1L395,271.4C394.9,271.4,395,271.4,395,271.4"></path>
+									</g>
+								</g>
+								<g>
+									<defs>
+										<path id="SVGID_9_" d="M14.4,325.2l0-7.3c0,1.2,0.8,2.3,2.3,3.2l0,7.3 C15.2,327.5,14.4,326.3,14.4,325.2z"></path>
+									</defs>
+									<clipPath id="SVGID_10_">
+										<use xlink:href="#SVGID_9_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_10_)">
+										<path fill="#909294" d="M16.8,321.1l0,7.3c-1.5-0.9-2.3-2.1-2.3-3.2l0-7.3C14.5,319,15.2,320.2,16.8,321.1"></path>
+									</g>
+								</g>
+								<polygon fill="#C1C3C4" points="394.9,271.4 394.9,278.8 169.1,410 169.2,402.6"></polygon>
+								<polygon fill="#939597" points="158.1,402.6 158.1,410 16.7,328.4 16.8,321.1                 "></polygon>
+								<path fill="#D3D4D5" d="M394.9,265c3.1,1.8,3.1,4.7,0,6.4L169.2,402.6c-3,1.8-8,1.8-11.1,0L16.8,321.1c-3.1-1.8-3.1-4.7,0-6.4 l225.8-131.2c3-1.8,8-1.8,11.1,0L394.9,265z"></path>
+								<g>
+									<defs>
+										<path id="SVGID_11_" d="M169.2,402.6l0,7.3c-3,1.8-8,1.8-11.1,0l0-7.3 C161.1,404.4,166.1,404.4,169.2,402.6z"></path>
+									</defs>
+									<clipPath id="SVGID_12_">
+										<use xlink:href="#SVGID_11_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_12_)">
+										<path fill="#B7B9BA" d="M169.2,402.6l0,7.3c-0.5,0.3-1.1,0.6-1.7,0.7l0-7.3C168.1,403.2,168.6,402.9,169.2,402.6"></path>
+										<path fill="#B3B5B6" d="M167.5,403.4l0,7.3c-0.5,0.2-1,0.3-1.5,0.4l0-7.3C166.5,403.7,167,403.5,167.5,403.4"></path>
+										<path fill="#AFB1B3" d="M166,403.8l0,7.3c-0.3,0.1-0.7,0.1-1,0.1l0-7.3C165.3,403.9,165.6,403.8,166,403.8"></path>
+										<path fill="#ABADAF" d="M165,403.9l0,7.3c-0.3,0-0.6,0-0.9,0.1l0-7.3C164.4,403.9,164.7,403.9,165,403.9"></path>
+										<path fill="#A7A9AB" d="M164.1,404l0,7.3c-0.3,0-0.5,0-0.8,0l0-7.3C163.5,404,163.8,404,164.1,404"></path>
+										<path fill="#A3A5A7" d="M163.3,404l0,7.3c-0.3,0-0.5,0-0.8,0l0-7.3C162.8,403.9,163,404,163.3,404"></path>
+										<path fill="#9FA1A3" d="M162.5,403.9l0,7.3c-0.3,0-0.5,0-0.8-0.1l0-7.3C162,403.9,162.2,403.9,162.5,403.9"></path>
+										<path fill="#9B9D9F" d="M161.7,403.8l0,7.3c-0.3,0-0.5-0.1-0.8-0.1l0-7.3C161.2,403.8,161.5,403.8,161.7,403.8"></path>
+										<path fill="#98999C" d="M161,403.7l0,7.3c-0.3-0.1-0.6-0.1-0.8-0.2l0-7.3C160.4,403.6,160.7,403.6,161,403.7"></path>
+										<path fill="#949598" d="M160.1,403.5l0,7.3c-0.3-0.1-0.6-0.2-0.9-0.3l0-7.3C159.5,403.3,159.8,403.4,160.1,403.5"></path>
+										<path fill="#909294" d="M159.2,403.2l0,7.3c-0.4-0.2-0.8-0.3-1.1-0.5l0-7.3C158.4,402.8,158.8,403,159.2,403.2"></path>
+									</g>
+								</g>
+								<polygon fill="#595959" points="223.2,205.3 71.8,293.3 60.3,286.7 211.8,198.7"></polygon>
+								<polygon fill="#545454" points="223.2,205.3 223.2,206.1 71.8,294.1 71.8,293.3"></polygon>
+								<polygon fill="#464848" points="71.8,293.3 71.8,294.1 60.3,287.5 60.3,286.7"></polygon>
+								<g>
+									<defs>
+										<path id="SVGID_13_" d="M306.5,310.4l0,0.8c0,0.2-0.2,0.5-0.5,0.6l0-0.8 C306.3,310.9,306.5,310.7,306.5,310.4z"></path>
+									</defs>
+									<clipPath id="SVGID_14_">
+										<use xlink:href="#SVGID_13_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_14_)">
+										<polyline fill="#6E6F6F" points="306.5,310.4 306.5,311.3 306.5,311.3 306.5,310.4 306.5,310.4"></polyline>
+										<path fill="#707172" d="M306.5,310.4l0,0.8c0,0,0,0.1,0,0.1L306.5,310.4C306.5,310.5,306.5,310.5,306.5,310.4"></path>
+										<path fill="#737475" d="M306.5,310.5l0,0.8c0,0,0,0.1,0,0.1L306.5,310.5C306.5,310.6,306.5,310.6,306.5,310.5"></path>
+										<path fill="#767777" d="M306.5,310.6l0,0.8c0,0,0,0.1,0,0.1L306.5,310.6C306.4,310.7,306.4,310.7,306.5,310.6"></path>
+										<path fill="#797A7A" d="M306.4,310.7l0,0.8c0,0,0,0.1-0.1,0.1L306.4,310.7C306.4,310.8,306.4,310.8,306.4,310.7"></path>
+										<path fill="#7C7D7D" d="M306.3,310.8l0,0.8c0,0-0.1,0.1-0.1,0.1l0-0.8C306.3,310.9,306.3,310.9,306.3,310.8"></path>
+										<path fill="#7F7F80" d="M306.3,310.9l0,0.8c-0.1,0.1-0.1,0.1-0.2,0.1l0-0.8C306.1,311,306.2,311,306.3,310.9"></path>
+										<path fill="#828283" d="M306,311.1l0,0.8c0,0,0,0,0,0L306,311.1C306,311.1,306,311.1,306,311.1"></path>
+									</g>
+								</g>
+								<g>
+									<defs>
+										<path id="SVGID_15_" d="M193.3,323.5l0-0.8c0,0.2,0.2,0.5,0.5,0.7l0,0.8 C193.4,324,193.3,323.7,193.3,323.5z"></path>
+									</defs>
+									<clipPath id="SVGID_16_">
+										<use xlink:href="#SVGID_15_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_16_)">
+										<path fill="#656667" d="M193.8,323.3l0,0.8c-0.3-0.2-0.5-0.4-0.5-0.7l0-0.8C193.3,322.9,193.4,323.2,193.8,323.3"></path>
+									</g>
+								</g>
+								<polygon fill="#898989" points="306,311.1 306,311.9 240.6,349.9 240.6,349.1"></polygon>
+								<polygon fill="#686969" points="238.4,349.1 238.4,349.9 193.7,324.2 193.8,323.3"></polygon>
+								<path fill="#959595" d="M306,309.8c0.6,0.4,0.6,0.9,0,1.3l-65.4,38c-0.6,0.4-1.6,0.4-2.3,0l-44.6-25.8c-0.6-0.4-0.6-0.9,0-1.3 l65.4-38c0.6-0.4,1.6-0.4,2.3,0L306,309.8z"></path>
+								<g>
+									<defs>
+										<path id="SVGID_17_" d="M240.6,349.1l0,0.8c-0.6,0.4-1.6,0.4-2.3,0l0-0.8 C239,349.5,240,349.5,240.6,349.1z"></path>
+									</defs>
+									<clipPath id="SVGID_18_">
+										<use xlink:href="#SVGID_17_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_18_)">
+										<path fill="#828283" d="M240.6,349.1l0,0.8c-0.1,0.1-0.2,0.1-0.4,0.2l0-0.8C240.4,349.2,240.5,349.2,240.6,349.1"></path>
+										<path fill="#7F7F80" d="M240.3,349.2l0,0.8c-0.1,0-0.2,0.1-0.3,0.1l0-0.8C240.1,349.3,240.2,349.3,240.3,349.2"></path>
+										<path fill="#7C7D7D" d="M240,349.3l0,0.8c-0.1,0-0.1,0-0.2,0l0-0.8C239.8,349.3,239.9,349.3,240,349.3"></path>
+										<path fill="#797A7A" d="M239.8,349.3l0,0.8c-0.1,0-0.1,0-0.2,0l0-0.8C239.6,349.4,239.7,349.4,239.8,349.3"></path>
+										<path fill="#767777" d="M239.6,349.4l0,0.8c-0.1,0-0.1,0-0.2,0l0-0.8C239.5,349.4,239.5,349.4,239.6,349.4"></path>
+										<path fill="#737475" d="M239.4,349.4l0,0.8c-0.1,0-0.1,0-0.2,0l0-0.8C239.3,349.4,239.4,349.4,239.4,349.4"></path>
+										<path fill="#707172" d="M239.3,349.4l0,0.8c-0.1,0-0.1,0-0.2,0l0-0.8C239.2,349.3,239.2,349.3,239.3,349.4"></path>
+										<path fill="#6E6F6F" d="M239.1,349.3l0,0.8c-0.1,0-0.1,0-0.2,0l0-0.8C239,349.3,239.1,349.3,239.1,349.3"></path>
+										<path fill="#6B6C6C" d="M239,349.3l0,0.8c-0.1,0-0.1,0-0.2,0l0-0.8C238.8,349.3,238.9,349.3,239,349.3"></path>
+										<path fill="#68696A" d="M238.8,349.3l0,0.8c-0.1,0-0.1,0-0.2-0.1l0-0.8C238.7,349.2,238.7,349.2,238.8,349.3"></path>
+										<path fill="#656667" d="M238.6,349.2l0,0.8c-0.1,0-0.2-0.1-0.2-0.1l0-0.8C238.4,349.1,238.5,349.2,238.6,349.2"></path>
+									</g>
+								</g>
+								<g>
+									<defs>
+										<path id="SVGID_19_" d="M261.1,344.6l0-1.6c0-0.4,0.3-0.8,0.8-1.1l0,1.6 C261.4,343.8,261.1,344.2,261.1,344.6z"></path>
+									</defs>
+									<clipPath id="SVGID_20_">
+										<use xlink:href="#SVGID_19_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_20_)">
+										<path fill="#909294" d="M261.1,344.6l0-1.6c0-0.3,0.2-0.6,0.5-0.9l0,1.6C261.3,344,261.1,344.3,261.1,344.6"></path>
+										<path fill="#949598" d="M261.6,343.7l0-1.6c0,0,0.1-0.1,0.1-0.1l0,1.6C261.7,343.6,261.6,343.7,261.6,343.7"></path>
+										<path fill="#98999C" d="M261.7,343.6l0-1.6c0,0,0.1-0.1,0.1-0.1l0,1.6C261.8,343.5,261.8,343.6,261.7,343.6"></path>
+										<polyline fill="#9B9D9F" points="261.9,343.5 261.9,341.9 261.9,341.9 261.9,343.5 261.9,343.5"></polyline>
+									</g>
+								</g>
+								<polygon fill="#A4A5A7" points="261.9,343.5 261.9,341.9 293.7,323.4 293.7,325"></polygon>
+								<g>
+									<defs>
+										<path id="SVGID_21_" d="M298.3,324.5l0,1.6c0-0.4-0.3-0.8-0.8-1.1l0-1.6 C298,323.7,298.3,324.1,298.3,324.5z"></path>
+									</defs>
+									<clipPath id="SVGID_22_">
+										<use xlink:href="#SVGID_21_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_22_)">
+										<path fill="#DFDFE0" d="M297.5,325l0-1.6c0,0,0.1,0,0.1,0L297.5,325C297.5,325,297.5,325,297.5,325"></path>
+										<path fill="#DBDBDC" d="M297.5,325.1l0-1.6c0,0,0.1,0,0.1,0.1L297.5,325.1C297.6,325.1,297.6,325.1,297.5,325.1"></path>
+										<path fill="#D7D8D9" d="M297.6,325.1l0-1.6c0,0,0.1,0,0.1,0.1L297.6,325.1C297.7,325.2,297.7,325.1,297.6,325.1"></path>
+										<path fill="#D3D4D5" d="M297.7,325.2l0-1.6c0,0,0,0,0.1,0.1L297.7,325.2C297.8,325.2,297.7,325.2,297.7,325.2"></path>
+										<path fill="#CFD0D1" d="M297.8,325.2l0-1.6c0,0,0,0,0.1,0.1L297.8,325.2C297.8,325.3,297.8,325.3,297.8,325.2"></path>
+										<path fill="#CBCCCD" d="M297.9,325.3l0-1.6c0,0,0,0,0.1,0.1L297.9,325.3C297.9,325.3,297.9,325.3,297.9,325.3"></path>
+										<path fill="#C7C8CA" d="M297.9,325.4l0-1.6c0,0,0,0,0.1,0.1L297.9,325.4C298,325.4,297.9,325.4,297.9,325.4"></path>
+										<path fill="#C3C4C6" d="M298,325.4l0-1.6c0,0,0,0,0,0.1L298,325.4C298,325.5,298,325.4,298,325.4"></path>
+										<path fill="#BFC0C2" d="M298,325.5l0-1.6c0,0,0,0,0,0.1L298,325.5C298,325.5,298,325.5,298,325.5"></path>
+										<path fill="#BBBCBE" d="M298.1,325.5l0-1.6c0,0,0,0,0,0.1L298.1,325.5C298.1,325.6,298.1,325.6,298.1,325.5"></path>
+										<path fill="#B7B9BA" d="M298.1,325.6l0-1.6c0,0,0,0,0,0.1L298.1,325.6C298.1,325.6,298.1,325.6,298.1,325.6"></path>
+										<path fill="#B3B5B6" d="M298.1,325.7l0-1.6c0,0,0,0,0,0.1L298.1,325.7C298.2,325.7,298.1,325.7,298.1,325.7"></path>
+										<path fill="#AFB1B3" d="M298.2,325.7l0-1.6c0,0,0,0,0,0.1L298.2,325.7C298.2,325.8,298.2,325.7,298.2,325.7"></path>
+										<path fill="#ABADAF" d="M298.2,325.8l0-1.6c0,0,0,0,0,0.1L298.2,325.8C298.2,325.8,298.2,325.8,298.2,325.8"></path>
+										<path fill="#A7A9AB" d="M298.2,325.9l0-1.6c0,0,0,0,0,0.1L298.2,325.9C298.2,325.9,298.2,325.9,298.2,325.9"></path>
+										<path fill="#A3A5A7" d="M298.2,325.9l0-1.6c0,0,0,0.1,0,0.1L298.2,325.9C298.2,326,298.2,326,298.2,325.9"></path>
+										<path fill="#9FA1A3" d="M298.2,326l0-1.6c0,0,0,0.1,0,0.1L298.2,326C298.2,326.1,298.2,326,298.2,326"></path>
+										<polyline fill="#9B9D9F" points="298.2,326.1 298.3,324.5 298.3,324.5 298.2,326.1 298.2,326.1"></polyline>
+									</g>
+								</g>
+								<path fill="#9B9C9F" d="M297.5,325c1,0.6,1,1.6,0,2.2l-31.8,18.5c-1,0.6-2.7,0.6-3.8,0c-1-0.6-1-1.6,0-2.2l31.8-18.5 C294.7,324.4,296.4,324.4,297.5,325z"></path>
+								<g>
+									<defs>
+										<path id="SVGID_23_" d="M293.7,325l0-1.6c1-0.6,2.7-0.6,3.8,0l0,1.6 C296.4,324.4,294.7,324.4,293.7,325z"></path>
+									</defs>
+									<clipPath id="SVGID_24_">
+										<use xlink:href="#SVGID_23_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_24_)">
+										<path fill="#9B9D9F" d="M293.7,325l0-1.6c0,0,0.1,0,0.1-0.1l0,1.6C293.8,325,293.7,325,293.7,325"></path>
+										<path fill="#9FA1A3" d="M293.8,325l0-1.6c0,0,0.1,0,0.1-0.1l0,1.6C293.9,324.9,293.8,324.9,293.8,325"></path>
+										<path fill="#A3A5A7" d="M293.9,324.9l0-1.6c0,0,0.1,0,0.1,0l0,1.6C294,324.9,293.9,324.9,293.9,324.9"></path>
+										<path fill="#A7A9AB" d="M294,324.9l0-1.6c0,0,0.1,0,0.1,0l0,1.6C294.1,324.8,294,324.8,294,324.9"></path>
+										<path fill="#ABADAF" d="M294.1,324.8l0-1.6c0,0,0.1,0,0.1,0l0,1.6C294.2,324.8,294.2,324.8,294.1,324.8"></path>
+										<path fill="#AFB1B3" d="M294.2,324.8l0-1.6c0,0,0.1,0,0.1,0l0,1.6C294.3,324.8,294.3,324.8,294.2,324.8"></path>
+										<path fill="#B3B5B6" d="M294.3,324.7l0-1.6c0,0,0.1,0,0.1,0l0,1.6C294.4,324.7,294.4,324.7,294.3,324.7"></path>
+										<path fill="#B7B9BA" d="M294.4,324.7l0-1.6c0,0,0.1,0,0.1,0l0,1.6C294.5,324.7,294.5,324.7,294.4,324.7"></path>
+										<path fill="#BBBCBE" d="M294.5,324.7l0-1.6c0,0,0.1,0,0.1,0l0,1.6C294.6,324.7,294.6,324.7,294.5,324.7"></path>
+										<path fill="#BFC0C2" d="M294.6,324.7l0-1.6c0,0,0.1,0,0.1,0l0,1.6C294.7,324.6,294.7,324.7,294.6,324.7"></path>
+										<path fill="#C3C4C6" d="M294.7,324.6l0-1.6c0,0,0.1,0,0.1,0l0,1.6C294.8,324.6,294.8,324.6,294.7,324.6"></path>
+										<path fill="#C7C8CA" d="M294.8,324.6l0-1.6c0,0,0.1,0,0.1,0l0,1.6C294.9,324.6,294.9,324.6,294.8,324.6"></path>
+										<path fill="#CBCCCD" d="M295,324.6l0-1.6c0,0,0.1,0,0.1,0l0,1.6C295,324.6,295,324.6,295,324.6"></path>
+										<path fill="#CFD0D1" d="M295.1,324.6l0-1.6c0,0,0.1,0,0.1,0l0,1.6C295.1,324.6,295.1,324.6,295.1,324.6"></path>
+										<path fill="#D3D4D5" d="M295.2,324.6l0-1.6c0,0,0.1,0,0.1,0l0,1.6C295.2,324.6,295.2,324.6,295.2,324.6"></path>
+										<path fill="#D7D8D9" d="M295.3,324.6l0-1.6c0,0,0.1,0,0.1,0l0,1.6C295.4,324.6,295.3,324.6,295.3,324.6"></path>
+										<path fill="#DBDBDC" d="M295.4,324.6l0-1.6c0,0,0.1,0,0.1,0l0,1.6C295.5,324.6,295.4,324.6,295.4,324.6"></path>
+										<path fill="#DFDFE0" d="M295.5,324.6l0-1.6c0,0,0.1,0,0.1,0l0,1.6C295.6,324.6,295.5,324.6,295.5,324.6"></path>
+										<path fill="#E3E3E4" d="M295.6,324.6l0-1.6c0,0,0.1,0,0.1,0l0,1.6C295.7,324.6,295.7,324.6,295.6,324.6"></path>
+										<path fill="#E7E7E7" d="M295.7,324.6l0-1.6c0,0,0.1,0,0.1,0l0,1.6C295.8,324.6,295.8,324.6,295.7,324.6"></path>
+										<path fill="#EBEBEB" d="M295.9,324.6l0-1.6c0.1,0,0.1,0,0.2,0l0,1.6C296,324.6,295.9,324.6,295.9,324.6"></path>
+										<path fill="#F2F2F2" d="M296,324.6l0-1.6c0.1,0,0.2,0,0.3,0l0,1.6C296.2,324.6,296.1,324.6,296,324.6"></path>
+										<path fill="#F3F3F3" d="M296.3,324.6l0-1.6c0.1,0,0.2,0,0.3,0.1l0,1.6C296.5,324.7,296.4,324.6,296.3,324.6"></path>
+										<path fill="#F2F2F2" d="M296.6,324.7l0-1.6c0.1,0,0.2,0.1,0.3,0.1l0,1.6C296.8,324.7,296.7,324.7,296.6,324.7"></path>
+										<path fill="#EBEBEB" d="M296.9,324.8l0-1.6c0.1,0,0.1,0.1,0.2,0.1l0,1.6C297.1,324.8,297,324.8,296.9,324.8"></path>
+										<path fill="#E7E7E7" d="M297.1,324.8l0-1.6c0.1,0,0.1,0,0.2,0.1l0,1.6C297.2,324.9,297.2,324.9,297.1,324.8"></path>
+										<path fill="#E3E3E4" d="M297.3,324.9l0-1.6c0,0,0.1,0,0.1,0.1l0,1.6C297.4,325,297.3,324.9,297.3,324.9"></path>
+										<path fill="#DFDFE0" d="M297.4,325l0-1.6c0,0,0,0,0,0L297.4,325C297.5,325,297.4,325,297.4,325"></path>
+									</g>
+								</g>
+								<g>
+									<defs>
+										<path id="SVGID_25_" d="M315.3,243.2l0,0.8c0,0.5-0.3,1-0.9,1.3l0-0.8 C315,244.2,315.3,243.7,315.3,243.2z"></path>
+									</defs>
+									<clipPath id="SVGID_26_">
+										<use xlink:href="#SVGID_25_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_26_)">
+										<path fill="#494A4A" d="M315.3,243.2l0,0.8c0,0,0,0,0,0L315.3,243.2C315.3,243.2,315.3,243.2,315.3,243.2"></path>
+										<path fill="#4A4B4B" d="M315.3,243.3l0,0.8c0,0.1,0,0.1,0,0.2l0-0.8C315.3,243.4,315.3,243.3,315.3,243.3"></path>
+										<path fill="#4B4C4C" d="M315.3,243.4l0,0.8c0,0.1,0,0.1-0.1,0.2l0-0.8C315.2,243.6,315.2,243.5,315.3,243.4"></path>
+										<path fill="#4C4D4D" d="M315.2,243.6l0,0.8c0,0.1-0.1,0.1-0.1,0.2l0-0.8C315.2,243.8,315.2,243.7,315.2,243.6"></path>
+										<path fill="#4D4E4E" d="M315.1,243.8l0,0.8c0,0.1-0.1,0.1-0.1,0.2l0-0.8C315,243.9,315.1,243.9,315.1,243.8"></path>
+										<path fill="#4E4F4F" d="M315,244l0,0.8c-0.1,0.1-0.1,0.1-0.2,0.2l0-0.8C314.9,244.2,314.9,244.1,315,244"></path>
+										<path fill="#505050" d="M314.8,244.2l0,0.8c-0.1,0.1-0.3,0.2-0.4,0.3l0-0.8C314.5,244.4,314.7,244.3,314.8,244.2"></path>
+										<path fill="#515152" d="M314.4,244.5l0,0.8c0,0,0,0,0,0L314.4,244.5C314.3,244.5,314.4,244.5,314.4,244.5"></path>
+									</g>
+								</g>
+								<g>
+									<defs>
+										<path id="SVGID_27_" d="M61.7,310.8l0-0.8c0,0.5,0.3,1,1,1.3l0,0.8 C62,311.8,61.7,311.3,61.7,310.8z"></path>
+									</defs>
+									<clipPath id="SVGID_28_">
+										<use xlink:href="#SVGID_27_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_28_)">
+										<path fill="#464747" d="M62.7,311.3l0,0.8c-0.6-0.4-1-0.9-1-1.3l0-0.8C61.7,310.5,62,311,62.7,311.3"></path>
+									</g>
+								</g>
+								<polygon fill="#545454" points="314.3,244.6 314.3,245.4 133.6,350.4 133.6,349.6"></polygon>
+								<polygon fill="#464848" points="129,349.6 129,350.4 62.6,312.1 62.7,311.3"></polygon>
+								<path fill="#595959" d="M314.3,241.9c1.3,0.7,1.3,1.9,0,2.7L133.6,349.6c-1.3,0.7-3.3,0.7-4.6,0l-66.3-38.3 c-1.3-0.7-1.3-1.9,0-2.7l180.8-105.1c1.3-0.7,3.3-0.7,4.6,0L314.3,241.9z"></path>
+								<g>
+									<defs>
+										<path id="SVGID_29_" d="M133.6,349.6l0,0.8c-1.3,0.7-3.3,0.7-4.6,0l0-0.8 C130.2,350.3,132.3,350.3,133.6,349.6z"></path>
+									</defs>
+									<clipPath id="SVGID_30_">
+										<use xlink:href="#SVGID_29_" overflow="visible"></use>
+									</clipPath>
+									<g clip-path="url(#SVGID_30_)">
+										<path fill="#515152" d="M133.6,349.6l0,0.8c-0.2,0.1-0.5,0.2-0.7,0.3l0-0.8C133.1,349.8,133.3,349.7,133.6,349.6"></path>
+										<path fill="#505050" d="M132.8,349.9l0,0.8c-0.2,0.1-0.4,0.1-0.6,0.2l0-0.8C132.4,350,132.7,350,132.8,349.9"></path>
+										<path fill="#4E4F4F" d="M132.2,350.1l0,0.8c-0.1,0-0.3,0-0.4,0.1l0-0.8C132,350.1,132.1,350.1,132.2,350.1"></path>
+										<path fill="#4D4E4E" d="M131.8,350.1l0,0.8c-0.1,0-0.2,0-0.4,0l0-0.8C131.6,350.2,131.7,350.1,131.8,350.1"></path>
+										<path fill="#4C4D4D" d="M131.5,350.2l0,0.8c-0.1,0-0.2,0-0.3,0l0-0.8C131.2,350.2,131.3,350.2,131.5,350.2"></path>
+										<path fill="#4B4C4C" d="M131.1,350.2l0,0.8c-0.1,0-0.2,0-0.3,0l0-0.8C130.9,350.2,131,350.2,131.1,350.2"></path>
+										<path fill="#4A4B4B" d="M130.8,350.1l0,0.8c-0.1,0-0.2,0-0.3,0l0-0.8C130.6,350.1,130.7,350.1,130.8,350.1"></path>
+										<path fill="#494A4A" d="M130.5,350.1l0,0.8c-0.1,0-0.2,0-0.3-0.1l0-0.8C130.3,350.1,130.4,350.1,130.5,350.1"></path>
+										<path fill="#484949" d="M130.2,350.1l0,0.8c-0.1,0-0.2-0.1-0.3-0.1l0-0.8C129.9,350,130,350,130.2,350.1"></path>
+										<path fill="#474848" d="M129.8,350l0,0.8c-0.1,0-0.3-0.1-0.4-0.1l0-0.8C129.6,349.9,129.7,349.9,129.8,350"></path>
+										<path fill="#464747" d="M129.4,349.8l0,0.8c-0.2-0.1-0.3-0.1-0.5-0.2l0-0.8C129.1,349.7,129.3,349.8,129.4,349.8"></path>
+									</g>
+								</g>
+							</g>
+						</g>
+					</svg>
+				</div>
+				<div class='balanceboxinner2'>
+					<h5>ACCOUNT BALANCE</h5><br/>
+					<div class='balanceboxinner2traffic'>
+						<h2 >$0</h2>
+						<div class="dots">
+							<i class="dot dot--1"></i>
+							<i class="dot dot--2"></i>
+							<i class="dot dot--3"></i>
+						</div>
+					</div>
+						<br/>
+						<hr/>
+						<br/>
+					<div class='herouserdetailssection'>
+						<div>
+							<h5>Username</h5>
+							<h5><span>Frank Stone</span></h5>
+							<div class="progress progress-xs rounded-lg bg-dark-darker m-b-5">
+								<div class="progress-bar progress-bar-striped rounded-right bg-teal" data-animation="width" data-value="100%" style="width: 100%;"></div>
+							</div>
+						</div>
+						<div>
+							<h5>E- Mail</h5>
+							<h5><span>frankstone@gmail.com</span></h5>
+							<div class="progress progress-xs rounded-lg bg-dark-darker m-b-5">
+								<div class="progress-bar progress-bar-striped rounded-right" data-animation="width" data-value="100%" style="width: 100%;"></div>
+							</div>
+						</div><br/>
+					</div>
+					<br/>
+				</div>
+			</div>
+
+			<div class='balancebox2'>
+				<div class='balancebox2inner'>
+					<h5>ACCOUNT DEPOSITS</h5><br/>
+					<div class='balanceboxinner2traffic'>
+						<h2>$0.00</h2>
+						<div>
+							<div class="dots">
+								<i class="dot dot--1"></i>
+								<i class="dot dot--2"></i>
+								<i class="dot dot--3"></i>
+							</div>
+						</div>
+					</div><br/>
 					<div>
-						<div class="blinking">
-						</div><br/>					  
-						<div class="blinking-green">
+						<div class='activedeposection'>
+							<div class='activedeposectioninnner'>
+								<i class="dot dot--3"></i>
+								<p>Last Deposite</p>
+							</div>
+							<div>
+								<p>$ n/a</p>
+							</div>
+						</div>
+						<div class='activedeposection'>
+							<div class='activedeposectioninnner'>
+								<i class="dot dot--1"></i>
+								<p>Active Deposits</p>
+							</div>
+							<div>
+								<p>$0.00</p>
+							</div>
+						</div>
+						<div class='activedeposection'>
+							<div class='activedeposectioninnner'>
+								<i class="dot dot--2"></i>
+								<p>Total Deposited</p>
+							</div>
+							<div>
+								<p>$0.00</p>
+							</div>
 						</div>
 					</div>
 				</div>
-				{% comment %} <div class='google_element_local'><div id="google_translate_element"></div><br/></div><br/> {% endcomment %}
-				
-				<div><h3 id="clock">0:00:00</h3></div>
-				
-				<div id="flash">
-					{% if messages %} {% for message in messages %}
-					<div class="alert alert-{{ message.tags}} m-0" role="alert">
-						<strong style="color: #0275be">{{ message }}</strong>
+				<div>
+					<div class='balancebox2inner'>
+						<h5>TOTAL EARNINGS</h5><br/>
+						<div class='balanceboxinner2traffic'>
+							<h2>$0.00</h2>
+							<div>
+								<div class="dots">
+									<i class="dot dot--1"></i>
+									<i class="dot dot--2"></i>
+									<i class="dot dot--3"></i>
+								</div>
+							</div>
+						</div><br/>
+						<div>
+							<div class='activedeposection'>
+								<div class='activedeposectioninnner'>
+									<i class="dot dot--3"></i>
+									<p>Last Withdrawal</p>
+								</div>
+								<div>
+									<p>$ n/a</p>
+								</div>
+							</div>
+							<div class='activedeposection'>
+								<div class='activedeposectioninnner'>
+									<i class="dot dot--1"></i>
+									<p>Pending Withdrawals</p>
+								</div>
+								<div>
+									<p>$0.00</p>
+								</div>
+							</div>
+							<div class='activedeposection'>
+								<div class='activedeposectioninnner'>
+									<i class="dot dot--2"></i>
+									<p>Total Withdrawn</p>
+								</div>
+								<div>
+									<p>$0.00</p>
+								</div>
+							</div>
+						</div>
 					</div>
-					{% endfor %} {% endif %}
 				</div>
+			</div>
+		</div>
+		{% comment %} POST HERO SECTION STARTS HERE {% endcomment %}
+		<div class='mainbodysection'>
+			<div class='accountdefectssectionout'>
+				<div class='accountdefectssection'>
+					<div class='accountdefectssection1'>
+						<img src={% static 'dashboard/img/2fa.png' %} />
+						<h5>2 Factor Authentication</h5>
+					</div>
+					<div class='accountdefectssection2'>
+						<p>Off</p>
+						<img src={% static 'general/img/rightarrow.png' %} />
+					</div>
+				</div>
+				<hr/>
+				<div class='accountdefectssection'>
+					<div class='accountdefectssection1'>
+						<img src={% static 'dashboard/img/calendar.png' %} />
+						<h5>Sign Up Date</h5>
+					</div>
+					<div class='accountdefectssection2'>
+						<p>Dec, 6th. 2023</p>
+					</div>
+				</div>
+				<hr/>
+				<div class='accountdefectssection'>
+					<div class='accountdefectssection1'>
+						<img src={% static 'dashboard/img/lastlogin.png' %} />
+						<h5>Last Login</h5>
+					</div>
+					<div class='accountdefectssection2'>
+						<p>Dec-6-2023 02:26:10 PM</p>
+					</div>
+				</div>
+				<hr/>
+				<div class='accountdefectssection'>
+					<div class='accountdefectssection1'>
+						<img src={% static 'dashboard/img/ip.png' %} />
+						<h5>Your IP</h5>
+					</div>
+					<div class='accountdefectssection2'>
+						<p>105.113.35.144</p>
+					</div>
+				</div>
+				<hr/>
+				<div class='accountdefectssection'>
+					<div class='accountdefectssection1'>
+						<img src={% static 'dashboard/img/os.png' %} />
+						<h5>Operating System</h5>
+					</div>
+					<div class='accountdefectssection2'>
+						<p>Windows</p>
+					</div>
+				</div>
+				<hr/>
+				<div class='accountdefectssection'>
+					<div class='accountdefectssection1'>
+						<img src={% static 'dashboard/img/browser.png' %} />
+						<h5>Browser</h5>
+					</div>
+					<div class='accountdefectssection2'>
+						<p>Chrome</p>
+					</div>
+				</div>
+				<hr/>
+				<div class='accountdefectssection'>
+					<div class='accountdefectssection1'>
+						<img src={% static 'dashboard/img/editacct.png' %} />
+						<h5>Edit Account</h5>
+					</div>
+					<div class='accountdefectssection2'>
+						<img src={% static 'general/img/rightarrow.png' %} />
+					</div>
+				</div>
+			</div>
+			<div class='cryptoprices'>
+				{% comment %} <table id="crypto-table" class="highlight centered">
+					<tbody id="crypto-table-body"></tbody>
+				</table> {% endcomment %}
+				<div class="table-responsive">
+					<h5>CRYPTOCRAPHY MARKET PRICES</h5> 
+					<table class="table table-hover m-b-0 text-white" style="border: none;" >
+						<tbody>
+							<tr style="border: none;" >
+								<td class="text-center">
+									<img src={% static "dashboard/img/bitcoin.png" %} width="25px">
+								</td>
+								<td>Bitcoin</td>
+								<td id="bitcoin-current-price">$ 43,303.2</td>
+								<td id="bitcoin-percent-change" class="percent-decrease">- -1.28%</td>
+							</tr>
+							<tr style="border: none;" >
+								<td class="text-center">
+									<img src={% static "dashboard/img/Litecoin.png" %} width="25px">
+								</td>
+								<td>Litecoin</td>
+								<td id="litecoin-current-price">$ 72.74</td>
+								<td id="litecoin-percent-change" class="percent-decrease">- -1.46%</td>
+							</tr>
+							<tr style="border: none; color: red" >
+								<td class="text-center">
+									<img src={% static "dashboard/img/etherum.png" %} width="25px">
+								</td>
+								<td>Ethereum</td>
+								<td id="ethereum-current-price">$ 2,234.38</td>
+								<td id="ethereum-percent-change" class="percent-decrease">- -1.75%</td>
+							</tr>
+							<tr style="border: none" >
+								<td class="text-center">
+									<img src={% static "dashboard/img/Dash.png" %} width="25px">
+								</td>
+								<td>Dash</td>
+								<td id="dash-current-price">$ 32.27</td>
+								<td id="dash-percent-change" class="percent-decrease">- -0.08%</td>
+							</tr>
+							<tr style="border: none;" >
+								<td class="text-center">
+									<img src={% static "dashboard/img/Dogecoin.png" %} width="25px">
+								</td>
+								<td>Dogecoin</td>
+								<td id="dogecoin-current-price">$ 0.09486</td>
+								<td id="dogecoin-percent-change" class="percent-decrease">- -7.27%</td>
+							</tr>
+							<tr style="border: none;" >
+								<td class="text-center">
+									<img src={% static "dashboard/img/BitcoinCash.png" %} width="25px">
+								</td>
+								<td>Bitcoin Cash</td>
+								<td id="bitcoincash-current-price">$ 241.85</td>
+								<td id="bitcoincash-percent-change" class="percent-decrease">- -5.12%</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pb-1">
+					</div>
+				</div>
+			</div>
+			<div class='referalsection'>
+				<div class='referalsectioninput'>
+					<h3>YOUR REFERRAL LINK</h3>
+					<hr/>
+					<input value="Your Referal Code" />
+					<img title='Click To Copy To Clipboard' src={% static 'dashboard/img/copywhite.png' %} />
+				</div>
+				<div class='referalsection2'>
+					<div class='referalsection2gif'>
+						<div>
+							<div class="col-xl-7 col-lg-7 col-sm-7 col-md-7 col-7">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 80 300 280" style="max-height: 200px">
+									<g>
+										<g id="closedSuitcase" transform="translate(350, 0)">
+											<g>
+												<path d="M225.88,258.06H82.68a11.62,11.62,0,0,0-11.57,11.61v19.75H237.44V269.66a11.62,11.62,0,0,0-11.56-11.61" fill="#a67ee5"></path>
+												<path d="M225.88,258.06H82.68a11.62,11.62,0,0,0-11.57,11.61v19.75H237.44V269.66A11.62,11.62,0,0,0,225.88,258.06Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+												<path d="M267.11,258.06H119.23a11.81,11.81,0,0,0-11.93,11.61v19.75H279V269.66a11.81,11.81,0,0,0-11.93-11.61" fill="#a67ee5"></path>
+												<path d="M267.11,258.06H119.23a11.81,11.81,0,0,0-11.93,11.61v19.75H279V269.66A11.81,11.81,0,0,0,267.11,258.06Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+												<path d="M278.74,279.41a5.34,5.34,0,1,0-5.32-5.34,5.32,5.32,0,0,0,5.32,5.34" fill="#a67ee5"></path>
+												<ellipse cx="278.74" cy="274.07" rx="5.31" ry="5.34" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></ellipse>
+												<path d="M277.62,269.66v9.75H266.89a5.72,5.72,0,0,1-5.71-5.73V258.06h4.88a11.61,11.61,0,0,1,11.56,11.61" fill="#a67ee5"></path>
+												<path d="M277.62,269.66v9.75H266.89a5.72,5.72,0,0,1-5.71-5.73V258.06h4.88A11.61,11.61,0,0,1,277.62,269.66Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+											</g>
+											<g>
+												<path d="M280.29,318.62a5.72,5.72,0,1,0-5.12-5.69,5.43,5.43,0,0,0,5.12,5.69" fill="#a67ee5"></path>
+												<ellipse cx="280.29" cy="312.93" rx="5.12" ry="5.69" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></ellipse>
+												<path d="M230.22,328.86h-148a11.85,11.85,0,0,1-11.95-11.67V289H242.16v28.17a11.84,11.84,0,0,1-11.94,11.67" fill="#a67ee5"></path>
+												<path d="M230.22,328.86h-148a11.85,11.85,0,0,1-11.95-11.67V289H242.16v28.17A11.84,11.84,0,0,1,230.22,328.86Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+												<path d="M266.72,328.86h-147a11.81,11.81,0,0,1-11.87-11.67V289H278.58v28.17a11.79,11.79,0,0,1-11.86,11.67" fill="#a67ee5"></path>
+												<path d="M266.72,328.86h-147a11.81,11.81,0,0,1-11.87-11.67V289H278.58v28.17A11.79,11.79,0,0,1,266.72,328.86Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+												<path d="M215,314.07H180.49a4.27,4.27,0,0,1-4.35-4.16V298.21a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22v10a1.33,1.33,0,0,0,1.35,1.29h29.71a1.33,1.33,0,0,0,1.35-1.29v-10a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22V309.9a4.27,4.27,0,0,1-4.35,4.16" fill="#a67ee5"></path>
+												<path d="M215,314.07H180.49a4.27,4.27,0,0,1-4.35-4.16V298.21a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22v10a1.33,1.33,0,0,0,1.35,1.29h29.71a1.33,1.33,0,0,0,1.35-1.29v-10a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22V309.9A4.27,4.27,0,0,1,215,314.07Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+												<rect x="138.58" y="282.19" width="9.1" height="12.52" fill="#a67ee5"></rect>
+												<rect x="138.58" y="282.19" width="9.1" height="12.52" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></rect>
+												<rect x="247.85" y="282.19" width="9.1" height="12.52" fill="#a67ee5"></rect>
+												<rect x="247.85" y="282.19" width="9.1" height="12.52" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></rect>
+												<path d="M278.58,317.11v-9.87h-10.4a5.67,5.67,0,0,0-5.53,5.8v15.82h4.73c6.16,0,11.2-5.29,11.2-11.75" fill="#a67ee5"></path>
+												<path d="M278.58,317.11v-9.87h-10.4a5.67,5.67,0,0,0-5.53,5.8v15.82h4.73C273.54,328.86,278.58,323.58,278.58,317.11Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+												<path d="M100,301.54H79.22a1,1,0,0,1-1-1V298a1,1,0,0,1,1-1H100a1,1,0,0,1,1,1v2.58a1,1,0,0,1-1,1" fill="#a67ee5"></path>
+												<path d="M100,301.54H79.22a1,1,0,0,1-1-1V298a1,1,0,0,1,1-1H100a1,1,0,0,1,1,1v2.58A1,1,0,0,1,100,301.54Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+											</g>
+											<g>
+												<line x1="46.24" y1="329" x2="303.76" y2="329" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
+											</g>
+											<animateTransform id="closedSuitcaseTranslate" attributeType="XML" attributeName="transform" type="translate" values="350; 0" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" dur="1.5s"></animateTransform>
+											<animate id="closedSuitcaseOpacity" attributeType="CSS" attributeName="opacity" from="0" to="1" dur="1.5s" fill="freeze"></animate>
+										</g>
+										<animate id="closedSuitcaseNone" begin="closedSuitcaseTranslate.end + 0.3s" attributeType="CSS" attributeName="opacity" from="1" to="0" dur="0.01s" fill="freeze"></animate>
+									</g>
+									<!--  open suitcase    -->
+									<g id="openSuitcase" opacity="0">
+										<g>
+											<path d="M253.93,232.11a5.69,5.69,0,1,0-5.69-5.69,5.69,5.69,0,0,0,5.69,5.69" fill="#a67ee5"></path>
+											<circle cx="253.93" cy="226.42" r="5.69" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></circle>
+											<path d="M240.3,210.48H67.19a12,12,0,0,0-12,11.9V276a13,13,0,0,0,13,13h184V222.38a12,12,0,0,0-11.94-11.9" fill="#a67ee5"></path>
+											<path d="M240.3,210.48H67.19a12,12,0,0,0-12,11.9V276a13,13,0,0,0,13,13h184V222.38A12,12,0,0,0,240.3,210.48Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+											<path d="M70.24,289V225.49a15,15,0,0,1,15-15h0.5" fill="none" stroke="#fff" stroke-width="2"></path>
+										</g>
+										<!--   balloon     -->
+										<g transform="rotate(45, 80)">
+											<g transform="translate(45, 80)">
+												<path id="balloonLine" d="M62 209.842L62 210" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round">
+													<animate begin="closedSuitcaseNone.end" attributeName="d" values="M62 209.842L62 210; M62 90 L62.5925 210;" dur="0.3s" fill="freeze"></animate>
+												</path>
+											</g>
+											<g transform="translate(73, 250)">
+												<g>
+													<path d="M33.6284 84.1819L31.4514 87.9794C31.3366 88.184 31.2774 88.415 31.2799 88.6496C31.2824 88.8842 31.3464 89.1139 31.4655 89.316C31.5847 89.5181 31.7548 89.6853 31.9588 89.801C32.1628 89.9167 32.3937 89.9769 32.6282 89.9754L36.9982 89.9604C37.2319 89.9585 37.4611 89.8955 37.6629 89.7777C37.8648 89.6599 38.0323 89.4913 38.1489 89.2887C38.2654 89.0862 38.327 88.8566 38.3274 88.6229C38.3279 88.3892 38.2672 88.1594 38.1513 87.9564L35.9584 84.1739C35.8386 83.971 35.6679 83.803 35.4631 83.6865C35.2583 83.5701 35.0266 83.5092 34.7911 83.51C34.5555 83.5109 34.3242 83.5733 34.1202 83.6912C33.9163 83.809 33.7467 83.9782 33.6284 84.1819Z" fill="white"></path>
+													<path d="M34.5053 1.72842C43.2284 1.70113 51.6054 5.13812 57.7956 11.2841C63.9858 17.4301 67.4828 25.7823 67.518 34.5053C67.5804 52.6752 52.5959 83.4468 34.4361 83.5091C16.2762 83.5715 1.78076 52.8911 1.71842 34.7312C1.69378 26.0081 5.13331 17.6321 11.2812 11.4438C17.4291 5.25543 25.7823 1.76102 34.5053 1.72842ZM34.4998 0.118433C25.3532 0.160417 16.5966 3.82871 10.1512 10.3186C3.7057 16.8085 0.0976176 25.59 0.118429 34.7367C0.151075 44.2466 3.99427 56.8235 9.90846 66.7732C16.9492 78.6291 25.6516 85.1393 34.4315 85.1092C43.2115 85.079 52.009 78.5088 59.1782 66.6241C65.2439 56.6032 69.1505 43.9497 69.118 34.4998C69.076 25.3532 65.4077 16.5967 58.9179 10.1512C52.428 3.70571 43.6465 0.0976209 34.4998 0.118433Z" fill="white"></path>
+													<path d="M22.9386 34.7383C22.8762 16.5784 28.0556 1.83057 34.5056 1.80843C25.7826 1.84102 17.4293 5.33543 11.2815 11.5238C5.13358 17.7121 1.69405 26.0881 1.71869 34.8112C1.78106 52.9811 16.2664 83.6515 34.4363 83.5891L34.6063 83.5886C28.1757 83.4206 23.0008 52.8582 22.9386 34.7383Z" fill="#76ABFF"></path>
+													<path d="M67.5183 34.5853C67.4831 25.8623 63.9861 17.5101 57.7959 11.3641C51.6057 5.21811 43.2286 1.78113 34.5056 1.80843C40.9556 1.78628 46.2361 16.4982 46.2984 34.6581C46.3608 52.818 41.1749 83.156 34.7863 83.5679C52.7848 83.1162 67.5803 52.6352 67.5183 34.5853Z" fill="#1553B7"></path>
+													<path d="M46.2984 34.6581C46.2361 16.4982 40.9556 1.78628 34.5056 1.80842C28.0556 1.83057 22.8762 16.5784 22.9386 34.7383C23.0009 52.8982 28.1757 83.4106 34.6063 83.5886L34.7863 83.5879C41.1749 83.166 46.3604 52.718 46.2985 34.6681" fill="#3B7BF2"></path>
+													<path d="M27.3944 27.693C26.2671 27.6969 25.1662 28.0349 24.231 28.6645C23.2958 29.294 22.5683 30.1867 22.1404 31.2298C21.7126 32.2728 21.6036 33.4192 21.8274 34.5242C22.0511 35.6291 22.5974 36.6429 23.3973 37.4373C24.1972 38.2317 25.2147 38.7711 26.3212 38.9872C27.4276 39.2034 28.5733 39.0865 29.6133 38.6515C30.6534 38.2166 31.5411 37.4829 32.1642 36.5434C32.7873 35.6039 33.1178 34.5007 33.1139 33.3734C33.1565 32.6129 33.0374 31.8521 32.7644 31.141C32.4915 30.4299 32.071 29.7847 31.5306 29.248C30.9901 28.7113 30.3421 28.2952 29.6292 28.0272C28.9162 27.7591 28.1546 27.6452 27.3944 27.693ZM27.4219 35.6929C25.5619 35.6993 24.3587 34.7735 24.354 33.4135C24.3494 32.0535 25.5562 31.1193 27.4062 31.113C29.2561 31.1066 30.4793 32.0324 30.484 33.3924C30.4887 34.7524 29.2419 35.6867 27.4219 35.6929Z" fill="white"></path>
+													<path d="M41.5943 27.6442C41.92 27.6429 42.2397 27.7309 42.5188 27.8987C42.7979 28.0665 43.0256 28.3076 43.1772 28.5958C43.3287 28.8841 43.3983 29.2083 43.3783 29.5334C43.3584 29.8584 43.2496 30.1717 43.0639 30.4392L29.8004 49.8249C29.5143 50.1575 29.116 50.3735 28.6812 50.4318C28.2463 50.4901 27.8052 50.3867 27.4416 50.1411C27.078 49.8956 26.8172 49.5251 26.7088 49.0999C26.6004 48.6748 26.6519 48.2246 26.8536 47.835L40.1271 28.4493C40.2897 28.21 40.5085 28.0143 40.7643 27.8792C41.0201 27.744 41.3051 27.6737 41.5944 27.6742" fill="white"></path>
+													<path d="M43.1039 39.1591C41.9765 39.163 40.8756 39.5011 39.9404 40.1306C39.0052 40.7601 38.2777 41.6529 37.8499 42.6959C37.422 43.7389 37.3131 44.8854 37.5368 45.9903C37.7605 47.0952 38.3069 48.109 39.1068 48.9034C39.9067 49.6978 40.9242 50.2372 42.0306 50.4533C43.1371 50.6695 44.2827 50.5527 45.3228 50.1177C46.3628 49.6827 47.2505 48.9491 47.8737 48.0096C48.4968 47.07 48.8273 45.9669 48.8234 44.8395C48.8643 44.0795 48.7441 43.3193 48.4706 42.609C48.1971 41.8986 47.7765 41.2541 47.2365 40.7177C46.6964 40.1813 46.049 39.7652 45.3368 39.4966C44.6246 39.228 43.8636 39.113 43.1039 39.1591ZM43.1313 47.1591C41.2713 47.1655 40.0682 46.2396 40.0635 44.8796C40.0588 43.5196 41.2656 42.5855 43.1156 42.5791C44.9656 42.5728 46.1887 43.4686 46.1934 44.8585C46.1982 46.2485 44.9913 47.1527 43.1313 47.1591Z" fill="white"></path>
+													<animateTransform id="balloonStart" begin="closedSuitcaseNone.end" attributeType="XML" attributeName="transform" type="translate" dur="0.3s" from="0 0" to="0 -165" fill="freeze"></animateTransform>
+													<animateTransform id="balloonRotateStart" begin="closedSuitcaseNone.end" attributeType="XML" attributeName="transform" type="rotate" dur="0.3s" from="60 30 90" to="0 30 90" additive="sum" fill="freeze"></animateTransform>
+													<animateTransform begin="balloonStart.end" attributeType="XML" attributeName="transform" type="rotate" dur="0.6s" values="8 40 60; -5 40 80; 0 40 60" additive="sum" fill="freeze"></animateTransform>
+													<animateTransform begin="balloonStart.end - 0.1s" attributeType="XML" attributeName="transform" type="translate" dur="0.5s" additive="sum" values="0 25; 0 0; 0 5; 0 0" fill="freeze"></animateTransform>
+												</g>
+											</g>
+											<animateTransform begin="balloonStart.end" attributeType="XML" attributeName="transform" type="rotate" dur="0.5s" values="-3 180 290; 1 180 290; 0 180 290" additive="sum" fill="freeze"></animateTransform>
+										</g>
+										<!--    flowers    -->
+										<g transform="rotate(55 180 290)">
+											<g>
+												<path d="M180.73,277.8s8.3-74.59,39.71-90" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+												<path d="M217.95,187.12l9.27-24.49a22,22,0,0,1,8.72,3,7.87,7.87,0,0,1,9.72,12.33,22.14,22.14,0,0,1,.86,9.18l-26,3.3a2.45,2.45,0,0,1-2.6-3.29" fill="#3b7bf2"></path>
+												<path d="M178.24,287.63s6.89-44.68,37.95-56.53" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+												<path d="M210.85,232l9-16.47a16.66,16.66,0,0,1,6.13,2.93,5.93,5.93,0,0,1,4-.42,5.67,5.67,0,0,1,4.26,6.85,5.54,5.54,0,0,1-2.29,3.23,15.1,15.1,0,0,1-.21,6.58l-19.34-.11a1.76,1.76,0,0,1-1.6-2.58" fill="#3b7bf2"></path>
+											</g>
+											<animateTransform begin="closedSuitcaseNone.end" attributeType="XML" attributeName="transform" type="rotate" dur="0.6s" values="55 180 290; -13 180 290; 10 180 290; 0 180 290" fill="freeze"></animateTransform>
+										</g>
+										<g transform="rotate(55 180 290)">
+											<g>
+												<path d="M141.77,204.16c24.1,32.45,35.81,84,35.81,84" fill="none" stroke="#3b7bf2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+												<path d="M125.73,196.22c6.54,7.51,17.16,9,17.16,9s0-10.72-6.53-18.22-17.17-9-17.17-9,0,10.72,6.54,18.22" fill="#76abff"></path>
+												<path d="M153.17,206.54c-2.69,9.58,1.91,19.27,1.91,19.27s9-5.86,11.67-15.45-1.91-19.27-1.91-19.27-9,5.86-11.67,15.45" fill="#3b7bf2"></path>
+												<path d="M135.82,227.71c9.59,2.7,19.26-1.91,19.26-1.91s-5.86-9-15.45-11.67S120.37,216,120.37,216s5.87,9,15.45,11.67" fill="#3b7bf2"></path>
+												<path d="M166.1,232.52c-3.41,9.36.47,19.35,0.47,19.35s9.39-5.18,12.79-14.53S178.89,218,178.89,218s-9.39,5.18-12.79,14.53" fill="#1553b7"></path>
+												<path d="M147.22,252.35c9.36,3.4,19.35-.47,19.35-0.47s-5.18-9.39-14.54-12.79-19.35.47-19.35,0.47,5.18,9.39,14.54,12.79" fill="#1553b7"></path>
+											</g>
+											<animateTransform begin="closedSuitcaseNone.end" attributeType="XML" attributeName="transform" type="rotate" dur="1s" values="55 180 290; -13 180 290; 8 180 290; -5 180 290; 0 180 290" fill="freeze"></animateTransform>
+										</g>
+										<g transform="rotate(35 180 290)">
+											<g>
+												<path d="M183.79,264.77c2.3,9.1-2.27,18.12-2.27,18.12s-8.32-5.74-10.63-14.85,2.27-18.12,2.27-18.12,8.32,5.75,10.63,14.85" fill="#3b7bf2"></path>
+												<path d="M199.63,285.16c-9.11,2.31-18.12-2.27-18.12-2.27s5.74-8.32,14.85-10.63,18.12,2.27,18.12,2.27-5.75,8.32-14.85,10.63" fill="#3b7bf2"></path>
+												<path d="M188.56,271.67a144.15,144.15,0,0,0-10.31,16.61" fill="none" stroke="#3b7bf2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+												<path d="M203.69,264.19c-6.17,7.08-16.19,8.44-16.19,8.44s0-10.11,6.16-17.18S209.85,247,209.85,247s0,10.11-6.16,17.19" fill="#76abff"></path>
+											</g>
+											<animateTransform begin="closedSuitcaseNone.end" attributeType="XML" attributeName="transform" type="rotate" dur="1.2s" values="35 180 290; -8 180 290; 10 180 290; -5 180 290; 0 180 290;" fill="freeze"></animateTransform>
+										</g>
+										<!--   bird     -->
+										<g transform="translate(-75, 85)">
+											<path fill="#01caca" transform="translate(260, 167)" d="M17.2 17.8C17.1925 16.6869 17.5649 15.6045 18.2559 14.7318C18.9468 13.859 19.9148 13.2481 21 13L42.07 7.60001C34.29 22.44 22.89 22.67 22.07 22.67C20.7791 22.6568 19.5456 22.1348 18.6374 21.2173C17.7293 20.2998 17.2199 19.0609 17.22 17.77">
+												<animate attributeName="d" values="M17.2 17.8C17.1925 16.6869 17.5649 15.6045 18.2559 14.7318C18.9468 13.859 19.9148 13.2481 21 13L42.07 7.60001C34.29 22.44 22.89 22.67 22.07 22.67C20.7791 22.6568 19.5456 22.1348 18.6374 21.2173C17.7293 20.2998 17.2199 19.0609 17.22 17.77;M17.0929 21.176C16.8385 20.0923 16.9126 18.9651 17.3031 17.9805C17.6936 16.996 18.3772 16.213 19.2407 15.7611V15.7611L35.8779 6.41805C32.5978 22.3909 22.9963 24.822 22.3019 24.9807C21.206 25.2178 20.0451 24.9477 19.0717 24.229C18.0982 23.5104 17.3908 22.4014 17.1031 21.1429;M18.1903 20.2297C16.9963 20.205 15.839 20.0194 14.9098 19.7037C13.9805 19.3881 13.3349 18.9611 13.0796 18.4935V18.4935L7.49731 9.39937C23.3374 13.08 23.4706 17.9328 23.4624 18.2814C23.4354 18.83 22.8632 19.3413 21.87 19.7044C20.8769 20.0675 19.543 20.2529 18.1583 20.2205" dur="0.15s" repeatCount="indefinite"></animate>
+											</path>
+											<path fill="#01caca" d="M262.24,169.86l10.76,0a4.65,4.65,0,0,1,4.41-2.9,3.91,3.91,0,0,1,3.48,1.76,13.39,13.39,0,0,1,1.37,2.59c0.63,1.57,4,15.8,5.89,19.16,1.1,2,4.39,7.16,4.39,7.16a2.3,2.3,0,0,1,.31,1.15V208s-3.11-1.08-3.11-3.91v-6.53c-1.91.27-6-1.65-8.33-2.88a12.82,12.82,0,0,1-6.36-6.76,12.33,12.33,0,0,1-.11-9.16,7.13,7.13,0,0,0,.79-2.91c-0.06-1.14-1.39-2.72-2.18-4.05Z"></path>
+											<animateTransform id="endPathBird" begin="closedSuitcaseNone.end" attributeName="transform" type="translate" to="0, 0" dur="0.5s" fill="freeze"></animateTransform>
+											<animateTransform begin="endPathBird.end" attributeName="transform" type="rotate" values="0 240 190; -8 220 160; 0 250 180; 3 220 160; 0 240 190" dur="2.5s" repeatDur="indefinite"></animateTransform>
+										</g>
+										<!--  lower part of the suitcase      -->
+										<g>
+											<path d="M280.29,318.62a5.72,5.72,0,1,0-5.12-5.69,5.43,5.43,0,0,0,5.12,5.69" fill="#a67ee5"></path>
+											<ellipse cx="280.29" cy="312.93" rx="5.12" ry="5.69" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></ellipse>
+											<path d="M230.22,328.86h-148a11.85,11.85,0,0,1-11.95-11.67V289H242.16v28.17a11.84,11.84,0,0,1-11.94,11.67" fill="#a67ee5"></path>
+											<path d="M230.22,328.86h-148a11.85,11.85,0,0,1-11.95-11.67V289H242.16v28.17A11.84,11.84,0,0,1,230.22,328.86Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+											<path d="M266.72,328.86h-147a11.81,11.81,0,0,1-11.87-11.67V289H278.58v28.17a11.79,11.79,0,0,1-11.86,11.67" fill="#a67ee5"></path>
+											<path d="M266.72,328.86h-147a11.81,11.81,0,0,1-11.87-11.67V289H278.58v28.17A11.79,11.79,0,0,1,266.72,328.86Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+											<path d="M215,314.07H180.49a4.27,4.27,0,0,1-4.35-4.16V298.21a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22v10a1.33,1.33,0,0,0,1.35,1.29h29.71a1.33,1.33,0,0,0,1.35-1.29v-10a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22V309.9a4.27,4.27,0,0,1-4.35,4.16" fill="#a67ee5"></path>
+											<path d="M215,314.07H180.49a4.27,4.27,0,0,1-4.35-4.16V298.21a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22v10a1.33,1.33,0,0,0,1.35,1.29h29.71a1.33,1.33,0,0,0,1.35-1.29v-10a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22V309.9A4.27,4.27,0,0,1,215,314.07Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+											<rect x="138.58" y="282.19" width="9.1" height="12.52" fill="#a67ee5"></rect>
+											<rect x="138.58" y="282.19" width="9.1" height="12.52" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></rect>
+											<rect x="247.85" y="282.19" width="9.1" height="12.52" fill="#a67ee5"></rect>
+											<rect x="247.85" y="282.19" width="9.1" height="12.52" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></rect>
+											<path d="M278.58,317.11v-9.87h-10.4a5.67,5.67,0,0,0-5.53,5.8v15.82h4.73c6.16,0,11.2-5.29,11.2-11.75" fill="#a67ee5"></path>
+											<path d="M278.58,317.11v-9.87h-10.4a5.67,5.67,0,0,0-5.53,5.8v15.82h4.73C273.54,328.86,278.58,323.58,278.58,317.11Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+											<path d="M100,301.54H79.22a1,1,0,0,1-1-1V298a1,1,0,0,1,1-1H100a1,1,0,0,1,1,1v2.58a1,1,0,0,1-1,1" fill="#a67ee5"></path>
+											<path d="M100,301.54H79.22a1,1,0,0,1-1-1V298a1,1,0,0,1,1-1H100a1,1,0,0,1,1,1v2.58A1,1,0,0,1,100,301.54Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+										</g>
+										<g>
+											<line x1="46.24" y1="329" x2="303.76" y2="329" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
+										</g>
+										<animate begin="closedSuitcaseNone.end" attributeType="CSS" attributeName="opacity" from="0" to="1" dur="0.01s" fill="freeze"></animate>
+									</g>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class='referalsection2list'>
+						<div class='referalsection2listinner'>
+							<img src={% static 'dashboard/img/referaluser.png' %} />
+							<h1>5%</h1>
+						</div><br/>
+						<div class='referalsection2listinner'>
+							<img src={% static 'dashboard/img/referaluser.png' %} />
+							<img src={% static 'dashboard/img/referaluser.png' %} />
+							<h1>2%</h1>
+						</div><br/>
+						<div class='referalsection2listinner'>
+							<img src={% static 'dashboard/img/referaluser.png' %} />
+							<img src={% static 'dashboard/img/referaluser.png' %} />
+							<img src={% static 'dashboard/img/referaluser.png' %} />
+							<h1>1%</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-				<div>
-					<div class='dashherodepositeout'>
-						<div class='dashherodeposite'>
-							<img src={% static 'appgen/img/depositeicon.png' %} />
-							<p>Click To Deposite</p>
-						</div>
-						<div class='dashherodepositeuser'>
-							<div>
-								{% comment %} <p>Grade Card</p> {% endcomment %}
-								<h5>{{ request.user.first_name }}</h5>
-								<p>Your Plan: Nil</p>
-							</div>
-							<div>
-								<img src={% static 'appgen/img/profileicon.png' %} />
-							</div>
-						</div>
-					</div>
-				</div>
-			</div><br/>
-			{% comment %} account details starts here {% endcomment %}
-			<div class='amountssectionout'>
-				<div class='amountssection'>
-					<img src={% static 'dashboard/img/bit3.png' %} />
-					<div>
-						<h2>$0.00</h2>
-						<h4>Balance</h4>
-					</div>
-				</div>
-				<div class='amountssection'>
-					<img src={% static 'dashboard/img/bitcoin1.png' %} />
-					<div>
-						<h2>$0.00</h2>
-						<h4>Active Deposite</h4>
-					</div>
-				</div>
-				<div class='amountssection'>
-					<img src={% static 'dashboard/img/bit2.png' %} />
-					<div>
-						<h2>$0.00</h2>
-						<h4>Withdrawals</h4>
-					</div>
-				</div>
-				<div class='amountssection'>
-					<img src={% static 'dashboard/img/coins.png' %} />
-					<div>
-						<h2>$0.00</h2>
-						<h4>Earnings</h4>
-					</div>
-				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    {% comment %} MAIN BODY SECTION ENDS HERE {% endcomment %}
+		{% comment %} <div>
+			<div class="progress progress-xs rounded-lg bg-dark-darker m-b-5">
+				<div class="progress-bar progress-bar-striped rounded-right bg-teal" data-animation="width" data-value="100%" style="width: 100%;"></div>
 			</div>
-			{% comment %} account details ends here {% endcomment %}			
-			<br/>
-			{% comment %} WIDGET STARTS HERE {% endcomment %}
-			<div class='tradinggraphhero'>
-				<div>
-					<coingecko-coin-compare-chart-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" locale="en"></coingecko-coin-compare-chart-widget>
-				</div>
-				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-						{
-						"width": "100%",
-						"height": 500,
-						"defaultColumn": "overview",
-						"screener_type": "crypto_mkt",
-						"displayCurrency": "USD",
-						"colorTheme": "light",
-						"locale": "en"
-					}
-					</script>
-				</div>
-				<!-- TradingView Widget END -->
+		</div>
+
+		<div>
+			<div class="progress progress-xs rounded-lg bg-dark-darker m-b-5">
+				<div class="progress-bar progress-bar-striped rounded-right" data-animation="width" data-value="100%" style="width: 100%;"></div>
 			</div>
-			{% comment %} WIDGET ENDS HERE {% endcomment %}
-			<div class='chooseplanmain'>
-				<h2 class='chooseplanmaintext'>Choose an investment plan</h2>
-				<div class='chooseplan'>
-					<div>
-						<div class='chooseplanin'>
-							<div class='chooseplaninout chooseplaninout4'>
-								<div>
-									<img src={% static 'dashboard/img/diamond.png' %} />
-								</div>
-								<div>
-									<h2>Plan A - The Diamond Plan</h2>
-									<h4>Amount: $30, 000 to $Unlimited</h4>
-									<h4>Profit: 100% After 168 Hours</h4>
-									<a href={% url 'Invest' %}><button>Choose This Plan</button></a>
-								</div>
-							</div>
-						</div>					
-						<div class='chooseplanin'>
-							<div class='chooseplaninout chooseplaninout1'>
-								<div>
-									<img src={% static 'dashboard/img/gold.png' %} />
-								</div>
-								<div>
-									<h2>Plan B - The Gold Plan</h2>
-									<h4>Amount: $4,000 to $29,999</h4>
-									<h4>Profit: 50% After 72 Hours</h4>
-									<a href={% url 'Invest' %}><button>Choose This Plan</button></a>
-								</div>
-							</div>
-						</div>
-					</div>					
-					<div>
-						<div class='chooseplanin'>
-							<div class='chooseplaninout chooseplaninout2'>
-								<div>
-									<img src={% static 'dashboard/img/silver.png' %} />
-								</div>
-								<div>
-									<h2>Plan C - The Silver Plan</h2>
-									<h4>Amount: $500 to $3,999</h4>
-									<h4>Profit: 25% After 24 Hours</h4>
-									<a href={% url 'Invest' %}><button>Choose This Plan</button></a>
-								</div>
-							</div>
-						</div>
-						<div class='chooseplanin'>
-							<div class='chooseplaninout chooseplaninout3'>
-								<div>
-									<img src={% static 'dashboard/img/bronze.png' %} />
-								</div>
-								<div>
-									<h2>Plan D - The Bronze Plan</h2>
-									<h4>Amount: $30 to $499</h4>
-									<h4>Profit: 7% After 12 Hours</p>
-										<a href={% url 'Invest' %}><button>Choose This Plan</button></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+		</div> {% endcomment %}
+
+		{% comment %} <div>
+			<div class="dots">
+				<i class="dot dot--1"></i>
+				<i class="dot dot--2"></i>
+				<i class="dot dot--3"></i>
 			</div>
-			<div class='footer'>
-				{% comment %} <p>Copyrights | Exodus Trade</p> {% endcomment %}
-				<div class='copyrightSection'>
-					<div class='copyrightSectionInner'>
-						<img src={% static 'general/img/copyright.png' %} />
-						<h4>2023. Exodus - Trade. All rights reserved</h4>
-					</div>
-				</div>
+		</div>
+		<div>
+			<div class="dots">
+				<i class="dot dot--1"></i>
+				<i class="dot dot--2"></i>
+				<i class="dot dot--3"></i>
 			</div>
-        </main>
-		<script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script>	
-		<script src={% static 'dashboard/js/main.js' %}></script>	
-    </body>
+		</div> {% endcomment %}
+
+		{% comment %} <div>
+			<div class="col-xl-7 col-lg-7 col-sm-7 col-md-7 col-7">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 80 300 280" style="max-height: 200px">
+					<g>
+						<g id="closedSuitcase" transform="translate(350, 0)">
+							<g>
+								<path d="M225.88,258.06H82.68a11.62,11.62,0,0,0-11.57,11.61v19.75H237.44V269.66a11.62,11.62,0,0,0-11.56-11.61" fill="#a67ee5"></path>
+								<path d="M225.88,258.06H82.68a11.62,11.62,0,0,0-11.57,11.61v19.75H237.44V269.66A11.62,11.62,0,0,0,225.88,258.06Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+								<path d="M267.11,258.06H119.23a11.81,11.81,0,0,0-11.93,11.61v19.75H279V269.66a11.81,11.81,0,0,0-11.93-11.61" fill="#a67ee5"></path>
+								<path d="M267.11,258.06H119.23a11.81,11.81,0,0,0-11.93,11.61v19.75H279V269.66A11.81,11.81,0,0,0,267.11,258.06Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+								<path d="M278.74,279.41a5.34,5.34,0,1,0-5.32-5.34,5.32,5.32,0,0,0,5.32,5.34" fill="#a67ee5"></path>
+								<ellipse cx="278.74" cy="274.07" rx="5.31" ry="5.34" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></ellipse>
+								<path d="M277.62,269.66v9.75H266.89a5.72,5.72,0,0,1-5.71-5.73V258.06h4.88a11.61,11.61,0,0,1,11.56,11.61" fill="#a67ee5"></path>
+								<path d="M277.62,269.66v9.75H266.89a5.72,5.72,0,0,1-5.71-5.73V258.06h4.88A11.61,11.61,0,0,1,277.62,269.66Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+							</g>
+							<g>
+								<path d="M280.29,318.62a5.72,5.72,0,1,0-5.12-5.69,5.43,5.43,0,0,0,5.12,5.69" fill="#a67ee5"></path>
+								<ellipse cx="280.29" cy="312.93" rx="5.12" ry="5.69" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></ellipse>
+								<path d="M230.22,328.86h-148a11.85,11.85,0,0,1-11.95-11.67V289H242.16v28.17a11.84,11.84,0,0,1-11.94,11.67" fill="#a67ee5"></path>
+								<path d="M230.22,328.86h-148a11.85,11.85,0,0,1-11.95-11.67V289H242.16v28.17A11.84,11.84,0,0,1,230.22,328.86Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+								<path d="M266.72,328.86h-147a11.81,11.81,0,0,1-11.87-11.67V289H278.58v28.17a11.79,11.79,0,0,1-11.86,11.67" fill="#a67ee5"></path>
+								<path d="M266.72,328.86h-147a11.81,11.81,0,0,1-11.87-11.67V289H278.58v28.17A11.79,11.79,0,0,1,266.72,328.86Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+								<path d="M215,314.07H180.49a4.27,4.27,0,0,1-4.35-4.16V298.21a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22v10a1.33,1.33,0,0,0,1.35,1.29h29.71a1.33,1.33,0,0,0,1.35-1.29v-10a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22V309.9a4.27,4.27,0,0,1-4.35,4.16" fill="#a67ee5"></path>
+								<path d="M215,314.07H180.49a4.27,4.27,0,0,1-4.35-4.16V298.21a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22v10a1.33,1.33,0,0,0,1.35,1.29h29.71a1.33,1.33,0,0,0,1.35-1.29v-10a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22V309.9A4.27,4.27,0,0,1,215,314.07Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+								<rect x="138.58" y="282.19" width="9.1" height="12.52" fill="#a67ee5"></rect>
+								<rect x="138.58" y="282.19" width="9.1" height="12.52" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></rect>
+								<rect x="247.85" y="282.19" width="9.1" height="12.52" fill="#a67ee5"></rect>
+								<rect x="247.85" y="282.19" width="9.1" height="12.52" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></rect>
+								<path d="M278.58,317.11v-9.87h-10.4a5.67,5.67,0,0,0-5.53,5.8v15.82h4.73c6.16,0,11.2-5.29,11.2-11.75" fill="#a67ee5"></path>
+								<path d="M278.58,317.11v-9.87h-10.4a5.67,5.67,0,0,0-5.53,5.8v15.82h4.73C273.54,328.86,278.58,323.58,278.58,317.11Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+								<path d="M100,301.54H79.22a1,1,0,0,1-1-1V298a1,1,0,0,1,1-1H100a1,1,0,0,1,1,1v2.58a1,1,0,0,1-1,1" fill="#a67ee5"></path>
+								<path d="M100,301.54H79.22a1,1,0,0,1-1-1V298a1,1,0,0,1,1-1H100a1,1,0,0,1,1,1v2.58A1,1,0,0,1,100,301.54Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+							</g>
+							<g>
+								<line x1="46.24" y1="329" x2="303.76" y2="329" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
+							</g>
+							<animateTransform id="closedSuitcaseTranslate" attributeType="XML" attributeName="transform" type="translate" values="350; 0" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" dur="1.5s"></animateTransform>
+							<animate id="closedSuitcaseOpacity" attributeType="CSS" attributeName="opacity" from="0" to="1" dur="1.5s" fill="freeze"></animate>
+						</g>
+						<animate id="closedSuitcaseNone" begin="closedSuitcaseTranslate.end + 0.3s" attributeType="CSS" attributeName="opacity" from="1" to="0" dur="0.01s" fill="freeze"></animate>
+					</g>
+					<!--  open suitcase    -->
+					<g id="openSuitcase" opacity="0">
+						<g>
+							<path d="M253.93,232.11a5.69,5.69,0,1,0-5.69-5.69,5.69,5.69,0,0,0,5.69,5.69" fill="#a67ee5"></path>
+							<circle cx="253.93" cy="226.42" r="5.69" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></circle>
+							<path d="M240.3,210.48H67.19a12,12,0,0,0-12,11.9V276a13,13,0,0,0,13,13h184V222.38a12,12,0,0,0-11.94-11.9" fill="#a67ee5"></path>
+							<path d="M240.3,210.48H67.19a12,12,0,0,0-12,11.9V276a13,13,0,0,0,13,13h184V222.38A12,12,0,0,0,240.3,210.48Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+							<path d="M70.24,289V225.49a15,15,0,0,1,15-15h0.5" fill="none" stroke="#fff" stroke-width="2"></path>
+						</g>
+						<!--   balloon     -->
+						<g transform="rotate(45, 80)">
+							<g transform="translate(45, 80)">
+								<path id="balloonLine" d="M62 209.842L62 210" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round">
+									<animate begin="closedSuitcaseNone.end" attributeName="d" values="M62 209.842L62 210; M62 90 L62.5925 210;" dur="0.3s" fill="freeze"></animate>
+								</path>
+							</g>
+							<g transform="translate(73, 250)">
+								<g>
+									<path d="M33.6284 84.1819L31.4514 87.9794C31.3366 88.184 31.2774 88.415 31.2799 88.6496C31.2824 88.8842 31.3464 89.1139 31.4655 89.316C31.5847 89.5181 31.7548 89.6853 31.9588 89.801C32.1628 89.9167 32.3937 89.9769 32.6282 89.9754L36.9982 89.9604C37.2319 89.9585 37.4611 89.8955 37.6629 89.7777C37.8648 89.6599 38.0323 89.4913 38.1489 89.2887C38.2654 89.0862 38.327 88.8566 38.3274 88.6229C38.3279 88.3892 38.2672 88.1594 38.1513 87.9564L35.9584 84.1739C35.8386 83.971 35.6679 83.803 35.4631 83.6865C35.2583 83.5701 35.0266 83.5092 34.7911 83.51C34.5555 83.5109 34.3242 83.5733 34.1202 83.6912C33.9163 83.809 33.7467 83.9782 33.6284 84.1819Z" fill="white"></path>
+									<path d="M34.5053 1.72842C43.2284 1.70113 51.6054 5.13812 57.7956 11.2841C63.9858 17.4301 67.4828 25.7823 67.518 34.5053C67.5804 52.6752 52.5959 83.4468 34.4361 83.5091C16.2762 83.5715 1.78076 52.8911 1.71842 34.7312C1.69378 26.0081 5.13331 17.6321 11.2812 11.4438C17.4291 5.25543 25.7823 1.76102 34.5053 1.72842ZM34.4998 0.118433C25.3532 0.160417 16.5966 3.82871 10.1512 10.3186C3.7057 16.8085 0.0976176 25.59 0.118429 34.7367C0.151075 44.2466 3.99427 56.8235 9.90846 66.7732C16.9492 78.6291 25.6516 85.1393 34.4315 85.1092C43.2115 85.079 52.009 78.5088 59.1782 66.6241C65.2439 56.6032 69.1505 43.9497 69.118 34.4998C69.076 25.3532 65.4077 16.5967 58.9179 10.1512C52.428 3.70571 43.6465 0.0976209 34.4998 0.118433Z" fill="white"></path>
+									<path d="M22.9386 34.7383C22.8762 16.5784 28.0556 1.83057 34.5056 1.80843C25.7826 1.84102 17.4293 5.33543 11.2815 11.5238C5.13358 17.7121 1.69405 26.0881 1.71869 34.8112C1.78106 52.9811 16.2664 83.6515 34.4363 83.5891L34.6063 83.5886C28.1757 83.4206 23.0008 52.8582 22.9386 34.7383Z" fill="#76ABFF"></path>
+									<path d="M67.5183 34.5853C67.4831 25.8623 63.9861 17.5101 57.7959 11.3641C51.6057 5.21811 43.2286 1.78113 34.5056 1.80843C40.9556 1.78628 46.2361 16.4982 46.2984 34.6581C46.3608 52.818 41.1749 83.156 34.7863 83.5679C52.7848 83.1162 67.5803 52.6352 67.5183 34.5853Z" fill="#1553B7"></path>
+									<path d="M46.2984 34.6581C46.2361 16.4982 40.9556 1.78628 34.5056 1.80842C28.0556 1.83057 22.8762 16.5784 22.9386 34.7383C23.0009 52.8982 28.1757 83.4106 34.6063 83.5886L34.7863 83.5879C41.1749 83.166 46.3604 52.718 46.2985 34.6681" fill="#3B7BF2"></path>
+									<path d="M27.3944 27.693C26.2671 27.6969 25.1662 28.0349 24.231 28.6645C23.2958 29.294 22.5683 30.1867 22.1404 31.2298C21.7126 32.2728 21.6036 33.4192 21.8274 34.5242C22.0511 35.6291 22.5974 36.6429 23.3973 37.4373C24.1972 38.2317 25.2147 38.7711 26.3212 38.9872C27.4276 39.2034 28.5733 39.0865 29.6133 38.6515C30.6534 38.2166 31.5411 37.4829 32.1642 36.5434C32.7873 35.6039 33.1178 34.5007 33.1139 33.3734C33.1565 32.6129 33.0374 31.8521 32.7644 31.141C32.4915 30.4299 32.071 29.7847 31.5306 29.248C30.9901 28.7113 30.3421 28.2952 29.6292 28.0272C28.9162 27.7591 28.1546 27.6452 27.3944 27.693ZM27.4219 35.6929C25.5619 35.6993 24.3587 34.7735 24.354 33.4135C24.3494 32.0535 25.5562 31.1193 27.4062 31.113C29.2561 31.1066 30.4793 32.0324 30.484 33.3924C30.4887 34.7524 29.2419 35.6867 27.4219 35.6929Z" fill="white"></path>
+									<path d="M41.5943 27.6442C41.92 27.6429 42.2397 27.7309 42.5188 27.8987C42.7979 28.0665 43.0256 28.3076 43.1772 28.5958C43.3287 28.8841 43.3983 29.2083 43.3783 29.5334C43.3584 29.8584 43.2496 30.1717 43.0639 30.4392L29.8004 49.8249C29.5143 50.1575 29.116 50.3735 28.6812 50.4318C28.2463 50.4901 27.8052 50.3867 27.4416 50.1411C27.078 49.8956 26.8172 49.5251 26.7088 49.0999C26.6004 48.6748 26.6519 48.2246 26.8536 47.835L40.1271 28.4493C40.2897 28.21 40.5085 28.0143 40.7643 27.8792C41.0201 27.744 41.3051 27.6737 41.5944 27.6742" fill="white"></path>
+									<path d="M43.1039 39.1591C41.9765 39.163 40.8756 39.5011 39.9404 40.1306C39.0052 40.7601 38.2777 41.6529 37.8499 42.6959C37.422 43.7389 37.3131 44.8854 37.5368 45.9903C37.7605 47.0952 38.3069 48.109 39.1068 48.9034C39.9067 49.6978 40.9242 50.2372 42.0306 50.4533C43.1371 50.6695 44.2827 50.5527 45.3228 50.1177C46.3628 49.6827 47.2505 48.9491 47.8737 48.0096C48.4968 47.07 48.8273 45.9669 48.8234 44.8395C48.8643 44.0795 48.7441 43.3193 48.4706 42.609C48.1971 41.8986 47.7765 41.2541 47.2365 40.7177C46.6964 40.1813 46.049 39.7652 45.3368 39.4966C44.6246 39.228 43.8636 39.113 43.1039 39.1591ZM43.1313 47.1591C41.2713 47.1655 40.0682 46.2396 40.0635 44.8796C40.0588 43.5196 41.2656 42.5855 43.1156 42.5791C44.9656 42.5728 46.1887 43.4686 46.1934 44.8585C46.1982 46.2485 44.9913 47.1527 43.1313 47.1591Z" fill="white"></path>
+									<animateTransform id="balloonStart" begin="closedSuitcaseNone.end" attributeType="XML" attributeName="transform" type="translate" dur="0.3s" from="0 0" to="0 -165" fill="freeze"></animateTransform>
+									<animateTransform id="balloonRotateStart" begin="closedSuitcaseNone.end" attributeType="XML" attributeName="transform" type="rotate" dur="0.3s" from="60 30 90" to="0 30 90" additive="sum" fill="freeze"></animateTransform>
+									<animateTransform begin="balloonStart.end" attributeType="XML" attributeName="transform" type="rotate" dur="0.6s" values="8 40 60; -5 40 80; 0 40 60" additive="sum" fill="freeze"></animateTransform>
+									<animateTransform begin="balloonStart.end - 0.1s" attributeType="XML" attributeName="transform" type="translate" dur="0.5s" additive="sum" values="0 25; 0 0; 0 5; 0 0" fill="freeze"></animateTransform>
+								</g>
+							</g>
+							<animateTransform begin="balloonStart.end" attributeType="XML" attributeName="transform" type="rotate" dur="0.5s" values="-3 180 290; 1 180 290; 0 180 290" additive="sum" fill="freeze"></animateTransform>
+						</g>
+						<!--    flowers    -->
+						<g transform="rotate(55 180 290)">
+							<g>
+								<path d="M180.73,277.8s8.3-74.59,39.71-90" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+								<path d="M217.95,187.12l9.27-24.49a22,22,0,0,1,8.72,3,7.87,7.87,0,0,1,9.72,12.33,22.14,22.14,0,0,1,.86,9.18l-26,3.3a2.45,2.45,0,0,1-2.6-3.29" fill="#3b7bf2"></path>
+								<path d="M178.24,287.63s6.89-44.68,37.95-56.53" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+								<path d="M210.85,232l9-16.47a16.66,16.66,0,0,1,6.13,2.93,5.93,5.93,0,0,1,4-.42,5.67,5.67,0,0,1,4.26,6.85,5.54,5.54,0,0,1-2.29,3.23,15.1,15.1,0,0,1-.21,6.58l-19.34-.11a1.76,1.76,0,0,1-1.6-2.58" fill="#3b7bf2"></path>
+							</g>
+							<animateTransform begin="closedSuitcaseNone.end" attributeType="XML" attributeName="transform" type="rotate" dur="0.6s" values="55 180 290; -13 180 290; 10 180 290; 0 180 290" fill="freeze"></animateTransform>
+						</g>
+						<g transform="rotate(55 180 290)">
+							<g>
+								<path d="M141.77,204.16c24.1,32.45,35.81,84,35.81,84" fill="none" stroke="#3b7bf2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+								<path d="M125.73,196.22c6.54,7.51,17.16,9,17.16,9s0-10.72-6.53-18.22-17.17-9-17.17-9,0,10.72,6.54,18.22" fill="#76abff"></path>
+								<path d="M153.17,206.54c-2.69,9.58,1.91,19.27,1.91,19.27s9-5.86,11.67-15.45-1.91-19.27-1.91-19.27-9,5.86-11.67,15.45" fill="#3b7bf2"></path>
+								<path d="M135.82,227.71c9.59,2.7,19.26-1.91,19.26-1.91s-5.86-9-15.45-11.67S120.37,216,120.37,216s5.87,9,15.45,11.67" fill="#3b7bf2"></path>
+								<path d="M166.1,232.52c-3.41,9.36.47,19.35,0.47,19.35s9.39-5.18,12.79-14.53S178.89,218,178.89,218s-9.39,5.18-12.79,14.53" fill="#1553b7"></path>
+								<path d="M147.22,252.35c9.36,3.4,19.35-.47,19.35-0.47s-5.18-9.39-14.54-12.79-19.35.47-19.35,0.47,5.18,9.39,14.54,12.79" fill="#1553b7"></path>
+							</g>
+							<animateTransform begin="closedSuitcaseNone.end" attributeType="XML" attributeName="transform" type="rotate" dur="1s" values="55 180 290; -13 180 290; 8 180 290; -5 180 290; 0 180 290" fill="freeze"></animateTransform>
+						</g>
+						<g transform="rotate(35 180 290)">
+							<g>
+								<path d="M183.79,264.77c2.3,9.1-2.27,18.12-2.27,18.12s-8.32-5.74-10.63-14.85,2.27-18.12,2.27-18.12,8.32,5.75,10.63,14.85" fill="#3b7bf2"></path>
+								<path d="M199.63,285.16c-9.11,2.31-18.12-2.27-18.12-2.27s5.74-8.32,14.85-10.63,18.12,2.27,18.12,2.27-5.75,8.32-14.85,10.63" fill="#3b7bf2"></path>
+								<path d="M188.56,271.67a144.15,144.15,0,0,0-10.31,16.61" fill="none" stroke="#3b7bf2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+								<path d="M203.69,264.19c-6.17,7.08-16.19,8.44-16.19,8.44s0-10.11,6.16-17.18S209.85,247,209.85,247s0,10.11-6.16,17.19" fill="#76abff"></path>
+							</g>
+							<animateTransform begin="closedSuitcaseNone.end" attributeType="XML" attributeName="transform" type="rotate" dur="1.2s" values="35 180 290; -8 180 290; 10 180 290; -5 180 290; 0 180 290;" fill="freeze"></animateTransform>
+						</g>
+						<!--   bird     -->
+						<g transform="translate(-75, 85)">
+							<path fill="#01caca" transform="translate(260, 167)" d="M17.2 17.8C17.1925 16.6869 17.5649 15.6045 18.2559 14.7318C18.9468 13.859 19.9148 13.2481 21 13L42.07 7.60001C34.29 22.44 22.89 22.67 22.07 22.67C20.7791 22.6568 19.5456 22.1348 18.6374 21.2173C17.7293 20.2998 17.2199 19.0609 17.22 17.77">
+								<animate attributeName="d" values="M17.2 17.8C17.1925 16.6869 17.5649 15.6045 18.2559 14.7318C18.9468 13.859 19.9148 13.2481 21 13L42.07 7.60001C34.29 22.44 22.89 22.67 22.07 22.67C20.7791 22.6568 19.5456 22.1348 18.6374 21.2173C17.7293 20.2998 17.2199 19.0609 17.22 17.77;M17.0929 21.176C16.8385 20.0923 16.9126 18.9651 17.3031 17.9805C17.6936 16.996 18.3772 16.213 19.2407 15.7611V15.7611L35.8779 6.41805C32.5978 22.3909 22.9963 24.822 22.3019 24.9807C21.206 25.2178 20.0451 24.9477 19.0717 24.229C18.0982 23.5104 17.3908 22.4014 17.1031 21.1429;M18.1903 20.2297C16.9963 20.205 15.839 20.0194 14.9098 19.7037C13.9805 19.3881 13.3349 18.9611 13.0796 18.4935V18.4935L7.49731 9.39937C23.3374 13.08 23.4706 17.9328 23.4624 18.2814C23.4354 18.83 22.8632 19.3413 21.87 19.7044C20.8769 20.0675 19.543 20.2529 18.1583 20.2205" dur="0.15s" repeatCount="indefinite"></animate>
+							</path>
+							<path fill="#01caca" d="M262.24,169.86l10.76,0a4.65,4.65,0,0,1,4.41-2.9,3.91,3.91,0,0,1,3.48,1.76,13.39,13.39,0,0,1,1.37,2.59c0.63,1.57,4,15.8,5.89,19.16,1.1,2,4.39,7.16,4.39,7.16a2.3,2.3,0,0,1,.31,1.15V208s-3.11-1.08-3.11-3.91v-6.53c-1.91.27-6-1.65-8.33-2.88a12.82,12.82,0,0,1-6.36-6.76,12.33,12.33,0,0,1-.11-9.16,7.13,7.13,0,0,0,.79-2.91c-0.06-1.14-1.39-2.72-2.18-4.05Z"></path>
+							<animateTransform id="endPathBird" begin="closedSuitcaseNone.end" attributeName="transform" type="translate" to="0, 0" dur="0.5s" fill="freeze"></animateTransform>
+							<animateTransform begin="endPathBird.end" attributeName="transform" type="rotate" values="0 240 190; -8 220 160; 0 250 180; 3 220 160; 0 240 190" dur="2.5s" repeatDur="indefinite"></animateTransform>
+						</g>
+						<!--  lower part of the suitcase      -->
+						<g>
+							<path d="M280.29,318.62a5.72,5.72,0,1,0-5.12-5.69,5.43,5.43,0,0,0,5.12,5.69" fill="#a67ee5"></path>
+							<ellipse cx="280.29" cy="312.93" rx="5.12" ry="5.69" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></ellipse>
+							<path d="M230.22,328.86h-148a11.85,11.85,0,0,1-11.95-11.67V289H242.16v28.17a11.84,11.84,0,0,1-11.94,11.67" fill="#a67ee5"></path>
+							<path d="M230.22,328.86h-148a11.85,11.85,0,0,1-11.95-11.67V289H242.16v28.17A11.84,11.84,0,0,1,230.22,328.86Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+							<path d="M266.72,328.86h-147a11.81,11.81,0,0,1-11.87-11.67V289H278.58v28.17a11.79,11.79,0,0,1-11.86,11.67" fill="#a67ee5"></path>
+							<path d="M266.72,328.86h-147a11.81,11.81,0,0,1-11.87-11.67V289H278.58v28.17A11.79,11.79,0,0,1,266.72,328.86Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+							<path d="M215,314.07H180.49a4.27,4.27,0,0,1-4.35-4.16V298.21a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22v10a1.33,1.33,0,0,0,1.35,1.29h29.71a1.33,1.33,0,0,0,1.35-1.29v-10a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22V309.9a4.27,4.27,0,0,1-4.35,4.16" fill="#a67ee5"></path>
+							<path d="M215,314.07H180.49a4.27,4.27,0,0,1-4.35-4.16V298.21a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22v10a1.33,1.33,0,0,0,1.35,1.29h29.71a1.33,1.33,0,0,0,1.35-1.29v-10a1.24,1.24,0,0,1,1.27-1.22h2.88a1.25,1.25,0,0,1,1.27,1.22V309.9A4.27,4.27,0,0,1,215,314.07Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+							<rect x="138.58" y="282.19" width="9.1" height="12.52" fill="#a67ee5"></rect>
+							<rect x="138.58" y="282.19" width="9.1" height="12.52" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></rect>
+							<rect x="247.85" y="282.19" width="9.1" height="12.52" fill="#a67ee5"></rect>
+							<rect x="247.85" y="282.19" width="9.1" height="12.52" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></rect>
+							<path d="M278.58,317.11v-9.87h-10.4a5.67,5.67,0,0,0-5.53,5.8v15.82h4.73c6.16,0,11.2-5.29,11.2-11.75" fill="#a67ee5"></path>
+							<path d="M278.58,317.11v-9.87h-10.4a5.67,5.67,0,0,0-5.53,5.8v15.82h4.73C273.54,328.86,278.58,323.58,278.58,317.11Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+							<path d="M100,301.54H79.22a1,1,0,0,1-1-1V298a1,1,0,0,1,1-1H100a1,1,0,0,1,1,1v2.58a1,1,0,0,1-1,1" fill="#a67ee5"></path>
+							<path d="M100,301.54H79.22a1,1,0,0,1-1-1V298a1,1,0,0,1,1-1H100a1,1,0,0,1,1,1v2.58A1,1,0,0,1,100,301.54Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></path>
+						</g>
+						<g>
+							<line x1="46.24" y1="329" x2="303.76" y2="329" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
+						</g>
+						<animate begin="closedSuitcaseNone.end" attributeType="CSS" attributeName="opacity" from="0" to="1" dur="0.01s" fill="freeze"></animate>
+					</g>
+				</svg>
+			</div>
+		</div> {% endcomment %}
+
+		
+		<script src={% static 'dashboard/js/main.js' %}></script>
+		<script src={% static 'appgen/js/main.js' %}></script>
+	</body>
 </html>
 {% endblock content %}

@@ -15,7 +15,7 @@ def Dashboard(request):
 def Nav(request):
     return render(request, 'generalapp.html')
 
-# @login_required(login_url='UserSignUpFxn')
+@login_required(login_url='UserSignUpFxn')
 def Deposite(request):
     return render(request, 'app/deposite.html')
 

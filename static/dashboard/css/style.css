@@ -8,6 +8,9 @@
     /* z-index: 5; */
 }
 
+.main{    
+    padding-bottom: 100px;
+}
 
 .overlay{
     position: fixed; 
@@ -22,310 +25,6 @@
     z-index: 1;
 }
 
-main{
-    z-index: 5;
-    background-color: transparent;
-}
-
-body{
-    height: 100vh;
-    width: 100vw;
-    /* background: red; */
-}
-
-.tradinggraphhero{
-    background-color: #233239;
-    display: grid;
-    grid-template-columns: 70% 30%;
-    border-radius: 5px;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
-    height: 400px;
-    overflow: scroll;
-    padding-bottom: 50px;
-}
-
-main{
-    margin-left: 60px;
-    margin-right: 3%;
-    padding-bottom: 20px;
-}
-
-/* blinking dots starts here */
-
-.blinking{
-    animation: 1s blink ease infinite;
-    width: 20px;
-    height: 20px;
-    border-radius: 100%
-  }
-  
-  .blinking-green {
-      animation: 1s blink-green ease infinite;
-    width: 20px;
-    height: 20px;
-    border-radius: 100%
-  }
-  
-  
-  @-webkit-keyframes blink-green {
-    from, to {
-      opacity: 0;
-      background-color: green;
-    }
-    25% {
-      opacity: 1;
-      background-color: darkorange;
-    }
-     
-      50% {
-      opacity: 0;
-      background-color: yellow; 
-    }
-    
-    75%{
-      opacity: 1;
-      background-color: red; 
-    }
-    100%{
-      opacity: 0;
-      background-color: green;
-    }
-  }
-  
-  @-webkit-keyframes blink {
-    0% {
-      opacity: 0;
-      background-color: red;
-    }
-    25% {
-      opacity: 1;
-      background-color: red;
-    }
-     
-      50% {
-      opacity: 0;
-      background-color: darkorange; 
-    }
-    
-    75%{
-      opacity: 1;
-      background-color: darkorange; 
-    }
-    100%{
-      opacity: 0;
-      background-color: darkorange;
-    }
-  }
-  
-  
-  
-
-/* blinking dots ends here */
-
-.dashboadherotop{
-    display: flex;
-    justify-content: space-between;
-    align-items: top;
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 5px;
-    color: whitesmoke;
-    background-color: #233239;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
-}
-
-.dashherodeposite{
-    padding: 3px;
-    border-radius: 5px;
-    color: white;
-    /* width: 100px; */
-    height: 50px;
-    display: flex;
-    justify-content: space-around;
-    font-size: 1.3rem;
-    align-items: center;
-    cursor: pointer;
-    background-color: black;
-    /* background-image: linear-gradient(105deg, #233239 0%, rgba(0,0,0,0.8463760504201681) 100%) */
-}
-
-.dashherodeposite img{
-    width: 20px;
-    margin-right: 5px;
-}
-
-.dashherodeposite p{
-    margin-top: 10px;
-}
-
-.dashherodepositeuser img{
-    width: 50px;
-    margin: 4px;
-}
-
-.dashherodepositeuser{
-    padding: 5px;
-    margin-top: 10px;
-    background-color: black;
-    color: white;
-    justify-content: space-around;
-    display: flex;
-    border-radius: 5px;
-    align-items: center;
-    height: 50px;
-    margin-left: 20px;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
-}
-
-.dashherodepositeout{
-    display: flex;
-    align-items: center;
-}
-
-.introtext strong{
-    color: Yellow;
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.amountssection{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
-    background-color: #233239;
-    width: 200px;
-}
-
-.amountssection h2{
-    font-weight: bold;
-}
-
-.amountssection img{
-    width: 50px;
-}
-
-.amountssection h4{
-    margin-top: 10px;
-}
-
-.amountssectionout{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.chooseplan{
-    padding: 10px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.chooseplanin{
-    margin-bottom: 20px;
-}
-
-.chooseplaninout:hover{
-    transform: scale(1.1);
-}
-
-.chooseplaninout{
-    display: flex;
-    padding: 10px;
-    height: 150px;
-    align-items: center;
-    background-color: #233239;
-    border-radius: 10px;
-    transition: ease-in-out .3s;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
-
-}
-
-.chooseplaninout img{
-    margin-right: 5px;
-}
-
-.chooseplaninout h2{
-    font-weight: bold;
-}
-
-.chooseplaninout1 button{
-    background-color: #fab005;
-    color: white;
-    font-size: 1.3rem;
-    padding: 10px;
-    width: 100%;
-    border: none;
-    height: 40px;
-    margin-top: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.chooseplanmaintext{
-    font-weight: bold;
-}
-
-
-.chooseplanmain{
-    background-color: #233239;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); 
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 70px;
-}
-
-
-
-.chooseplaninout2 button{
-    background-color: #228be6;
-    color: white;
-    font-size: 1.3rem;
-    padding: 10px;
-    width: 100%;
-    border: none;
-    height: 40px;
-    margin-top: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.chooseplaninout3 button{
-    background-color: #40c057;
-    color: white;
-    font-size: 1.3rem;
-    padding: 10px;
-    width: 100%;
-    border: none;
-    height: 40px;
-    margin-top: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.chooseplaninout4 button{
-    background-color: #4ccff1;
-    color: white;
-    font-size: 1.3rem;
-    padding: 10px;
-    width: 100%;
-    border: none;
-    height: 40px;
-    margin-top: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.footer{
-    margin: 20px;
-    text-align: center;
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-bottom: 70px;
-}
 
 .google_element_local{
     overflow: scroll;
@@ -333,12 +32,481 @@ main{
 }
 
 
-/* TRAFFIC STARTS HERE */
+
+.fa-th-large:before {
+    content: "\f009";
+}
+
+.dot {
+    display: inline-block;
+    background: #ffffff;
+    border-radius: 50%;
+    width: 0.8em;
+    height: 0.8em;
+    -webkit-animation: dots-pulse 5s infinite cubic-bezier(0.77, 0, 0.175, 1);
+    animation: dots-pulse 5s infinite cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.dot--1 {
+    -webkit-animation-delay: -2.9s;
+    animation-delay: -2.9s;
+}
+
+.dot--2 {
+    -webkit-animation-delay: -2.6s;
+    animation-delay: -2.6s;
+}
+
+.dot--3 {
+    -webkit-animation-delay: -2.3s;
+    animation-delay: -2.3s;
+}
+
+@keyframes dots-pulse{
+    0% {
+        background: #ff3502;
+    }
+    
+    25% {
+        background: #ff7b01;
+    }
+    50% {
+        background: #c2e900;
+    }
+    100% {
+        background: #01caca;
+    }
+}
+
+/* PROGRESS BAR LINE STARTS HERE */
+.progress.progress-xs .progress-bar {
+    line-height: 5px;
+}
+
+.progress .progress-bar {
+    font-weight: 600;
+}
+.bg-teal {
+    background-color: #01caca !important;
+}
+.rounded-right {
+    border-top-right-radius: 4px!important;
+    border-bottom-right-radius: 4px!important;
+}
+.progress-bar-striped {
+    background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-size: 1rem 1rem;
+}
+.progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #006cff;
+    transition: width .6s ease;
+}
+
+.progress.progress-xs .progress-bar {
+    line-height: 5px;
+}
+.progress .progress-bar {
+    font-weight: 600;
+}
+.rounded-right {
+    border-top-right-radius: 4px!important;
+    border-bottom-right-radius: 4px!important;
+}
+.progress-bar-striped {
+    background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-size: 1rem 1rem;
+}
+.progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #006cff;
+    transition: width .6s ease;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+.progress {
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: .5625rem;
+    background-color: #b3b3b3;
+    border-radius: 4px;
+}
+
+
+.progress.progress-xs {
+    height: 5px;
+}
+
+.bg-dark-darker {
+    background-color: #000!important;
+}
+.bg-dark-darker {
+    background-color: #000!important;
+}
+.bg-dark-darker {
+    background-color: #000!important;
+}
+.m-b-5 {
+    margin-bottom: 5px!important;
+}
+.rounded-lg {
+    border-radius: 6px!important;
+}
+.progress {
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: .5625rem;
+    background-color: #b3b3b3;
+    border-radius: 4px;
+}
+
+
+.mainbodysection{
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+    justify-content: space-between;
+    margin-top: 10px;
+}
 
 
 
 
-/* TRAFFIC ENDS HERE */
+
+
+/* PROGRESS BAR LINE ENDS HERE */
+.balancebox{
+    height: 200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 48% 48%;
+    justify-content: space-between;
+}
+
+.balanceboxinner1{
+    background-color: #004767;
+    height: 100%;
+    width: 100;
+    border-radius: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+}
+
+
+.laptopsvg{
+    width: 180px;
+    margin-top: 80px;
+}
+
+.balanceboxinner2{
+    margin-left: 200px;
+    margin-top: -95px;
+}
+
+.balanceboxinner2traffic{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.herouserdetailssection h5 span, .balanceboxinner2traffic h2{
+    color: #94B2BF;
+}
+
+.herouserdetailssection{
+    display: grid;
+    grid-template-columns: 48% 48%;
+    justify-content: space-between;
+}
+
+.balancebox2inner{
+    background-color: #004767;
+    height: 100%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.balancebox2{
+    display: grid;
+    grid-template-columns: 48% 48%;
+    justify-content: space-between;
+}
+
+.activedeposection{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.activedeposection .dot{
+    margin-bottom: 10px;
+}
+
+.activedeposectioninnner p{
+    color: #94B2BF;
+    font-size: 1.2rem;
+    margin-left: 5px;
+    width: 100%;
+}
+
+.activedeposectioninnner{
+    display: flex;
+    /* grid-template-columns: 50% 50%; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accountdefectssection{
+    display: flex;
+    align-items: center;
+    height: 25px;
+    justify-content: space-between;
+}
+
+/* .accountdefectssection1:hover{
+    color: #233239;
+} */
+
+.accountdefectssection1 img{
+    width: 30px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.accountdefectssectionout{
+    background-color: #39474D;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    height: 340px;
+}
+
+.cryptoprices{
+    height: 340px;
+    background-color: #004767;
+    border-radius: 10px;
+}
+
+
+.accountdefectssection1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.accountdefectssection2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.accountdefectssection2 img{
+    width: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+
+.coinimg img{
+    width: 40px;
+}
+
+.coindetails{
+    font-size: 1.2rem;
+    display: grid;
+    grid-template-columns: 28% 28%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coindetails1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coindetails2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#crypto-table {
+    margin-top: 10%;
+}
+
+ul {
+    margin-top: 50px;
+}
+
+
+.bold {
+    font-weight: 600;
+}
+
+
+table td a{
+    color: black
+}
+.devicesinvintro{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    align-items: center;
+}
+
+
+table {
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 60px;
+    overflow: scroll;
+    border: 1px solid transparent;
+    margin: auto;
+    border: none;
+}
+
+table, tr, td, th{
+    padding: 10px;
+    margin: auto;
+    border: none;
+    }
+
+td,
+th {
+    text-align: left;
+    padding: 8px;
+}
+
+tr{
+    border: none;
+}
+
+th{
+    text-align: left;
+    padding: 8px;
+    color: black;
+}
+
+tbody tr:hover{
+    background-color: #eef3f93e;
+}
+/* tr:nth-child(even) {} */
+
+.table-responsive{
+    border: none;
+}
+
+.table-responsive td{
+    font-size: 1.2rem;
+}
+
+.table-responsive h5{
+    padding: 10px;
+}
+
+.referalsection input{
+    color: black;
+    width: 80%;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    font-size: 1.3rem;
+    border: none;
+    padding: 10px;
+}
+
+.referalsection input{
+    color: black;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.referalsection h3{
+    margin-left: 10px;
+}
+
+.referalsectioninput img{
+    height: 40px;
+    position: absolute;
+    width: 40px;
+    cursor: pointer;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 10px;
+    background-color: black;
+}
+
+.referalsection{
+    position: relative;
+    background-color: #00354D;
+    padding-top: 10px;
+    border-radius:10px;
+    position: relative;
+    height: 340px;
+}
+
+.referalsection2{
+    background-color: #004767;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    padding-left: -30px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    justify-content: space-between;
+    align-items: center;
+    /* height: 400px; */
+}
+
+.referalsection2gif{
+    height: 200px;
+    width: 500px;
+    margin-left: -50px;
+}
+
+.referalsection2list{
+    margin-left: -50px;
+}
+
+
+.referalsection2listinner img{
+    background-color: transparent;
+    width: 30px;
+    /* height: 0px; */
+    margin-right: 10px;
+}
+
+.referalsection2listinner{
+    display: flex;
+    align-items: center;
+}
+
+.referalsection2listinner img:nth-child(2){
+    width: 20px;
+}
+
+.referalsection2listinner img:nth-child(3){
+    width: 10px;
+}
+
 
 
 
@@ -360,11 +528,19 @@ main{
 
 
 @media only screen and (max-width: 1102px){
+
+    .referalsection{
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    body{
+        overflow-x: hidden;
+    }
     
-    .tradingview-widget-container{
-        display: block;
-        width: 90vw;
-        overflow: scroll;
+    .main{    
+        margin-top: 160px;
+        margin-left: 0px;
     }
 
     .tradinggraphhero{
@@ -470,14 +646,69 @@ main{
         align-items: center;
     }
 
+    .balancebox{
+        height: 390px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: space-between;
+    }
 
+    .balanceboxinner1{
+        background-color: #004767;
+        height: 100%;
+        width: 100;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        padding-right: 10px;
+        overflow: hidden;
+        /* display: grid;
+        grid-template-columns: 30% 70%; */
+    }
 
+    .balanceboxinner2{
+        margin-left: 150px;
+        margin-top: -85px;
+    }
 
+    .laptopsvg{
+        width: 140px;
+        margin-top: 80px;
+    }
 
+    
+    .balancebox2{
+        display: grid;
+        grid-template-columns: 48% 48%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
 
+    
+    .mainbodysection{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
 
+    .accountdefectssectionout{
+        margin-bottom: 20px;
+    }
 
+    .cryptoprices{
+        margin-bottom: 20px;
+    }
 
+    .referalsection{
+        margin-bottom: 20px;
+    }
+    table, tr, td, th{
+        padding: 10px;
+        margin: auto;
+        border: none;
+    }
+        
 
 }
 

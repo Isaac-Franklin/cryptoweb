@@ -26,11 +26,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	</head>
-	<body>
-		<div id="overlay">
-		<div class="spinner"></div> 
+	<body style="background:linear-gradient(0deg, #233239e1, #233239e1), url('/static/dashboard/img/whitebackground.PNG');" >
+		{% comment %} <div id="overlay"> {% endcomment %}
+		{% comment %} <div class="spinner"></div>  {% endcomment %}
 		</div>
-        {% include "navapp.html" %}{% block content %}{% endblock content %}{% include "bottomscroll.html" %}
+        {% include "navapp.html" %}{% block content %}{% endblock content %}
+		{% comment %} {% include "bottomscroll.html" %} {% endcomment %}
 		<script src={% static 'appgen/js/main.js' %}></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js" ></script>
 		{% comment %} TRANSLATE WITH GOOGLE {% endcomment %}
@@ -46,8 +47,8 @@
 				  }, 'google_translate_element');
 			}
 		 </script>
-		 <script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script>
-		 <script src="https://widgets.coingecko.com/coingecko-coin-market-ticker-list-widget.js"></script>
+		 {% comment %} <script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script>
+		 <script src="https://widgets.coingecko.com/coingecko-coin-market-ticker-list-widget.js"></script> {% endcomment %}
     </body>
     </html>
 
