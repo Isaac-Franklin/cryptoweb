@@ -21,6 +21,17 @@
 	<body>		
     {% comment %} MAIN BODY SECTION STARTS HERE {% endcomment %}
     <div class='main'>
+		
+				
+		<div id="flash">
+			{% if messages %} {% for message in messages %}
+			<div class="alert alert-{{ message.tags}} m-0" role="alert">
+				<strong style="color: #004767">{{ message }}</strong>
+			</div>
+			{% endfor %} {% endif %}
+		</div>
+
+
 		<div class='balancebox'>
 			<div class='balanceboxinner1'>
 				<div class='laptopsvg'>
@@ -743,7 +754,7 @@
 			<div class='accountdefectssectionout'>
 				<div class='accountdefectssection'>
 					<div class='accountdefectssection1'>
-						<img src={% static 'dashboard/img/2fa.png' %} />
+						<img src={% static 'dashboard/img/2fa.PNG' %} />
 						<h5>2 Factor Authentication</h5>
 					</div>
 					<div class='accountdefectssection2'>
@@ -754,7 +765,7 @@
 				<hr/>
 				<div class='accountdefectssection'>
 					<div class='accountdefectssection1'>
-						<img src={% static 'dashboard/img/calendar.png' %} />
+						<img src={% static 'dashboard/img/calendar.PNG' %} />
 						<h5>Sign Up Date</h5>
 					</div>
 					<div class='accountdefectssection2'>
@@ -764,7 +775,7 @@
 				<hr/>
 				<div class='accountdefectssection'>
 					<div class='accountdefectssection1'>
-						<img src={% static 'dashboard/img/lastlogin.png' %} />
+						<img src={% static 'dashboard/img/lastlogin.PNG' %} />
 						<h5>Last Login</h5>
 					</div>
 					<div class='accountdefectssection2'>
@@ -774,7 +785,7 @@
 				<hr/>
 				<div class='accountdefectssection'>
 					<div class='accountdefectssection1'>
-						<img src={% static 'dashboard/img/ip.png' %} />
+						<img src={% static 'dashboard/img/ip.PNG' %} />
 						<h5>Your IP</h5>
 					</div>
 					<div class='accountdefectssection2'>
@@ -784,7 +795,7 @@
 				<hr/>
 				<div class='accountdefectssection'>
 					<div class='accountdefectssection1'>
-						<img src={% static 'dashboard/img/os.png' %} />
+						<img src={% static 'dashboard/img/os.PNG' %} />
 						<h5>Operating System</h5>
 					</div>
 					<div class='accountdefectssection2'>
@@ -794,7 +805,7 @@
 				<hr/>
 				<div class='accountdefectssection'>
 					<div class='accountdefectssection1'>
-						<img src={% static 'dashboard/img/browser.png' %} />
+						<img src={% static 'dashboard/img/browser.PNG' %} />
 						<h5>Browser</h5>
 					</div>
 					<div class='accountdefectssection2'>
@@ -804,7 +815,7 @@
 				<hr/>
 				<div class='accountdefectssection'>
 					<div class='accountdefectssection1'>
-						<img src={% static 'dashboard/img/editacct.png' %} />
+						<img src={% static 'dashboard/img/editacct.PNG' %} />
 						<h5>Edit Account</h5>
 					</div>
 					<div class='accountdefectssection2'>
@@ -826,15 +837,15 @@
 								</td>
 								<td>Bitcoin</td>
 								<td id="bitcoin-current-price">$ 43,303.2</td>
-								<td id="bitcoin-percent-change" class="percent-decrease">- -1.28%</td>
+								<td id="bitcoin-percent-change" class="percent-decrease">-1.28%</td>
 							</tr>
 							<tr style="border: none;" >
 								<td class="text-center">
-									<img src={% static "dashboard/img/Litecoin.png" %} width="25px">
+									<img src={% static "dashboard/img/litecoin.png" %} width="25px">
 								</td>
 								<td>Litecoin</td>
 								<td id="litecoin-current-price">$ 72.74</td>
-								<td id="litecoin-percent-change" class="percent-decrease">- -1.46%</td>
+								<td id="litecoin-percent-change" class="percent-decrease">-1.46%</td>
 							</tr>
 							<tr style="border: none; color: red" >
 								<td class="text-center">
@@ -842,7 +853,7 @@
 								</td>
 								<td>Ethereum</td>
 								<td id="ethereum-current-price">$ 2,234.38</td>
-								<td id="ethereum-percent-change" class="percent-decrease">- -1.75%</td>
+								<td id="ethereum-percent-change" class="percent-decrease">-1.75%</td>
 							</tr>
 							<tr style="border: none" >
 								<td class="text-center">
@@ -850,7 +861,7 @@
 								</td>
 								<td>Dash</td>
 								<td id="dash-current-price">$ 32.27</td>
-								<td id="dash-percent-change" class="percent-decrease">- -0.08%</td>
+								<td id="dash-percent-change" class="percent-decrease">-0.08%</td>
 							</tr>
 							<tr style="border: none;" >
 								<td class="text-center">
@@ -858,7 +869,7 @@
 								</td>
 								<td>Dogecoin</td>
 								<td id="dogecoin-current-price">$ 0.09486</td>
-								<td id="dogecoin-percent-change" class="percent-decrease">- -7.27%</td>
+								<td id="dogecoin-percent-change" class="percent-decrease">-7.27%</td>
 							</tr>
 							<tr style="border: none;" >
 								<td class="text-center">
@@ -866,7 +877,7 @@
 								</td>
 								<td>Bitcoin Cash</td>
 								<td id="bitcoincash-current-price">$ 241.85</td>
-								<td id="bitcoincash-percent-change" class="percent-decrease">- -5.12%</td>
+								<td id="bitcoincash-percent-change" class="percent-decrease">-5.12%</td>
 							</tr>
 						</tbody>
 					</table>

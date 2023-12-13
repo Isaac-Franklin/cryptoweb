@@ -46,8 +46,8 @@ body{
 }
 
 #google_translate_element{
-    position: fixed;
-    top: 0px;
+    /* position: fixed;
+    top: 0px; */
     text-align: left;
     margin: auto;
     width: 100vw;
@@ -114,7 +114,25 @@ body{
 /* HERO SECTION STARTS HERE */
 .herosection{
     height: 100vh;
-    background:linear-gradient(0deg, #2f37ca6b, #000000a2), url("img/businessman.jpg");
+    /* background:linear-gradient(0deg, #2f37ca6b, #000000a2), url("img/businessman.jpg"); */
+    width: 100vw;
+    margin-top: -100px;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+}
+.herosection1{
+    height: 100vh;
+    /* background:linear-gradient(0deg, #2f37ca6b, #000000a2), url("img/cryptoimage.jpg"); */
+    width: 100vw;
+    margin-top: -100px;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+}
+.herosection2{
+    height: 100vh;
+    /* background:linear-gradient(0deg, #2f37ca6b, #000000a2), url("img/cryptoimage2.jpeg"); */
     width: 100vw;
     margin-top: -100px;
     background-attachment: fixed;
@@ -377,6 +395,12 @@ height: 100px;
     margin-top: 20px;
 }
 
+.takeactioninnermain img{
+    /* display: none; */
+    margin-top: 20px;
+    width: 50px;
+}
+
 .transactions img{
     margin: 10px;
     width: 50px;
@@ -457,7 +481,7 @@ height: 100px;
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
-    height: 220px;
+    height: 320px;
     color: black;
 }
 
@@ -570,9 +594,6 @@ height: 100px;
   -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
 
 
 /* FAQ ENDD HERE */
@@ -646,6 +667,10 @@ height: 100px;
 
 .plansin2 button img{
     width: 20px;
+}
+
+button{
+    cursor: pointer;
 }
 
 .plansin2 p{
@@ -836,9 +861,28 @@ footer a:hover{
 
 
 
+.desktopview{
+    display: block;
+}
+
+.mobileview{
+    display: none;
+}
 
 
 
+
+.telegram img{
+    /* background-image: url(img/telegram2.gif); */
+    width: 50px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 38px;
+    right: 20px;
+    z-index: 200;
+    /* background-repeat: no-repeat;
+    background-size: contain; */
+}
 
 
 
@@ -846,6 +890,16 @@ footer a:hover{
 
 
 @media (max-width: 768px){
+
+    
+    .desktopview{
+        display: none;
+    }
+
+    .mobileview{
+        display: block;
+    }
+
 
     
     .navbar{
@@ -1019,9 +1073,9 @@ body{
 .binance-widget-marquee{
     position: fixed;
     bottom: 0;
-    margin-bottom: -25px;
+    margin-bottom: -45px;
     right: 0;
-    /* z-index: 101; */
+    z-index: 101;
     left: 0;
     width: 100vw;
 }
@@ -1268,7 +1322,7 @@ body{
 
 .testimonialsmainout{
     display: flex;
-    width: 200vw;
+    width: 250vw;
     overflow: scroll;
     justify-content: space-between;
     align-items: center;
@@ -1383,7 +1437,7 @@ p{
     border-radius: 10px;
     margin-top: 20px;
     margin-right: 5px;
-    height: 220px;
+    height: 100%;
     color: black;
 }
 
@@ -1457,8 +1511,8 @@ p{
 
 .takeactioninnermain img{
     margin-right: 10px;
+    width: 20px;
     margin-top: 20px;
-    width: 30px;
 }
 
 
@@ -1513,3 +1567,58 @@ p{
 
 
 }
+
+
+
+.image-slideshow {
+    /* max-width: 1000px; */
+    position: relative;
+    margin: auto;
+    /* z-index: 2; */
+    }
+    
+    img {
+    width: 100%
+    }
+    
+    .fade {
+    animation-name: fade;
+    animation-duration: 2s;
+    }
+    
+    @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+
+.image-slideshow2{
+    /* max-width: 1000px; */
+    position: relative;
+    margin: auto;
+    /* z-index: 2; */
+    }
+    
+    img {
+    width: 100%
+    }
+    
+    .fade2 {
+    animation-name: fade2;
+    animation-duration: 2s;
+    }
+    
+    @keyframes fade2 {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+
+
+
+
+
+
+
+
+

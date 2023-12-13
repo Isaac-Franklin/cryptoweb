@@ -50,9 +50,11 @@
        <div class='responsivesidebar'>
             <div class='resposidemini'>
                 <ul>
-                    <li>
-                        <img src={% static 'general/img/dashboard.png' %} />
-                    </li>
+                    <a href={% url 'Dashboard' %}>
+                        <li>
+                            <img src={% static 'general/img/dashboard.png' %} />
+                        </li>
+                    </a>
                     <li>
                         <img src={% static 'general/img/handcash.png' %} />
                     </li>
@@ -96,12 +98,16 @@
                         <div class='sidenavlist'>
                             <ul>
                                 <li>
-                                    <img src={% static 'general/img/dashboard.png' %} />
-                                    <p>Dashboard</p>
+                                    <a href={% url 'Dashboard' %}>
+                                        <img src={% static 'general/img/dashboard.png' %} />
+                                        <p>Dashboard</p>
+                                    </a>
                                 </li>
                                 <li>
-                                    <img src={% static 'general/img/handcash.png' %} />
-                                    <p>Make A Deposite</p>
+                                    <a href={% url 'Deposite' %}>
+                                        <img src={% static 'general/img/handcash.png' %} />
+                                        <p>Make A Deposite</p>
+                                    </a>
                                 </li>
                                 <li>
                                     <img src={% static 'general/img/withdraw.png' %} />
@@ -160,14 +166,18 @@
                         <p>Navigation</p>
                         <div class='sidenavlist'>
                             <ul>
-                                <li>
-                                    <img src={% static 'general/img/dashboard.png' %} />
-                                    <p>Dashboard</p>
-                                </li>
-                                <li>
-                                    <img src={% static 'general/img/handcash.png' %} />
-                                    <p>Make A Deposite</p>
-                                </li>
+                                <a href={% url 'Dashboard' %}>
+                                    <li>
+                                        <img src={% static 'general/img/dashboard.png' %} />
+                                        <p>Dashboard</p>
+                                    </li>
+                                </a>
+                                <a href={% url 'Deposite' %}>
+                                    <li>
+                                        <img src={% static 'general/img/handcash.png' %} />
+                                        <p>Make A Deposite</p>
+                                    </li>
+                                </a>
                                 <li>
                                     <img src={% static 'general/img/withdraw.png' %} />
                                     <p>Withdrawal</p>

@@ -1,3 +1,39 @@
+let index = 0;
+displayImages();
+function displayImages() {
+  let i;
+  const images = document.getElementsByClassName("image");
+  for (i = 0; i < images.length; i++) {
+    images[i].style.display = "none";
+  }
+  index++;
+  if (index > images.length) {
+    index = 1;
+  }
+  images[index-1].style.display = "block";
+  setTimeout(displayImages, 5000); 
+}
+
+// 
+let indexB = 0;
+displayImagesMobile();
+function displayImagesMobile() {
+  let i;
+  const images = document.getElementsByClassName("image2");
+  for (i = 0; i < images.length; i++) {
+    images[i].style.display = "none";
+  }
+  indexB++;
+  if (indexB > images.length) {
+    indexB = 1;
+  }
+  images[indexB-1].style.display = "block";
+  setTimeout(displayImagesMobile, 5000); 
+}
+
+// 
+
+
 
 
 class CountUp {

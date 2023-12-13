@@ -19,206 +19,142 @@
 	</head>
 	<body style="background: #181A20" >
         <div class='shadow'></div>
-        <main>
+        <div class='main'>
+            <div class='sectionintro'>
+                <img src={% static 'general/img/handcash.png' %} />
+                <h1>Make a deposite</h1>
+            </div>
 				
             <div id="flash">
                 {% if messages %} {% for message in messages %}
                 <div class="alert alert-{{ message.tags}} m-0" role="alert">
-                    <strong style="color: #0275be">{{ message }}</strong>
+                    <strong style="color: white">{{ message }}</strong>
                 </div>
                 {% endfor %} {% endif %}
             </div>
-            <div class='chooseplanmain'>
-                <div class='chooseplanmainin'>
-                    <div class='chooseplanmaininimgmain'>
-                        <img src={% static 'deposite/img/investimg.jpg' %} />
-                    </div>
-                    <div class='chooseplanmaininform'>
-                        <h2 class='chooseplanmaintext'>To Deposite Funds Into Your Account, Please Fill The Form Below</h2>
-                        <div class='google_element_local' style="color:black" ><div id="google_translate_element"></div><br/></div><br/>
-                        <div><br/><br/>
-                            <form>
-                                {% comment %} <label for='selectplan'>Select An Investment Plan</label><br/>
-                                <select id='selectplan' name='plan'>
-                                    <option>--Select A Plan--</option>
-                                    <option value='gold'>Plan A - Gold Plan [$10, 000 to $Unlimited]</option>
-                                    <option value='silver'>Plan B - Silver Plan [$3, 000 to $10,000]</option>
-                                    <option value='bronze'>Plan C - Bronze Plan [$50 to $3,000]</option>
-                                </select><br/><br/> {% endcomment %}
 
-                                <label for='amount'>Enter an amount</label><br/>
-                                <input id='amount' type='number' name='amount' placeholder='$10000' /><br/><br/>
 
-                                <label for='paymentmethod'>Select A Payment Method</label><br/>
-                                <select style="backgroundColor:black" id='paymentmethod' name='paymentmethod'>
-                                    <option  style="color:black" >--Select A Payment Method--</option>
-                                    <option value='gold' style="color:black  font-size: 1.7rem;" >Ethereum</option>
-                                    <option value='silver' style="color:black font-size: 1.7rem;" >Tether TRC20</option>
-                                    <option value='silver' style="color:black font-size: 1.7rem;" >Bitcoin</option>
-                                </select><br/><br/>
-                                <button>Continue</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class='chooseplanmaininimgmainmobile'>
-                        <img src={% static 'deposite/img/investimg.jpg' %} />
-                    </div>
-                </div>
-            </div>
-            
-            {% comment %} FORM FOR PLAN SELECTIONS STARTS HERE {% endcomment %}
-            <div>
-                <div class='planpopup diamondplanpop'>
-                    <form>
-                        <h1>Selected Plan: <strong>Plan A - Diamond</strong></h1>
-                        <p>Deposition Range : $30, 000 to $Unlimited</p>
-                        <label for='amount'>Enter an amount within the deposition range</label><br/>
-                        <input id='amount' type='number' name='amount' placeholder='$30000' /><br/><br/>
-
-                        <label for='paymentmethod'>Select A Payment Method</label><br/>
-                        <select id='paymentmethod' name='paymentmethod'>
-                            <option style="color:black" >--Select A Payment Method--</option>
-                            <option value='gold' style="color:black" >Ethereum</option>
-                            <option value='silver' style="color:black" >Tether TRC20</option>
-                            <option value='silver' style="color:black" >Bitcoin</option>
-                        </select><br/><br/>
-                        <button>Invest</button>
-                    </form>
-                    <p class='planpopupcancel'>Click To Return</p>
-                </div>
-
-                <div class='planpopup goldplanpop'>
-                    <form>
-                        <h1>Selected Plan: <strong>Plan B - Gold</strong></h1>
-                        <p>Deposition Range : $4,000 to $29,999</p>
-                        <label for='amount'>Enter an amount within the deposition range</label><br/>
-                        <input id='amount' type='number' name='amount' placeholder='$4000' /><br/><br/>
-
-                        <label for='paymentmethod'>Select A Payment Method</label><br/>
-                        <select id='paymentmethod' name='paymentmethod'>
-                            <option style="color:black" >--Select A Payment Method--</option>
-                            <option style="color:black"  value='gold'>Ethereum</option>
-                            <option style="color:black"  value='silver'>Tether TRC20</option>
-                            <option style="color:black"  value='silver'>Bitcoin</option>
-                        </select><br/><br/>
-                        <button>Invest</button>
-                    </form>
-                    <p class='planpopupcancel'>Click To Return</p>
-                </div>
-
-                <div class='planpopup silverplanpop'>
-                    <form>
-                        <h1>Selected Plan: <strong>Plan C - Silver</strong></h1>
-                        <p>Deposition Range : $500 to $3,999</p>
-                        <label for='amount'>Enter an amount within the deposition range</label><br/>
-                        <input id='amount' type='number' name='amount' placeholder='$500' /><br/><br/>
-
-                        <label for='paymentmethod'>Select A Payment Method</label><br/>
-                        <select id='paymentmethod' name='paymentmethod'>
-                            <option style="color:black" >--Select A Payment Method--</option>
-                            <option style="color:black"  value='gold'>Ethereum</option>
-                            <option style="color:black"  value='silver'>Tether TRC20</option>
-                            <option style="color:black"  value='silver'>Bitcoin</option>
-                        </select><br/><br/>
-                        <button>Invest</button>
-                    </form>
-                    <p class='planpopupcancel'>Click To Return</p>
-                </div>
-
-                <div class='planpopup bronzeplanpop'>
-                    <form>
-                        <h1>Selected Plan: <strong>Plan D - Bronze</strong></h1>
-                        <p>Deposition Range : $30 to $499</p>
-                        <label for='amount'>Enter an amount within the deposition range</label><br/>
-                        <input id='amount' type='number' name='amount' placeholder='$30' /><br/><br/>
-
-                        <label for='paymentmethod'>Select A Payment Method</label><br/>
-                        <select id='paymentmethod' name='paymentmethod'>
-                            <option style="color:black" >--Select A Payment Method--</option>
-                            <option style="color:black"  value='gold'>Ethereum</option>
-                            <option style="color:black"  value='silver'>Tether TRC20</option>
-                            <option style="color:black"  value='silver'>Bitcoin</option>
-                        </select><br/><br/>
-                        <button>Invest</button>
-                    </form>
-                    <p class='planpopupcancel'>Click To Return</p>
-                </div>
-            </div>
-            {% comment %} FORM FOR PLAN SELECTIONS ENDS HERE {% endcomment %}
-            
-            <div> 
-                <div class='chooseplanmain'>
-                    <h2 class='chooseplanmaintext'>Choose an investment plan</h2>
-                    <div class='chooseplan'>
-						<div>
-                            <div class='chooseplanin'>
-                                <div class='chooseplaninout chooseplaninout4'>
-                                    <div>
-                                        <img src={% static 'dashboard/img/diamond.png' %} />
-                                    </div>
-                                    <div>
-                                        <h2>The Diamond Plan</h2>
-                                        <h4>Amount: $30, 000 to $Unlimited</h4>
-                                        <h4>Profit: 100% After 168 Hours</h4>
-                                        <button class='choosediamondplan'>Choose This Plan</button>
-                                    </div>
-                                </div>
-                            </div>	
-                            <div class='chooseplanin'>
-                                <div class='chooseplaninout chooseplaninout1'>
-                                    <div>
-                                        <img src={% static 'dashboard/img/gold.png' %} />
-                                    </div>
-                                    <div>
-                                        <h2><strong>The Gold Plan</strong></h2>
-                                        <h4>Amount:  $4,000 to $29,999</h4>
-                                        <h4>Profit: 50% After 72 Hours</h4>
-                                        <button class='choosegoldplan'>Choose This Plan</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>					
+            <div><br/>
+                <p>Select a plan:</p>
+                <div class='planselectionsection'>
+                    <div>
+                        <h5  class='planselectionsectiontxt'>SELECT INVESTMENT PLAN</h5>
                         <div>
-                            <div class='chooseplanin'>
-                                <div class='chooseplaninout chooseplaninout2'>
-                                    <div>
-                                        <img src={% static 'dashboard/img/silver.png' %} />
+                            <div class='planproperout'>
+                                <div class='planproper planproperone activeplan'>
+                                    <div class='arrowdown arrowdownone'>
+                                        <img src={% static 'deposite/img/arrowdown.png' %} />
                                     </div>
-                                    <div>
-                                        <h2><strong>The Silver Plan</strong></h2>
-                                        <h4>Amount: $500 to $3,999</h4>
-                                        <h4>Profit: 25% After 24 Hours</h4>
-                                        <button class='choosesilverplan'>Choose This Plan</button>
+                                    <h1>BRONZE PLAN</h1>
+                                    <div class='desktoppricerange'>
+                                        {% comment %} <h4></h4> {% endcomment %}
+                                        <h5>Min amount:<br/> $30</h5>
+                                        <h5>Max amount:<br/> $499</h5>
+                                        <h5>ROI:<br/> 7% AFTER 12 HOURS</h5>
+                                        <h5>24/7 Live Support</h5>
+                                    </div>
+                                    <div class='mobilepricerange'>
+                                        <h3> 7% AFTER 12 HOURS</h3>
+                                        <div class='mobilepricerangeinner1'>
+                                            <h4>Min: $30 </h4>
+                                            <img src={% static 'deposite/img/twofacearrow.png' %} />
+                                            <h4>Max: $499 </h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class='chooseplanin'>
-                                <div class='chooseplaninout chooseplaninout3'>
-                                    <div>
-                                        <img src={% static 'dashboard/img/bronze.png' %} />
+                                <div class='planproper planpropertwo'>
+                                    <div class='arrowdown arrowdowntwo'>
+                                        <img src={% static 'deposite/img/arrowdown.png' %} />
                                     </div>
-                                    <div>
-                                        <h2>The Bronze Plan</h2>
-                                        <h4>Amount: $30 to $499</h4>
-                                        <h4>Profit: 7% After 12 Hours</p>
-                                        <button class='choosebronzeplan'>Choose This Plan</button>
+                                    <h1>SILVER PLAN</h1>
+                                    <div class='desktoppricerange'>
+                                        <h5>Min amount:<br/> $500</h5>
+                                        <h5>Max amount:<br/> $3,999</h5>
+                                        <h5>ROI:<br/> 12% AFTER 24 HOURS</h5>
+                                        <h5>24/7 Live Support</h5>
+                                    </div>
+                                    <div class='mobilepricerange'>
+                                        <h3>12% AFTER 24 HOURS</h3>
+                                        <div class='mobilepricerangeinner2'>
+                                            <h4>Min: $500 </h4>
+                                            <img src={% static 'deposite/img/twofacearrow.png' %} />
+                                            <h4>Max: $3,999 </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='planproper planproperthree'>
+                                    <div class='arrowdown arrowdownthree'>
+                                        <img src={% static 'deposite/img/arrowdown.png' %} />
+                                    </div>
+                                    <h1>GOLD<br/> PLAN</h1>
+                                    <div class='desktoppricerange'>
+                                        <h5>Min amount:<br/> $4,000</h5>
+                                        <h5>Max amount:<br/> $29,999</h5>
+                                        <h5>ROI:<br/> 50% AFTER 72 HOURS</h5>
+                                        <h5>24/7 Live Support</h5>
+                                    </div>
+                                    <div class='mobilepricerange'>
+                                        <h3>50% AFTER 72 HOURS</h3>
+                                        <div class='mobilepricerangeinner3'>
+                                            <h4>Min: $4,000 </h4>
+                                            <img src={% static 'deposite/img/twofacearrow.png' %} />
+                                            <h4>Max: $29,999 </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='planproper planproperfour'>
+                                    <div class='arrowdown arrowdownfour'>
+                                        <img src={% static 'deposite/img/arrowdown.png' %} />
+                                    </div>
+                                    <h1>DIAMOND PLAN</h1>
+                                    <div class='desktoppricerange'>
+                                        <h5>Min amount:<br/> $30,000</h5>
+                                        <h5>Max amount:<br/> $UNLIMITED</h5>
+                                        <h5>ROI:<br/> 100% AFTER 168 HOURS</h5>
+                                        <h5>24/7 Live Support</h5>
+                                    </div>
+                                    
+                                    <div class='mobilepricerange'>
+                                        <h3>100% AFTER 168 HOURS</h3>
+                                        <div class='mobilepricerangeinner'>
+                                            <h4>Min: $30,000 </h4>
+                                            <img src={% static 'deposite/img/twofacearrow.png' %} />
+                                            <h4>Max: $UNLIMITED </h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class='footer'>
-                {% comment %} <p>Copyrights | Exodus Trade</p> {% endcomment %}
-                <div class='copyrightSection'>
-                    <div class='copyrightSectionInner'>
-                        <img src={% static 'general/img/copyright.png' %} />
-                        <h4>2023. Exodus - Trade. All rights reserved</h4>
+                    <div>
+                        <div>
+                            <h5 class='planselectionsectiontxt'>SELECT PAYMENT METHOD AND ENTER AMOUNT</h5>
+                            <div class='walletselectproper'>
+                                <form method='POST'>
+                                    {% csrf_token %}
+                                    <div class='planselectedselected'>
+                                        <input hidden name='planselected' type='text' />
+                                    </div>
+                                    <select name='wallet'>
+                                        <option value='Bitcoin'>Bitcoin</option>
+                                        <option value='USDT'>USDT Bep20</option>
+                                        <option value='Tron'>Tron Address</option>
+                                        <option value='bnb'>BnB</option>
+                                    </select>
+                                    <div class='walletselectamount'>
+                                        <div class='walletselectamountimg'><img src={% static 'deposite/img/dollar.png' %} /></div>
+                                        <input name='amount' type='number' placeholder='min: $40' />
+                                    </div>
+                                    <div class='walletselectproperbtn'>
+                                        <button type='submit'>Make a deposite</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
         <script src={% static 'deposite/js/main.js' %}></script>
     </body>
 </head>

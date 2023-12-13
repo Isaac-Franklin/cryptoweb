@@ -12,6 +12,7 @@ urlpatterns = [
     path('history', views.History, name="History"),
     path('support', views.Support, name="Support"),
     path('profile', views.Profile, name="Profile"),
+    path('confirmdeposite/<str:pk>/', views.ConfirmDeposite, name="ConfirmDeposite"),
     # path('maintenancedetails/<str:name>/', views.MaintainanceDetails, name="MaintainanceDetails"),
 ]
 

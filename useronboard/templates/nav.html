@@ -13,11 +13,10 @@
         </div>
         <div class='navmenu'>
             <ul>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Plans</li>
-                <li>FAQs</li>
-                <li>Get Support</li>
+                <a href='https://ceness-trade.com/'><li>Home</li></a>
+                <a href='https://ceness-trade.com/#about'><li>About Us</li></a>
+                <a href='https://ceness-trade.com/#investor'><li>Plans</li></a>
+                <a href='https://ceness-trade.com/#faq'><li>FAQs</li></a>
             </ul>
         </div>
         {% comment %} <div class='navbtns'>
@@ -32,10 +31,10 @@
     <div class='userSectionResponsiveOut'>
         <p><a href=>Home</a></p>
         <p><a href=>About Us</a></p>
-        <p><a target = '_blank' href= >Contact Us</a></p>
-        <p><a target = '_blank' href= >Plan</a></p>
-        <p><a target = '_blank' href= >FAQs</a></p>
-        <p><a target = '_blank' href= >Get Support</a></p><br/>
+        <p><a target = '_blank' href='https://ceness-trade.com/' >Home</a></p>
+        <p><a target = '_blank' href='https://ceness-trade.com/#about' >About Us</a></p>
+        <p><a target = '_blank' href='https://ceness-trade.com/#investor' >Plan</a></p>
+        <p><a target = '_blank' href='https://ceness-trade.com/#faq' >Get Support</a></p><br/>
 
         {% if request.user.username %}
             <a href=><div class='userSectionResponsive'><p>Log Out</p><img src={% static 'general/img/user.png' %} /></div></a>

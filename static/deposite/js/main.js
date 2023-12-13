@@ -1,73 +1,99 @@
 
-let goldplanpop = document.querySelector('.goldplanpop')
-let silverplanpop = document.querySelector('.silverplanpop')
-let bronzeplanpop = document.querySelector('.bronzeplanpop')
-let diamondplanpop = document.querySelector('.diamondplanpop')
-let shadow = document.querySelector('.shadow')
-let planpopupcancel = document.querySelectorAll('.planpopupcancel')
-
-let choosegoldplan = document.querySelector('.choosegoldplan')
-let choosesilverplan = document.querySelector('.choosesilverplan')
-let choosebronzeplan = document.querySelector('.choosebronzeplan')
-let choosediamondplan = document.querySelector('.choosediamondplan')
+// 
+let planselectedselected = document.querySelector('.planselectedselected input').value;
+planselectedselected = "bronzeplan"
+let planselectedselectedmain = "bronzeplan";
 
 
-choosegoldplan.addEventListener('click', () => {
-    goldplanpop.style.display = 'block'
-    silverplanpop.style.display = 'none'
-    bronzeplanpop.style.display = 'none'
-    diamondplanpop.style.display = 'none'
-    shadow.style.display = 'block'
+let planproperone = document.querySelector('.planproperone')
+let planpropertwo = document.querySelector('.planpropertwo')
+let planproperthree = document.querySelector('.planproperthree')
+let planproperfour = document.querySelector('.planproperfour')
+
+
+let arrowdownone = document.querySelector('.arrowdownone')
+let arrowdowntwo = document.querySelector('.arrowdowntwo')
+let arrowdownthree = document.querySelector('.arrowdownthree')
+let arrowdownfour = document.querySelector('.arrowdownfour')
+
+
+planproperone.addEventListener('click', () => {
+    planproperone.classList.remove('activeplan');
+    arrowdownone.style.display = 'none';
+    planpropertwo.classList.remove('activeplan');
+    arrowdowntwo.style.display = 'none';
+    planproperthree.classList.remove('activeplan');
+    arrowdownthree.style.display = 'none';
+    planproperfour.classList.remove('activeplan');
+    arrowdownfour.style.display = 'none';
+    
+    planproperone.classList.add('activeplan');
+    arrowdownone.style.display = 'block';
+    planselectedselectedmain = "bronzeplan"
 })
 
-choosesilverplan.addEventListener('click', () => {
-    silverplanpop.style.display = 'block'
-    goldplanpop.style.display = 'none'
-    diamondplanpop.style.display = 'none'
-    bronzeplanpop.style.display = 'none'
-    shadow.style.display = 'block'
+
+planpropertwo.addEventListener('click', () => {
+    planproperone.classList.remove('activeplan');
+    arrowdownone.style.display = 'none';
+    planproperthree.classList.remove('activeplan');
+    arrowdownthree.style.display = 'none';
+    planproperfour.classList.remove('activeplan');
+    arrowdownfour.style.display = 'none';
+    
+    planpropertwo.classList.add('activeplan');
+    arrowdowntwo.style.display = 'block';
+    planselectedselectedmain = "silverplan"
 })
 
-choosebronzeplan.addEventListener('click', () => {
-    bronzeplanpop.style.display = 'block'
-    goldplanpop.style.display = 'none'
-    silverplanpop.style.display = 'none'
-    diamondplanpop.style.display = 'none'
-    shadow.style.display = 'block'
+
+planproperthree.addEventListener('click', () => {
+    planproperone.classList.remove('activeplan');
+    arrowdownone.style.display = 'none';
+    planpropertwo.classList.remove('activeplan');
+    arrowdowntwo.style.display = 'none';
+    planproperfour.classList.remove('activeplan');
+    arrowdownfour.style.display = 'none';
+
+    planproperthree.classList.add('activeplan');
+    arrowdownthree.style.display = 'block';
+    planselectedselectedmain = "goldplan"
 })
 
-choosediamondplan.addEventListener('click', () => {
-    diamondplanpop.style.display = 'block'
-    bronzeplanpop.style.display = 'none'
-    goldplanpop.style.display = 'none'
-    silverplanpop.style.display = 'none'
-    shadow.style.display = 'block'
+
+planproperfour.addEventListener('click', () => {
+    planproperone.classList.remove('activeplan');
+    arrowdownone.style.display = 'none';
+    planpropertwo.classList.remove('activeplan');
+    arrowdowntwo.style.display = 'none';
+    planproperthree.classList.remove('activeplan');
+    arrowdownthree.style.display = 'none';
+
+    planproperfour.classList.add('activeplan');
+    arrowdownfour.style.display = 'block';
+    planselectedselectedmain = "diamondplan"
 })
 
-planpopupcancel.forEach(e => {
-    e.addEventListener('click', () => {
-        goldplanpop.style.display = 'none'
-        silverplanpop.style.display = 'none'
-        bronzeplanpop.style.display = 'none'
-        shadow.style.display = 'none'
-        diamondplanpop.style.display = 'none'
-    })
-});
+setInterval(() => {
+    document.querySelector('.planselectedselected input').value = planselectedselectedmain;
+}, 1000);
 
 
 
 
-// time for disappearing notifications
-let alertdeposite = document.querySelector('.alert')
-setTimeout(() => { clearInterval(alertdeposite); }, 5000); 
 
 
-// HANDLE FLASH MESSAGES ON DASHBOARD STARTS HERE
-let flashdeposite = document.querySelector('#flashmessage')
-// let flashdeposite = document.querySelector('.alert strong')
-if(flashdeposite){
-    setTimeout(() => {
-        flashdeposite.style.display = 'none'
-    }, 5000);
-}
-// HANDLE FLASH MESSAGES ON DASHBOARD ENDS HERE
+
+
+
+
+
+
+
+
+
+
+
+
+
+

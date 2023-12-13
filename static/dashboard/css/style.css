@@ -403,9 +403,9 @@ th{
     color: black;
 }
 
-tbody tr:hover{
+/* tbody tr:hover{
     background-color: #eef3f93e;
-}
+} */
 /* tr:nth-child(even) {} */
 
 .table-responsive{
