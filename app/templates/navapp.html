@@ -48,39 +48,56 @@
        </div>
 
        <div class='responsivesidebar'>
-            <div class='resposidemini'>
+            <div class='resposidemini'>               
                 <ul>
                     <a href={% url 'Dashboard' %}>
                         <li>
                             <img src={% static 'general/img/dashboard.png' %} />
                         </li>
                     </a>
-                    <li>
-                        <img src={% static 'general/img/handcash.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/withdraw.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/cash.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/cashturn.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/partner.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/banner.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/qa.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/support.png' %} />
-                    </li>
+                    <a href={% url 'Deposite' %}>
+                        <li>
+                            <img src={% static 'general/img/handcash.png' %} />
+                        </li>
+                    </a>
+                    <a href={% url 'Withdraw' %}>
+                        <li>
+                            <img src={% static 'general/img/withdraw.png' %} />
+                        </li>
+                    </a>
+                    <a href={% url 'Deposite' %}>
+                        <li>
+                            <img src={% static 'general/img/cash.png' %} />
+                        </li>
+                    </a>
+                    <a href={% url 'History' %}>
+                        <li>
+                            <img src={% static 'general/img/cashturn.png' %} />
+                        </li>
+                    </a>
+                    <a href={% url 'ReferalFxn' %}>
+                        <li>
+                            <img src={% static 'general/img/partner.png' %} />
+                        </li>
+                    </a>
+                    <a href={% url 'BannerAd' %}>
+                        <li>
+                            <img src={% static 'general/img/banner.png' %} />
+                        </li>
+                    </a>
+                    <a href="https://ceness-trade.com/#faq" target="_blank">
+                        <li>
+                            <img src={% static 'general/img/qa.png' %} />
+                        </li>
+                    </a>
+                    <a href="https://t.me/httpstmehttpstmeCenesstrade" target="_blank">
+                        <li>
+                            <img src={% static 'general/img/support.png' %} />
+                        </li>
+                    </a>
                 </ul>
             </div>
+            {% comment %} MOBILE FULL SIDE BAR STARTS HERE {% endcomment %}
             <div class='resposidebar'>
                 <div class='sidebarsectioninner sidebarsectioninner2'>
                     <div class='acctbalance acctbalance2'>
@@ -97,46 +114,60 @@
                         <p class='navigationtextmobile'>Navigation</p>
                         <div class='sidenavlist'>
                             <ul>
-                                <li>
-                                    <a href={% url 'Dashboard' %}>
+                                <a href={% url 'Dashboard' %}>
+                                    <li>
                                         <img src={% static 'general/img/dashboard.png' %} />
                                         <p>Dashboard</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href={% url 'Deposite' %}>
+                                    </li>
+                                </a>
+                                <a href={% url 'Deposite' %}>
+                                    <li>
                                         <img src={% static 'general/img/handcash.png' %} />
                                         <p>Make A Deposite</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <img src={% static 'general/img/withdraw.png' %} />
-                                    <p>Withdrawal</p>
-                                </li>
-                                <li>
-                                    <img src={% static 'general/img/cash.png' %} />
-                                    <p>Active Deposite</p>
-                                </li>
-                                <li>
-                                    <img src={% static 'general/img/cashturn.png' %} />
-                                    <p>Acount History</p>
-                                </li>
-                                <li>
-                                    <img src={% static 'general/img/partner.png' %} />
-                                    <p>Referal Program</p>
-                                </li>
-                                <li>
-                                    <img src={% static 'general/img/banner.png' %} />
-                                    <p>Banner Ads</p>
-                                </li>
-                                <li>
-                                    <img src={% static 'general/img/qa.png' %} />
-                                    <p>FAQs</p>
-                                </li>
-                                <li>
-                                    <img src={% static 'general/img/support.png' %} />
-                                    <p>Support</p>
-                                </li>
+                                    </li>
+                                </a>
+                                <a href={% url 'Withdraw' %}>
+                                    <li>
+                                        <img src={% static 'general/img/withdraw.png' %} />
+                                        <p>Withdrawal</p>
+                                    </li>
+                                </a>
+                                <a href={% url 'Deposite' %}>
+                                    <li>
+                                        <img src={% static 'general/img/cash.png' %} />
+                                        <p>Active Deposite</p>
+                                    </li>
+                                </a>
+                                <a href={% url 'History' %}>
+                                    <li>
+                                        <img src={% static 'general/img/cashturn.png' %} />
+                                        <p>Account History</p>
+                                    </li>
+                                </a>
+                                <a href={% url 'ReferalFxn' %}>
+                                    <li>
+                                        <img src={% static 'general/img/partner.png' %} />
+                                        <p>Referal Program</p>
+                                    </li>
+                                </a>
+                                <a href={% url 'BannerAd' %}>
+                                    <li>
+                                        <img src={% static 'general/img/banner.png' %} />
+                                        <p>Banner Ads</p>
+                                    </li>
+                                </a>
+                                <a href="https://ceness-trade.com/#faq" target="_blank">
+                                    <li>
+                                        <img src={% static 'general/img/qa.png' %} />
+                                        <p>FAQs</p>
+                                    </li>
+                                </a>
+                                <a href="https://t.me/httpstmehttpstmeCenesstrade" target="_blank">
+                                    <li>
+                                        <img src={% static 'general/img/support.png' %} />
+                                        <p>Support</p>
+                                    </li>
+                                </a>
                             </ul>
                         </div>
                     </div>
@@ -178,34 +209,48 @@
                                         <p>Make A Deposite</p>
                                     </li>
                                 </a>
+                                <a href={% url 'Withdraw' %}>
                                 <li>
                                     <img src={% static 'general/img/withdraw.png' %} />
                                     <p>Withdrawal</p>
                                 </li>
+                                </a>
+                                <a href={% url 'Deposite' %}>
                                 <li>
                                     <img src={% static 'general/img/cash.png' %} />
                                     <p>Active Deposite</p>
                                 </li>
-                                <li>
-                                    <img src={% static 'general/img/cashturn.png' %} />
-                                    <p>Acount History</p>
-                                </li>
+                                </a>
+                                <a href={% url 'History' %}>
+                                    <li>
+                                        <img src={% static 'general/img/cashturn.png' %} />
+                                        <p>Account History</p>
+                                    </li>
+                                </a>
+                                <a href={% url 'ReferalFxn' %}>
                                 <li>
                                     <img src={% static 'general/img/partner.png' %} />
                                     <p>Referal Program</p>
                                 </li>
+                                </a>
+                                <a href={% url 'BannerAd' %}>
                                 <li>
                                     <img src={% static 'general/img/banner.png' %} />
                                     <p>Banner Ads</p>
                                 </li>
+                                </a>
+                                <a href="https://ceness-trade.com/#faq" target="_blank">
                                 <li>
                                     <img src={% static 'general/img/qa.png' %} />
                                     <p>FAQs</p>
                                 </li>
+                                </a>
+                                <a href="https://t.me/httpstmehttpstmeCenesstrade" target="_blank">
                                 <li>
                                     <img src={% static 'general/img/support.png' %} />
                                     <p>Support</p>
                                 </li>
+                                </a>
                             </ul>
                         </div>
                     </div>
@@ -213,33 +258,51 @@
             </div>
             <div class='sidebarmini'>
                 <ul>
-                    <li>
-                        <img src={% static 'general/img/dashboard.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/handcash.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/withdraw.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/cash.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/cashturn.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/partner.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/banner.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/qa.png' %} />
-                    </li>
-                    <li>
-                        <img src={% static 'general/img/support.png' %} />
-                    </li>
+                    <a href={% url 'Dashboard' %}>
+                        <li>
+                            <img src={% static 'general/img/dashboard.png' %} />
+                        </li>
+                    </a>
+                    <a href={% url 'Deposite' %}>
+                        <li>
+                            <img src={% static 'general/img/handcash.png' %} />
+                        </li>
+                    </a>
+                    <a href={% url 'Withdraw' %}>
+                        <li>
+                            <img src={% static 'general/img/withdraw.png' %} />
+                        </li>
+                    </a>
+                    <a href={% url 'Deposite' %}>
+                        <li>
+                            <img src={% static 'general/img/cash.png' %} />
+                        </li>
+                    </a>
+                    <a href={% url 'History' %}>
+                        <li>
+                            <img src={% static 'general/img/cashturn.png' %} />
+                        </li>
+                    </a>
+                    <a href={% url 'ReferalFxn' %}>
+                        <li>
+                            <img src={% static 'general/img/partner.png' %} />
+                        </li>
+                    </a>
+                    <a href={% url 'BannerAd' %}>
+                        <li>
+                            <img src={% static 'general/img/banner.png' %} />
+                        </li>
+                    </a>
+                    <a href="https://ceness-trade.com/#faq" target="_blank">
+                        <li>
+                            <img src={% static 'general/img/qa.png' %} />
+                        </li>
+                    </a>
+                    <a href="https://t.me/httpstmehttpstmeCenesstrade" target="_blank">
+                        <li>
+                            <img src={% static 'general/img/support.png' %} />
+                        </li>
+                    </a>
                 </ul>
             </div>  
             <div class='closearrow'>

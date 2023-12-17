@@ -91,6 +91,16 @@ def Support(request):
     return render(request, 'app/support.html')
 
 
+
+def BannerAd(request):
+    return render(request, 'app/bannerad.html')
+
+
+
+def ReferalFxn(request):
+    return render(request, 'app/referal.html')
+
+
 def Profile(request):
     return render(request, 'app/profile.html')
 
