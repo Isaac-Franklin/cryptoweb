@@ -44,10 +44,13 @@ INSTALLED_APPS = [
 
     'useronboard.apps.UseronboardConfig',
     'adminapp.apps.AdminappConfig',
-    'app.apps.AppConfig'
+    'app.apps.AppConfig',
+    'corsheaders',
+    'django_user_agents',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,7 +59,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    #
+    'django_user_agents.middleware.UserAgentMiddleware',
+    # 'django_auto_logout.middleware.auto_logout',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'cryptowebproject.urls'
 

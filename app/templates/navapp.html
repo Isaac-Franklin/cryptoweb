@@ -132,12 +132,12 @@
                                         <p>Withdrawal</p>
                                     </li>
                                 </a>
-                                <a href={% url 'Deposite' %}>
+                                {% comment %} <a href={% url 'Deposite' %}>
                                     <li>
                                         <img src={% static 'general/img/cash.png' %} />
-                                        <p>Active Deposite</p>
+                                        <p>All Deposites</p>
                                     </li>
-                                </a>
+                                </a> {% endcomment %}
                                 <a href={% url 'History' %}>
                                     <li>
                                         <img src={% static 'general/img/cashturn.png' %} />
@@ -215,12 +215,12 @@
                                     <p>Withdrawal</p>
                                 </li>
                                 </a>
-                                <a href={% url 'Deposite' %}>
+                                {% comment %} <a href={% url 'Deposite' %}>
                                 <li>
                                     <img src={% static 'general/img/cash.png' %} />
-                                    <p>Active Deposite</p>
+                                    <p>All Deposites</p>
                                 </li>
-                                </a>
+                                </a> {% endcomment %}
                                 <a href={% url 'History' %}>
                                     <li>
                                         <img src={% static 'general/img/cashturn.png' %} />

@@ -1,3 +1,49 @@
+/* 
+
+.withdrawsection1{
+    display: flex;
+    align-items: center;
+    background-color: #004767;
+    padding: 10px;
+}
+
+.withdrawsection1 img{
+    width: 200px;
+    margin-right: 20px;
+}
+
+.withdrawsection1inner h4{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.withdrawsection1inner{
+    border: 2px dotted white;
+    padding: 5px;
+}
+
+.withdrawsection1inner hr {
+    border: none;
+    border-top: 2px dotted white;
+    color: #fff;
+    background-color: white;
+    height: 1px;
+    width: 100%;
+  }
+
+.withdrawsection1inner button{
+    width: 100%;
+    color: #004767;
+    border: none;
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 5px;;
+} */
+
+
+
+/*  */
+
 
 *{
     box-sizing: border-box;
@@ -125,6 +171,7 @@ form button{
     } */
     
 }
+
 
 
 

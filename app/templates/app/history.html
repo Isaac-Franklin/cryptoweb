@@ -6,8 +6,8 @@
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/x-icon" href={% static 'general/img/itsalogo.PNG' %}> 
-		<link rel="stylesheet" href={% static 'dashboard/css/style.css' %} />
 		<link rel="stylesheet" href={% static 'withdraw/css/style.css' %} />
+		<link rel="stylesheet" href={% static 'dashboard/css/style.css' %} />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600&display=swap" rel="stylesheet">
@@ -22,25 +22,38 @@
         <div class='main'>
             <div class='transactionsection'>
 				<h1>Account History</h1><br/><br/>
-				<div>
-					<h2>Transaction History</h2>
+				<div class='tablesection'>
+					<h4>All Deposites History</h4><br/>
+					<p class='currentdatetime'></p>
+					{% if OrderDetails %}
 					<table>
 						<tr>
-						<th>Date</th>
+						<th>Date/Time Deposited</th>
 						<th>Cryptocurrency</th>
 						<th>Amount</th>
+						<th>Plan</th>
 						<th>Status</th>
+						<th>Cashout date</th>
 						</tr>
+						{% for OrderDetails in OrderDetails %}
 						<tr>
-							<td>19-12-2002</td>
-							<td>Bitcoin</td>
-							<td>000</td>
-							<td>Pending</td>
+							<td>{{ OrderDetails.created_at }}</td>
+							<td>{{ OrderDetails.wallet }}</td>
+							<td>${{ OrderDetails.amount }}</td>
+							<td>{{ OrderDetails.planSelected }}</td>
+							<td class='orderstatus'>{{ OrderDetails.depositestatus }}</td>
+							<td class="{{ OrderDetails.planSelected }} addtimmerhere"></td>
 						</tr>
+						{% endfor %}
 					</table>
+					{% else %}
+					<h4>Your have not made any deposites yet.</h4>
+					<button>Click to select a plan</button>
+					{% endif %}
 				</div>
 			</div>
         </div>
+		<script src={% static "history/js/history.js" %}></script>
     </body>
 </html>
 {% endblock content %}

@@ -430,6 +430,10 @@ th{
     padding: 10px;
 }
 
+.referalsection p{
+    margin-left: 10px;
+}
+
 .referalsection input{
     color: black;
     height: 40px;
@@ -508,6 +512,13 @@ th{
 }
 
 
+.currentdatetime{
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    padding: 5px;
+    width: 100%;
+}
 
 
 
@@ -707,6 +718,10 @@ th{
         padding: 10px;
         margin: auto;
         border: none;
+    }
+
+    .tablesection{
+        overflow-y: scroll;
     }
         
 
