@@ -34,6 +34,7 @@
 						<th>Plan</th>
 						<th>Status</th>
 						<th>Cashout date</th>
+						<th>Refresh</th>
 						</tr>
 						{% for OrderDetails in OrderDetails %}
 						<tr>
@@ -41,14 +42,19 @@
 							<td>{{ OrderDetails.wallet }}</td>
 							<td>${{ OrderDetails.amount }}</td>
 							<td>{{ OrderDetails.planSelected }}</td>
+							{% comment %} <td class=''>{{ OrderDetails.planexpirytime }}</td> {% endcomment %}
 							<td class='orderstatus'>{{ OrderDetails.depositestatus }}</td>
-							<td class="{{ OrderDetails.planSelected }} addtimmerhere"></td>
+							<td class="{{ OrderDetails.planSelected }}">
+								<p class='addtimmerhere'></p>
+								<p class='approvedtimmerhere'>{{ OrderDetails.planexpirytime }}</p>
+							</td>
+							<td class='refreshdate'><button>Refresh Data</button></td>
 						</tr>
 						{% endfor %}
 					</table>
 					{% else %}
 					<h4>Your have not made any deposites yet.</h4>
-					<button>Click to select a plan</button>
+					<a href={% url 'Deposite' %}><button>Click to select a plan</button></a>
 					{% endif %}
 				</div>
 			</div>

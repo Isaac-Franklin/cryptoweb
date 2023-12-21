@@ -28,12 +28,9 @@
 	</head>
 	<body style="background:linear-gradient(0deg, #233239b5, #233239b5), url('/static/dashboard/img/cryptocurrency_bitcoin.jpg') center fixed" >
 		<script src="//code.tidio.co/u6sdcqmndmzkk6wx8ir0yzgoqyeicd1a.js" async></script>
-		{% comment %} <div id="overlay"> {% endcomment %}
-		{% comment %} <div class="spinner"></div>  {% endcomment %}
 		</div>
         {% include "navapp.html" %}{% block content %}{% endblock content %}
 		{% comment %} {% include "bottomscroll.html" %} {% endcomment %}
-		<script src={% static 'appgen/js/main.js' %}></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js" ></script>
 		{% comment %} TRANSLATE WITH GOOGLE {% endcomment %}
 		<script type="text/javascript" 
@@ -48,8 +45,6 @@
 				  }, 'google_translate_element');
 			}
 		 </script>
-		 {% comment %} <script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script>
-		 <script src="https://widgets.coingecko.com/coingecko-coin-market-ticker-list-widget.js"></script> {% endcomment %}
     </body>
     </html>
 

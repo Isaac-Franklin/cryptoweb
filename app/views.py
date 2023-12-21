@@ -16,7 +16,10 @@ import platform
 # Get the operating system name
 import subprocess
 import os
+import time
 
+current_time = time.ctime()
+print(current_time)
 # Print the operating system name
 
 
@@ -25,6 +28,8 @@ import requests
 @login_required(login_url='UserSignUpFxn')
 def Dashboard(request):
     currentUser = UserSignUp.objects.get(email = request.user.email)
+    if currentUser is None:
+        return redirect('UserSignUpFxn')
     browser_type = request.user_agent.browser.family
     browser_version = request.user_agent.browser.version_string
     os_type = request.user_agent.os.family
@@ -84,17 +89,17 @@ def Deposite(request):
     return render(request, 'app/deposite.html')
 
 
-@login_required(login_url='UserSignUpFxn')
-def ConfirmDeposite(request, pk):
-    neworder = PotentialDeposite.objects.get(id=pk)
-    if request.method == 'POST':
-        ConfrimedOrdersForm =  ConfrimedOrdersStatuses(user = request.user, orderID = pk, depositestatus = 'Pending')
-        ConfrimedOrdersForm.save()
-        messages.success(request, 'Your deposite is currently pending and will be approved when confirmed.')
-        return redirect('History')
+# @login_required(login_url='UserSignUpFxn')
+# def ConfirmDeposite(request, pk):
+#     neworder = PotentialDeposite.objects.get(id=pk)
+#     if request.method == 'POST':
+#         ConfrimedOrdersForm =  ConfrimedOrdersStatuses(user = request.user, orderID = pk, depositestatus = 'Pending')
+#         ConfrimedOrdersForm.save()
+#         messages.success(request, 'Your deposite is currently pending and will be approved when confirmed.')
+#         return redirect('History')
 
-    context = {'neworder': neworder}
-    return render(request, 'app/confirmdeposite.html', context)
+#     context = {'neworder': neworder}
+#     return render(request, 'app/confirmdeposite.html', context)
 
 
 @login_required(login_url='UserSignUpFxn')
@@ -108,9 +113,9 @@ def Withdraw(request):
 
 @login_required(login_url='UserSignUpFxn')
 def History(request):
-    AllOrders = ConfrimedOrdersStatuses.objects.filter(user = request.user)
+    # AllOrders = ConfrimedOrdersStatuses.objects.filter(user = request.user)
     OrderDetails = PotentialDeposite.objects.filter(user = request.user)
-    context = {'AllOrders': AllOrders, 'OrderDetails':OrderDetails}
+    context = { 'OrderDetails':OrderDetails}
     return render(request, 'app/history.html', context)
 
 
