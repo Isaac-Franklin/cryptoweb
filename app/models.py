@@ -93,7 +93,9 @@ class ConfrimedOrdersStatuses(models.Model):
 class DueForWithdrawal(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     orderID = models.CharField(max_length=200, null=True, blank=True)
+    plan = models.CharField(max_length=200, null=True, blank=True)
     orderamount = models.CharField(max_length=200, null=True, blank=True)
+    earnedamount = models.CharField(max_length=200, null=True, blank=True)
     ordercrptocurrency = models.CharField(max_length=200, null=True, blank=True)
     
     created_at = models.DateTimeField(auto_now_add=True)

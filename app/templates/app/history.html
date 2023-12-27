@@ -64,10 +64,12 @@
 							<td class='refreshdate'><div class='updatedataform'>
 								<form method='POST'>
 									{% csrf_token %}
-									<input hidden name='orderamount' value={{ OrderDetails.amount }} />
+									<input hidden name='earnedamount'  class='orderamount' value={{ OrderDetails.amount }} />
 									<input hidden name='orderID' value={{ OrderDetails.depositeID }} />
-									<input hidden name='cryptocurrentcy' value={{ OrderDetails.wallet }} />
+									<input hidden  name='plan' class='planwithdrawsection' value={{ OrderDetails.planSelected }} />
+									<input hidden  name='cryptocurrentcy' value={{ OrderDetails.wallet }} />
 									<input hidden class='checkifapproved' name='checkifapproved' />
+									<input hidden name='orderamount' value={{ OrderDetails.amount }} />
 								</form>
 									<button>Refresh Data</button>
 							</div></td>

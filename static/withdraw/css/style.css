@@ -141,6 +141,10 @@ form button{
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.withdrawtable{
+    overflow-x: scroll;
+}
+
 @media only screen and (max-width: 1102px){    
     .withdrawintro{
         display: grid;

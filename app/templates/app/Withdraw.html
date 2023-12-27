@@ -38,38 +38,40 @@
 						<label><h5>Enter an amount to withdraw</h5></label><br/>
 						<input name='amount' required type='text' placeholder='Amount' /><br/><br/>
 						<button>Confirm Withdrawal</button>
-					</form>
-				</div><br/><br/>
-				<hr/><br/>
+					</form><br/><br/>
+					<hr/><br/>
+				</div>
 				<div>
-					<div>
+					<div class='withdrawtable'>
 						<h2>Account Balances</h2>
 						<table>
 							<tr>
+							<th>Date Updated</th>
 							<th>Cryptocurrency</th>
+							<th>Original Investment</th>
+							<th>Plan</th>
+							<th>Earning %</th>
+							<th>ID</th>
 							<th>Amount</th>
 							</tr>
+							{% for AllDueForWithdrawal in AllDueForWithdrawal %}
 							<tr>
-								<td>Bitcoin</td>
-								<td>000</td>
+								<td>{{ AllDueForWithdrawal.created_at }}</td>
+								<td>{{ AllDueForWithdrawal.ordercrptocurrency }}</td>
+								<td>${{ AllDueForWithdrawal.orderamount }}</td>
+								<td class={{ AllDueForWithdrawal.plan }}>{{ AllDueForWithdrawal.plan }}</td>
+								<td>{{ AllDueForWithdrawal.orderamount }}</td>
+								<td>{{ AllDueForWithdrawal.orderID }}</td>
+								<td>{{ AllDueForWithdrawal.earnedamount }}</td>
 							</tr>
-							<tr>
-								<td>USDT</td>
-								<td>000</td>
-							</tr>
-							<tr>
-								<td>Etherum</td>
-								<td>000</td>
-							</tr>
-							<tr>
-								<td>Litecoin</td>
-								<td>000</td>
-							</tr>
+							{% endfor %}
 						</table>
 					</div>
 				</div>
 			</div>
         </div>
+		<script src={% static 'withdraw/js/withdraw.js' %}></script>
     </body>
 </html>
 {% endblock content %}
+

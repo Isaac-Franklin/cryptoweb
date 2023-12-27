@@ -6,6 +6,7 @@ from useronboard.models import UserSignUp
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.utils.crypto import get_random_string
+from django.db.models import Q
 
 # Create your views here.
 
@@ -28,6 +29,39 @@ import requests
 @login_required(login_url='UserSignUpFxn')
 def Dashboard(request):
     currentUser = UserSignUp.objects.get(email = request.user.email)
+    AllDueForWithdrawal = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
+    if AllDueForWithdrawal:
+        totalDueWithdrawal = 0
+        for i in AllDueForWithdrawal:
+            totalDueWithdrawal = totalDueWithdrawal + int(i)
+        totalDueWithdrawalMain = "${:,.2f}".format(totalDueWithdrawal)
+    else:
+        AllDueForWithdrawal = 0
+        totalDueWithdrawalMain = 0
+    
+    ApprovedDeposites = PotentialDeposite.objects.filter(Q(user = request.user) & Q(depositestatus = 'Approved')).values_list('amount', flat=True)
+    if ApprovedDeposites:
+        totalApprovedDeposites = 0
+        for i in ApprovedDeposites:
+            totalApprovedDeposites = totalApprovedDeposites + int(i)
+        print(totalApprovedDeposites)
+        totalApprovedDepositesMain = "${:,.2f}".format(totalApprovedDeposites)
+    else:
+        ApprovedDeposites = 0
+        totalApprovedDepositesMain = 0
+
+    LatestDeposites = PotentialDeposite.objects.filter(user=request.user).values_list('amount', flat=True).first()
+    AllDeposites = PotentialDeposite.objects.filter(user=request.user).values_list('amount', flat=True)
+    if AllDeposites:
+        totalAllDeposites = 0
+        for i in AllDeposites:
+            totalAllDeposites = totalAllDeposites + int(i)
+        # print(totalAllDeposites)
+        totalAllDepositesMain = "${:,.2f}".format(totalAllDeposites)
+    else:
+        AllDeposites = 0
+        totalAllDepositesMain = 0
+
     if currentUser is None:
         return redirect('UserSignUpFxn')
     browser_type = request.user_agent.browser.family
@@ -36,12 +70,20 @@ def Dashboard(request):
     os_version = request.user_agent.os.version_string
     os_name = platform.system()
     user_IP_Self = request.META.get('REMOTE_ADDR')
-    context = {'currentUser':currentUser, 'browser_type':browser_type, 'os_type':os_type, 'user_IP_Self':user_IP_Self}
+    context = {'currentUser':currentUser, 'browser_type':browser_type, 'os_type':os_type, 'user_IP_Self':user_IP_Self, 'totalApprovedDepositesMain':totalApprovedDepositesMain,
+     'totalAllDepositesMain':totalAllDepositesMain, 'totalDueWithdrawalMain':totalDueWithdrawalMain, 'LatestDeposites':LatestDeposites}
     return render(request, 'app/dashboard.html', context)
 
 
 def Nav(request):
-    return render(request, 'generalapp.html')
+    AllDueForWithdrawal = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
+    print(AllDueForWithdrawal)
+    totalDueWithdrawal = 0
+    for i in AllDueForWithdrawal:
+        totalDueWithdrawal = totalDueWithdrawal + int(i)
+    print(totalDueWithdrawal)
+    context = {'totalDueWithdrawal':totalDueWithdrawal}
+    return render(request, 'generalapp.html', context)
 
 
 @login_required(login_url='UserSignUpFxn')
@@ -108,7 +150,9 @@ def ConfirmInvest(request):
 
 
 def Withdraw(request):
-    return render(request, 'app/Withdraw.html')
+    AllDueForWithdrawal = DueForWithdrawal.objects.filter(user=request.user)
+    context = {'AllDueForWithdrawal':AllDueForWithdrawal}
+    return render(request, 'app/Withdraw.html', context)
 
 
 @login_required(login_url='UserSignUpFxn')
@@ -119,14 +163,16 @@ def History(request):
         print('form is checked')
         orderID = request.POST['orderID']
         orderamount = request.POST['orderamount']
+        earnedamount = request.POST['earnedamount']
         ordercrptocurrency = request.POST['cryptocurrentcy']
+        plan = request.POST['plan']
         DueForWithdrawalCheck = DueForWithdrawal.objects.filter(orderID = orderID)
         if DueForWithdrawalCheck:
             messages.success(request, 'This order has been updated for withdrawal already.')
             return redirect ('History')
         else:
             messages.success(request, 'You can request withdrawal for this deposite now.')
-            DueForWithdrawalForm = DueForWithdrawal(user = request.user, orderID = orderID, orderamount = orderamount, ordercrptocurrency = ordercrptocurrency)
+            DueForWithdrawalForm = DueForWithdrawal(user = request.user, plan = plan, orderID = orderID, orderamount = orderamount, earnedamount = earnedamount, ordercrptocurrency = ordercrptocurrency)
             DueForWithdrawalForm.save()
 
     context = { 'OrderDetails':OrderDetails}
