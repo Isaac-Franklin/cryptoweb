@@ -8,6 +8,7 @@
 		<link rel="icon" type="image/x-icon" href={% static 'general/img/itsalogo.PNG' %}> 
 		<link rel="stylesheet" href={% static 'withdraw/css/style.css' %} />
 		<link rel="stylesheet" href={% static 'dashboard/css/style.css' %} />
+		<link rel="stylesheet" href={% static 'history/style.css' %} />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600&display=swap" rel="stylesheet">
@@ -20,6 +21,16 @@
 	<body style="background: #181A20" >
         <div class='shadow'></div>
         <div class='main'>
+		
+				
+			<div id="flash">
+				{% if messages %} {% for message in messages %}
+				<div class="alert alert-{{ message.tags}} m-0" role="alert">
+					<strong style="color: #004767">{{ message }}</strong>
+				</div>
+				{% endfor %} {% endif %}
+			</div>
+	
             <div class='transactionsection'>
 				<h1>Account History</h1><br/><br/>
 				<div class='tablesection'>
@@ -29,6 +40,7 @@
 					<table>
 						<tr>
 						<th>Date/Time Deposited</th>
+						<th>Deposite ID</th>
 						<th>Cryptocurrency</th>
 						<th>Amount</th>
 						<th>Plan</th>
@@ -39,6 +51,7 @@
 						{% for OrderDetails in OrderDetails %}
 						<tr>
 							<td>{{ OrderDetails.created_at }}</td>
+							<td>{{ OrderDetails.depositeID }}</td>
 							<td>{{ OrderDetails.wallet }}</td>
 							<td>${{ OrderDetails.amount }}</td>
 							<td>{{ OrderDetails.planSelected }}</td>
@@ -48,7 +61,16 @@
 								<p class='addtimmerhere'></p>
 								<p class='approvedtimmerhere'>{{ OrderDetails.planexpirytime }}</p>
 							</td>
-							<td class='refreshdate'><button>Refresh Data</button></td>
+							<td class='refreshdate'><div class='updatedataform'>
+								<form method='POST'>
+									{% csrf_token %}
+									<input hidden name='orderamount' value={{ OrderDetails.amount }} />
+									<input hidden name='orderID' value={{ OrderDetails.depositeID }} />
+									<input hidden name='cryptocurrentcy' value={{ OrderDetails.wallet }} />
+									<input hidden class='checkifapproved' name='checkifapproved' />
+								</form>
+									<button>Refresh Data</button>
+							</div></td>
 						</tr>
 						{% endfor %}
 					</table>

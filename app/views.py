@@ -81,25 +81,25 @@ def Deposite(request):
                 messages.error(request, 'ERROR: You entered an amount less than $30,000 for the Diamond plan. Enter a higher amount for this plan.')
                 return redirect('Deposite')
         planIDMain = planselected +'-'+ get_random_string(length=10)
-        PotentialDepositeForm = PotentialDeposite(user = request.user, planID = planIDMain, planSelected = planselected, amount = amount, wallet = wallet)
+        PotentialDepositeForm = PotentialDeposite(user = request.user, depositeID = planIDMain, planSelected = planselected, amount = amount, wallet = wallet)
         PotentialDepositeForm.save()
-        PotentialDepositeByID = PotentialDepositeForm.id
+        PotentialDepositeByID = PotentialDepositeForm.depositeID
         print(PotentialDepositeByID)
         return redirect('ConfirmDeposite', pk=PotentialDepositeByID)
     return render(request, 'app/deposite.html')
 
 
-# @login_required(login_url='UserSignUpFxn')
-# def ConfirmDeposite(request, pk):
-#     neworder = PotentialDeposite.objects.get(id=pk)
-#     if request.method == 'POST':
-#         ConfrimedOrdersForm =  ConfrimedOrdersStatuses(user = request.user, orderID = pk, depositestatus = 'Pending')
-#         ConfrimedOrdersForm.save()
-#         messages.success(request, 'Your deposite is currently pending and will be approved when confirmed.')
-#         return redirect('History')
+@login_required(login_url='UserSignUpFxn')
+def ConfirmDeposite(request, pk):
+    neworder = PotentialDeposite.objects.get(depositeID=pk)
+    if request.method == 'POST':
+        ConfrimedOrdersForm =  ConfrimedOrdersStatuses(user = request.user, depositeID = pk, depositestatus = 'Payment is made')
+        ConfrimedOrdersForm.save()
+        messages.success(request, 'Your deposite is currently pending and will be approved when confirmed.')
+        return redirect('History')
 
-#     context = {'neworder': neworder}
-#     return render(request, 'app/confirmdeposite.html', context)
+    context = {'neworder': neworder}
+    return render(request, 'app/confirmdeposite.html', context)
 
 
 @login_required(login_url='UserSignUpFxn')
@@ -115,6 +115,20 @@ def Withdraw(request):
 def History(request):
     # AllOrders = ConfrimedOrdersStatuses.objects.filter(user = request.user)
     OrderDetails = PotentialDeposite.objects.filter(user = request.user)
+    if request.method == 'POST':
+        print('form is checked')
+        orderID = request.POST['orderID']
+        orderamount = request.POST['orderamount']
+        ordercrptocurrency = request.POST['cryptocurrentcy']
+        DueForWithdrawalCheck = DueForWithdrawal.objects.filter(orderID = orderID)
+        if DueForWithdrawalCheck:
+            messages.success(request, 'This order has been updated for withdrawal already.')
+            return redirect ('History')
+        else:
+            messages.success(request, 'You can request withdrawal for this deposite now.')
+            DueForWithdrawalForm = DueForWithdrawal(user = request.user, orderID = orderID, orderamount = orderamount, ordercrptocurrency = ordercrptocurrency)
+            DueForWithdrawalForm.save()
+
     context = { 'OrderDetails':OrderDetails}
     return render(request, 'app/history.html', context)
 

@@ -25,6 +25,23 @@
 			</div>
 			<div class='withdrawintro'>
 				<div>
+					<h2>Fill the form to make a withdrawal</h2>					
+					<form>
+						<label><h5>Select a wallet to withdraw these funds to:</h5></label><br/>
+						<select required name='wallet' style="color:black" >
+							<option style="color:black" >--Select Wallet--</option>
+							<option style="color:black" >Bitcoin</option>
+							<option style="color:black" >USDT</option>
+							<option style="color:black" >Tron</option>
+							<option style="color:black" >BnB</option>
+						</select><br/><br/>
+						<label><h5>Enter an amount to withdraw</h5></label><br/>
+						<input name='amount' required type='text' placeholder='Amount' /><br/><br/>
+						<button>Confirm Withdrawal</button>
+					</form>
+				</div><br/><br/>
+				<hr/><br/>
+				<div>
 					<div>
 						<h2>Account Balances</h2>
 						<table>
@@ -50,22 +67,6 @@
 							</tr>
 						</table>
 					</div>
-				</div>
-				<div>
-					<h2>Fill the form to make a withdrawal</h2>					
-					<form>
-						<label><h5>Select a wallet to withdraw these funds to:</h5></label><br/>
-						<select required name='wallet' style="color:black" >
-							<option style="color:black" >--Select Wallet--</option>
-							<option style="color:black" >Bitcoin</option>
-							<option style="color:black" >USDT</option>
-							<option style="color:black" >Tron</option>
-							<option style="color:black" >BnB</option>
-						</select><br/><br/>
-						<label><h5>Enter an amount to withdraw</h5></label><br/>
-						<input name='amount' required type='text' placeholder='Amount' /><br/><br/>
-						<button>Confirm Withdrawal</button>
-					</form>
 				</div>
 			</div>
         </div>
