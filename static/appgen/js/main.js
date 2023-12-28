@@ -1,4 +1,14 @@
-// NEW ITEMS STARTS HERE
+let profilesectionmobile = document.querySelector('.profilesectionmobile')
+let logoutboxMobile = document.querySelector('.logoutboxmobile')
+logoutboxMobile.style.display = 'none'
+profilesectionmobile.addEventListener('click', () => {
+    if (logoutboxMobile.style.display === 'none'){
+        logoutboxMobile.style.display = 'block';
+    }else{
+        logoutboxMobile.style.display = 'none';
+    }
+})
+
 
 function showTime(){
     const date = new Date();
@@ -138,10 +148,12 @@ hamburger.addEventListener('click' , () => {
 	//   }, 300);
   })
   
+let profilesection = document.querySelector('.profilesection')
+let logoutbox = document.querySelector('.logoutbox')
 
-
-
-
+profilesection.addEventListener('click', () => {
+    logoutbox.classList.toggle('showbox')
+})
 
 
 

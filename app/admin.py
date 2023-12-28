@@ -6,4 +6,5 @@ admin.site.register(AllDeposits)
 admin.site.register(PotentialDeposite)
 admin.site.register(ReferalData)
 admin.site.register(DueForWithdrawal)
+admin.site.register(WithdrawalRequest)
 

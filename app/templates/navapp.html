@@ -17,6 +17,11 @@
                         <div class='profilesectioninner'><img src={% static 'general/img/arrow.png' %} /></div>
                     </div>
                 </div>
+                
+                    <div class='logoutbox'>
+                        <a href={% url 'Logout' %}> <p>Logout</p></a>
+                    </div>
+                
             </div>
         </div>
 
@@ -36,11 +41,14 @@
                     <div>
                         <p class='dateheremobile'></p>
                     </div>
-                    <div class='profilesection'>
+                    <div class='profilesection profilesectionmobile'>
                         <div class='profilesectioninner profilesectioninner2'><img src={% static 'general/img/user.jpg' %} /></div>
                         <div class='profilesectionmain'>
                             <div class='profilesectioninner profilesectioninner2'><img src={% static 'general/img/arrow.png' %} /></div>
                         </div>
+                    </div>
+                    <div class='logoutboxmobile'>
+                        <a href={% url 'Logout' %}> <p>Logout</p></a>
                     </div>
                 </div>
 
@@ -102,7 +110,7 @@
                 <div class='sidebarsectioninner sidebarsectioninner2'>
                     <div class='acctbalance acctbalance2'>
                         <div>
-                            <h1>${{totalDueWithdrawal}}.00</h1>
+                            <h1>{{totalDueWithdrawalMain}}</h1>
                             <p>Account Balance</p>
                         </div>
                         <div class='acctbalanceimg'>
@@ -185,7 +193,7 @@
                 <div class='sidebarsectioninner'>
                     <div class='acctbalance'>
                         <div>
-                            <h1>0</h1>
+                            <h1>{{totalDueWithdrawalMain}}</h1>
                             <p>Account Balance</p>
                         </div>
                         <div class='acctbalanceimg'>

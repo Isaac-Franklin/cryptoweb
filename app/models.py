@@ -18,6 +18,13 @@ REFERAL_DEPOSITE_STATUS = (
 )
 
 
+WITHDRAWAL_STATUS = (
+    ("Pending", "Pending"),
+    ("Declined", "Declined"),
+    ("Approved", "Approved"),
+)
+
+
 class AllDeposits(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     fullname = models.CharField(max_length=200, null=True, blank=True)
@@ -106,3 +113,22 @@ class DueForWithdrawal(models.Model):
         
     def __str__(self):
         return self.orderID
+
+
+class WithdrawalRequest(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    withdrawalID = models.CharField(max_length=200, null=True, blank=True)
+    withdrawamount = models.CharField(max_length=200, null=True, blank=True)
+    withdrawcrptocurrency = models.CharField(max_length=200, null=True, blank=True)
+    cryptowalletID = models.CharField(max_length=200, null=True, blank=True)
+    withdrawalRequestStatus = models.CharField(max_length= 300,choices = WITHDRAWAL_STATUS, default = 'Pending', null=True, blank = True)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    edited_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['-edited_at', '-created_at']
+        
+        
+    def __str__(self):
+        return self.withdrawalID

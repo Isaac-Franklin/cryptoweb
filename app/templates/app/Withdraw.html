@@ -23,50 +23,87 @@
 				<h1>Withdraw Funds</h1>
 				<h4>Fill the form below to make a withdrawal</h4>
 			</div>
+		
+				
+			<div id="flash">
+				{% if messages %} {% for message in messages %}
+				<div class="alert alert-{{ message.tags}} m-0" role="alert">
+					<strong style="color: #004767">{{ message }}</strong>
+				</div>
+				{% endfor %} {% endif %}
+			</div>
+	
 			<div class='withdrawintro'>
 				<div>
 					<h2>Fill the form to make a withdrawal</h2>					
-					<form>
+					<form method='POST'>
+						{% csrf_token %}
+						<label><h5>Enter an amount to withdraw($)</h5></label><br/>
+						<input name='amountEntered' required type='text' placeholder='eg: 8000' /><br/><br/>
 						<label><h5>Select a wallet to withdraw these funds to:</h5></label><br/>
-						<select required name='wallet' style="color:black" >
+						<select required name='walletselected' style="color:black" >
 							<option style="color:black" >--Select Wallet--</option>
 							<option style="color:black" >Bitcoin</option>
 							<option style="color:black" >USDT</option>
 							<option style="color:black" >Tron</option>
 							<option style="color:black" >BnB</option>
 						</select><br/><br/>
-						<label><h5>Enter an amount to withdraw</h5></label><br/>
-						<input name='amount' required type='text' placeholder='Amount' /><br/><br/>
+						<label><h5>Enter Wallet ID</h5></label><br/>
+						<input name='cryptowalletID' type='text' placeholder='Wallet ID eg Bitcoin Wallet ID' /><br/><br/>
 						<button>Confirm Withdrawal</button>
 					</form><br/><br/>
 					<hr/><br/>
 				</div>
 				<div>
-					<div class='withdrawtable'>
-						<h2>Account Balances</h2>
+					<h3>View and track all withdwaral</h3>
+					<div class='withdrawtable'>						
 						<table>
 							<tr>
-							<th>Date Updated</th>
-							<th>Cryptocurrency</th>
-							<th>Original Investment</th>
-							<th>Plan</th>
-							<th>Earning %</th>
-							<th>ID</th>
-							<th>Amount</th>
+							<th>Date Requested</th>
+							<th>Wallet Selected</th>
+							<th>Amount requested</th>
+							<th>Approval Status</th>
+							<th>Wallet ID</th>
 							</tr>
-							{% for AllDueForWithdrawal in AllDueForWithdrawal %}
+							{% for AllWithdrawalRequest in AllWithdrawalRequest %}
 							<tr>
-								<td>{{ AllDueForWithdrawal.created_at }}</td>
-								<td>{{ AllDueForWithdrawal.ordercrptocurrency }}</td>
-								<td>${{ AllDueForWithdrawal.orderamount }}</td>
-								<td class={{ AllDueForWithdrawal.plan }}>{{ AllDueForWithdrawal.plan }}</td>
-								<td>{{ AllDueForWithdrawal.orderamount }}</td>
-								<td>{{ AllDueForWithdrawal.orderID }}</td>
-								<td>{{ AllDueForWithdrawal.earnedamount }}</td>
-							</tr>
+								<td>{{ AllWithdrawalRequest.created_at }}</td>
+								<td>{{ AllWithdrawalRequest.withdrawcrptocurrency }}</td>
+								<td>${{ AllWithdrawalRequest.withdrawamount }}</td>
+								<td>{{ AllWithdrawalRequest.withdrawalRequestStatus }}</td>
+								<td>{{ AllWithdrawalRequest.cryptowalletID }}</td></tr>
 							{% endfor %}
 						</table>
 					</div>
+				</div>
+			</div>
+			
+				
+			<div class='accountbalance'>
+				<div class='withdrawtable'>
+					<h2>Account Balances</h2>
+					<table>
+						<tr>
+						<th>Date Updated</th>
+						<th>Cryptocurrency</th>
+						<th>Original Investment</th>
+						<th>Plan</th>
+						<th>Earning %</th>
+						<th>ID</th>
+						<th>Amount</th>
+						</tr>
+						{% for AllDueForWithdrawal in AllDueForWithdrawal %}
+						<tr>
+							<td>{{ AllDueForWithdrawal.created_at }}</td>
+							<td>{{ AllDueForWithdrawal.ordercrptocurrency }}</td>
+							<td>${{ AllDueForWithdrawal.orderamount }}</td>
+							<td class={{ AllDueForWithdrawal.plan }}>{{ AllDueForWithdrawal.plan }}</td>
+							<td></td>
+							<td>{{ AllDueForWithdrawal.orderID }}</td>
+							<td>${{ AllDueForWithdrawal.earnedamount }}</td>
+						</tr>
+						{% endfor %}
+					</table>
 				</div>
 			</div>
         </div>

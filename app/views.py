@@ -30,6 +30,19 @@ import requests
 def Dashboard(request):
     currentUser = UserSignUp.objects.get(email = request.user.email)
     AllDueForWithdrawal = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
+    latestWithdrawalReq = WithdrawalRequest.objects.filter(user=request.user).values_list('withdrawamount', flat=True).first()
+    latestPendingWithdrawalReqs = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Pending')).values_list('withdrawamount', flat=True)
+    print(latestPendingWithdrawalReqs                                                                                                      )
+    if latestPendingWithdrawalReqs:
+        totalPendingWithdrawalReqs = 0
+        for i in latestPendingWithdrawalReqs:
+            print(f'see {i}')
+            totalPendingWithdrawalReqs = totalPendingWithdrawalReqs + int(i)
+        # print(totalPendingWithdrawalReqs)
+        totalPendingWithdrawalReqsMain = "${:,.2f}".format(totalPendingWithdrawalReqs)
+    else:
+        totalPendingWithdrawalReqsMain = 0
+
     if AllDueForWithdrawal:
         totalDueWithdrawal = 0
         for i in AllDueForWithdrawal:
@@ -71,18 +84,23 @@ def Dashboard(request):
     os_name = platform.system()
     user_IP_Self = request.META.get('REMOTE_ADDR')
     context = {'currentUser':currentUser, 'browser_type':browser_type, 'os_type':os_type, 'user_IP_Self':user_IP_Self, 'totalApprovedDepositesMain':totalApprovedDepositesMain,
-     'totalAllDepositesMain':totalAllDepositesMain, 'totalDueWithdrawalMain':totalDueWithdrawalMain, 'LatestDeposites':LatestDeposites}
+     'totalAllDepositesMain':totalAllDepositesMain, 'totalDueWithdrawalMain':totalDueWithdrawalMain, 'LatestDeposites':LatestDeposites,
+     'latestWithdrawalReq':latestWithdrawalReq, 'totalPendingWithdrawalReqsMain' : totalPendingWithdrawalReqsMain}
     return render(request, 'app/dashboard.html', context)
 
 
 def Nav(request):
-    AllDueForWithdrawal = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
-    print(AllDueForWithdrawal)
-    totalDueWithdrawal = 0
-    for i in AllDueForWithdrawal:
-        totalDueWithdrawal = totalDueWithdrawal + int(i)
-    print(totalDueWithdrawal)
-    context = {'totalDueWithdrawal':totalDueWithdrawal}
+    AllDueForWithdrawal = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)        
+
+    if AllDueForWithdrawal:
+        totalDueWithdrawal = 0
+        for i in AllDueForWithdrawal:
+            totalDueWithdrawal = totalDueWithdrawal + int(i)
+        totalDueWithdrawalMain = "${:,.2f}".format(totalDueWithdrawal)
+
+
+    print(totalDueWithdrawalMain)
+    context = {'totalDueWithdrawalMain':totalDueWithdrawalMain}
     return render(request, 'generalapp.html', context)
 
 
@@ -151,7 +169,32 @@ def ConfirmInvest(request):
 
 def Withdraw(request):
     AllDueForWithdrawal = DueForWithdrawal.objects.filter(user=request.user)
-    context = {'AllDueForWithdrawal':AllDueForWithdrawal}
+    AllWithdrawalRequest = WithdrawalRequest.objects.filter(user=request.user)
+    if request.method == 'POST':
+        withdrawalIDMain  = 'withdrawalRequest -'+ get_random_string(length=5)
+        walletSelected = request.POST['walletselected']
+        amountEntered = request.POST['amountEntered']
+        cryptowalletID = request.POST['cryptowalletID']
+        findAmountForWithdrawal = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
+        # print(findAmountForWithdrawal)
+        if findAmountForWithdrawal:
+            totalDueForWithdrawal = 0
+            for i in findAmountForWithdrawal:
+                totalDueForWithdrawal = totalDueForWithdrawal + int(i)
+
+            print(f'the sum of the numbers is: {totalDueForWithdrawal}')
+            print(f'Amount user entered is {amountEntered}')
+
+            if int(amountEntered) > int(totalDueForWithdrawal):
+                messages.success(request, f'ERROR: You entered an amount greater than the amount in your wallet. Please enter an amount eqal to or below ${totalDueForWithdrawal}')
+                return redirect('Withdraw')
+            else:
+                WithdrawalRequestForm = WithdrawalRequest(user=request.user, withdrawalID=withdrawalIDMain, withdrawamount=amountEntered, withdrawcrptocurrency=walletSelected,
+                withdrawalRequestStatus='Pending', cryptowalletID=cryptowalletID)
+                WithdrawalRequestForm.save()
+                messages.success(request, 'Success! An admin will review your withdrawal request within the next 12 working hours.')
+                return redirect('Withdraw')
+    context = {'AllDueForWithdrawal':AllDueForWithdrawal, 'AllWithdrawalRequest':AllWithdrawalRequest}
     return render(request, 'app/Withdraw.html', context)
 
 
@@ -215,3 +258,14 @@ def ReferedUser(request, username):
         ReferalDataForm = ReferalData(user = request.user, refererUsername = username, refererEmail = findRefererEmail)
         ReferalDataForm.save()
     return render(request, 'app/dashboard.html')
+
+
+
+
+def Logout(request):
+    logout(request)
+    messages.success(request, 'Logout Successful')
+    return redirect('UserSignUpFxn')
+
+
+

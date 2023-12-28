@@ -145,6 +145,37 @@ form button{
     overflow-x: scroll;
 }
 
+
+.accountbalance{
+    background-color: #233239;
+    padding: 10px;
+    border-radius: 1rem;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media only screen and (max-width: 1102px){    
     .withdrawintro{
         display: grid;

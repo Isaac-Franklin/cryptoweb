@@ -404,8 +404,67 @@ body{
     display: none;
 }
 
+.logoutbox{
+    background-color: #181A20;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    display: none;
+    transition: ease-in-out .3s;
+}
+
+.logoutbox p{
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: ease-in-out .3s;
+}
+
+.logoutbox p:hover{
+    background-color: white;
+    color: #181A20;
+}
+
+.logoutboxmobile{
+    background-color: #181A20;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    display: none;
+    transition: ease-in-out .3s;
+}
+
+.logoutboxmobile p{
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: ease-in-out .3s;
+}
+
+.logoutboxmobile p:hover{
+    background-color: white;
+    color: #181A20;
+}
+
+.showbox{
+    display: block;
+}
 
 
+
+.showboxMobile{
+    display: block;
+}
 
 
 
@@ -588,6 +647,19 @@ body{
     
     .responsivenav hr{
         display: block;
+    }
+
+    
+    .logoutboxmobile{
+        background-color: #181A20;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+        border: none;
+        position: absolute;
+        right: 0px;
+        top: 140px;
+        display: none;
     }
 
 
