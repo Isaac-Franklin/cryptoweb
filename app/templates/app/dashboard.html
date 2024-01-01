@@ -662,7 +662,7 @@
 
 			<div class='balancebox2'>
 				<div class='balancebox2inner'>
-					<h5>ACCOUNT DEPOSITS</h5><br/>
+					<h5>APPROVED DEPOSIT</h5><br/>
 					<div class='balanceboxinner2traffic'>
 						<h2>{{totalAllDepositesMain}}</h2>
 						<div>
@@ -677,7 +677,7 @@
 						<div class='activedeposection'>
 							<div class='activedeposectioninnner'>
 								<i class="dot dot--3"></i>
-								<p>Last Investment</p>
+								<p>Latest Deposit</p>
 							</div>
 							<div>
 								<p>${{LatestDeposites}}.00</p>
@@ -686,16 +686,16 @@
 						<div class='activedeposection'>
 							<div class='activedeposectioninnner'>
 								<i class="dot dot--1"></i>
-								<p>Active Deposits</p>
+								<p>Pending Deposit</p>
 							</div>
 							<div>
-								<p>{{totalApprovedDepositesMain}}</p>
+								<p>{{totalPendingDepositesMain}}</p>
 							</div>
 						</div>
 						<div class='activedeposection'>
 							<div class='activedeposectioninnner'>
 								<i class="dot dot--2"></i>
-								<p>Total Deposited</p>
+								<p>Active Deposit</p>
 							</div>
 							<div>
 								<p>{{totalAllDepositesMain}}</p>
@@ -759,7 +759,7 @@
 					</div>
 					<div class='accountdefectssection2'>
 						<p>Off</p>
-						<img src={% static 'general/img/rightarrow.png' %} />
+						{% comment %} <img src={% static 'general/img/rightarrow.png' %} /> {% endcomment %}
 					</div>
 				</div>
 				<hr/>
@@ -819,7 +819,8 @@
 						<h5>Edit Account</h5>
 					</div>
 					<div class='accountdefectssection2'>
-						<img src={% static 'general/img/rightarrow.png' %} />
+						<p>Off</p>
+						{% comment %} <img src={% static 'general/img/rightarrow.png' %} /> {% endcomment %}
 					</div>
 				</div>
 			</div>

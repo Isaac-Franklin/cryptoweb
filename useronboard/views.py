@@ -5,6 +5,12 @@ from .models import *
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
+from django.utils.http import urlsafe_base64_encode
+from .tokens import account_activation_token
+from django.template.loader import render_to_string
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_bytes
+from django.core.mail import send_mail
 
 
 
@@ -87,9 +93,13 @@ def UserSignUpFxn(request):
 
         user = User.objects.create_user(password=password, username= username, email=email, first_name=fullname, last_name=phone)
         messages.success(request, 'Registration Successful')
+        user = authenticate(request, username=username, password=password)
+        try:
+            activateEmail(request, user, email)
+        except:
+            print('Registration mail was not sent successfully')
         form.save()
         user.save()
-        user = authenticate(request, username=username, password=password)
         return redirect('Dashboard')
 
 
@@ -173,6 +183,30 @@ def UserLogout(request):
     logout(request)
     messages.success(request, 'Logout Successful')
     return redirect('UserSignUpFxn')
+
+
+
+
+
+# SEND EMAIL AFTER REGISTRATION
+def activateEmail(request, user, to_email):
+    mail_subject = "Welcome to Ceness Trade."
+    recipient_list = [to_email, ]
+    message = render_to_string("mailouts/account_verification_email.html", {
+        'user': user.email,
+        'domain': get_current_site(request).domain if request.is_secure() else 'http://127.0.0.1:8000/',
+        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+        'token': account_activation_token.make_token(user),
+        "protocol": 'https' if request.is_secure() else 'http'
+    })
+    email = send_mail(mail_subject, message, 'dhmsinventoryapp@gmail.com', recipient_list)
+    if email:
+        # messages.success(request, 'A confimation email was sent to your inb')
+        print('Sent a confirmation email')
+    else:
+        messages.error(request, f'Problem sending email to {to_email}, check if you typed it correctly')
+
+
 
 
 

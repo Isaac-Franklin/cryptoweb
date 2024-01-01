@@ -22,6 +22,7 @@
             <div>
 				<h1>Withdraw Funds</h1>
 				<h4>Fill the form below to make a withdrawal</h4>
+				<h3>Your account balance is ${{UserAccountBalance}}</h3>	
 			</div>
 		
 				
@@ -35,7 +36,7 @@
 	
 			<div class='withdrawintro'>
 				<div>
-					<h2>Fill the form to make a withdrawal</h2>					
+					<h2>Fill the form to make a withdrawal</h2>		
 					<form method='POST'>
 						{% csrf_token %}
 						<label><h5>Enter an amount to withdraw($)</h5></label><br/>
@@ -90,7 +91,7 @@
 						<th>Plan</th>
 						<th>Earning %</th>
 						<th>ID</th>
-						<th>Amount</th>
+						<th>Your earning(s)</th>
 						</tr>
 						{% for AllDueForWithdrawal in AllDueForWithdrawal %}
 						<tr>
