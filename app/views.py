@@ -28,7 +28,6 @@ import os
 import time
 
 current_time = time.ctime()
-print(current_time)
 # Print the operating system name
 
 
@@ -43,10 +42,12 @@ def Dashboard(request):
         totalAllApprovedWithdrawalRequest = 0
         for i in AllApprovedWithdrawalRequest:
             totalAllApprovedWithdrawalRequest = totalAllApprovedWithdrawalRequest + int(i)
-        print(totalAllApprovedWithdrawalRequest)
         totalFretotalAllApprovedWithdrawalRequestMain = totalAllApprovedWithdrawalRequest
     else:
         totalFretotalAllApprovedWithdrawalRequestMain = 0
+    
+    totalAllApprovedWithdrawalRequestAmount = "${:,.2f}".format(totalFretotalAllApprovedWithdrawalRequestMain)
+    print(f' here {totalAllApprovedWithdrawalRequestAmount}')
 
     AllPendingWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Pending')).values_list('withdrawamount', flat=True)
     if AllPendingWithdrawalRequest:
@@ -74,7 +75,6 @@ def Dashboard(request):
         totalDueWithdrawal = 0
         for i in AllDueForWithdrawal:
             totalDueWithdrawal = totalDueWithdrawal + int(float(i))
-        print(totalDueWithdrawal)
 
         totalDueWithdrawalMainPre  = totalDueWithdrawal - AllFreeWithdrawalBalance
         totalDueWithdrawalMain = "${:,.2f}".format(totalDueWithdrawalMainPre)
@@ -128,23 +128,26 @@ def Dashboard(request):
     os_name = platform.system()
     user_IP_Self = request.META.get('REMOTE_ADDR')
     context = {'totalPendingDepositesMain':totalPendingDepositesMain, 'currentUser':currentUser, 'browser_type':browser_type, 'os_type':os_type, 'user_IP_Self':user_IP_Self, 'totalApprovedDepositesMain':totalApprovedDepositesMain,
-     'totalAllDepositesMain':totalAllDepositesMain, 'totalDueWithdrawalMain':totalDueWithdrawalMain, 'LatestDeposites':LatestDeposites,
+     'totalAllDepositesMain':totalAllDepositesMain, 'totalDueWithdrawalMain':totalDueWithdrawalMain, 'LatestDeposites':LatestDeposites, 'ApprovedDeposites': ApprovedDeposites, 'totalAllApprovedWithdrawalRequestAmount':totalAllApprovedWithdrawalRequestAmount,
      'latestWithdrawalReq':latestWithdrawalReq, 'totalPendingWithdrawalReqsMain' : totalPendingWithdrawalReqsMain}
     return render(request, 'app/dashboard.html', context)
 
 
 def Nav(request):
-    AllDueForWithdrawal = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)        
 
-    if AllDueForWithdrawal:
-        totalDueWithdrawal = 0
-        for i in AllDueForWithdrawal:
-            totalDueWithdrawal = totalDueWithdrawal + int(float(i))
-        totalDueWithdrawalMain = "${:,.2f}".format(totalDueWithdrawal)
+    AllApprovedWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Approved')).values_list('withdrawamount', flat=True)
+    if AllApprovedWithdrawalRequest:
+        totalAllApprovedWithdrawalRequest = 0
+        for i in AllApprovedWithdrawalRequest:
+            totalAllApprovedWithdrawalRequest = totalAllApprovedWithdrawalRequest + int(i)
+        totalFretotalAllApprovedWithdrawalRequestMain = totalAllApprovedWithdrawalRequest
+    else:
+        totalFretotalAllApprovedWithdrawalRequestMain = 0
+    
+    totalAllApprovedWithdrawalRequestAmount = "${:,.2f}".format(totalFretotalAllApprovedWithdrawalRequestMain)
+    print(f' here {totalAllApprovedWithdrawalRequestAmount}')
 
-
-    print(totalDueWithdrawalMain)
-    context = {'totalDueWithdrawalMain':totalDueWithdrawalMain}
+    context = {'totalAllApprovedWithdrawalRequestAmount':totalAllApprovedWithdrawalRequestAmount}
     return render(request, 'generalapp.html', context)
 
 
@@ -271,11 +274,11 @@ def Withdraw(request):
     AllFreeWithdrawalBalance = totalAllPendingWithdrawalRequestMain + totalFretotalAllApprovedWithdrawalRequestMain
     print(f'{AllFreeWithdrawalBalance} 272')
 
-    AllDueForWithdrawal = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
-    print(f'{AllDueForWithdrawal} here')
-    if AllDueForWithdrawal:
+    AllDueForWithdrawalAmount = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
+    print(f'{AllDueForWithdrawalAmount} here')
+    if AllDueForWithdrawalAmount:
         totalDueWithdrawal = 0
-        for i in AllDueForWithdrawal:
+        for i in AllDueForWithdrawalAmount:
             totalDueWithdrawal = totalDueWithdrawal + int(float(i))
         print(f'{totalDueWithdrawal} total')
 

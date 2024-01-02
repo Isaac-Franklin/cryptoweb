@@ -630,7 +630,8 @@
 				<div class='balanceboxinner2'>
 					<h5>ACCOUNT BALANCE</h5><br/>
 					<div class='balanceboxinner2traffic'>
-						<h2 >{{totalDueWithdrawalMain}}</h2>
+						<h2 >{{totalAllApprovedWithdrawalRequestAmount}}</h2>
+						{% comment %} <h2 >{{totalDueWithdrawalMain}}</h2> {% endcomment %}
 						<div class="dots">
 							<i class="dot dot--1"></i>
 							<i class="dot dot--2"></i>
@@ -695,19 +696,29 @@
 						<div class='activedeposection'>
 							<div class='activedeposectioninnner'>
 								<i class="dot dot--2"></i>
-								<p>Active Deposit</p>
+								<p>Total Deposit</p>
+								{% comment %} Total approved deposite {% endcomment %}
 							</div>
 							<div>
 								<p>{{totalAllDepositesMain}}</p>
 							</div>
 						</div>
+						{% comment %} <div class='activedeposection'>
+							<div class='activedeposectioninnner'>
+								<i class="dot dot--2"></i>
+								<p>Active Deposit</p>
+							</div>
+							<div>
+								<p>{{totalAllDepositesMain}}</p>
+							</div>
+						</div> {% endcomment %}
 					</div>
 				</div>
 				<div>
 					<div class='balancebox2inner'>
 						<h5>TOTAL EARNINGS</h5><br/>
 						<div class='balanceboxinner2traffic'>
-							<h2>{{totalDueWithdrawalMain}}</h2>
+							<h2>{{totalAllApprovedWithdrawalRequestAmount}}</h2>
 							<div>
 								<div class="dots">
 									<i class="dot dot--1"></i>
@@ -738,12 +749,22 @@
 							<div class='activedeposection'>
 								<div class='activedeposectioninnner'>
 									<i class="dot dot--2"></i>
+									<p>Total Withdrawn</p>
+									{% comment %} TOTAL APPROVED WITHDRAWAL HERE {% endcomment %}
+								</div>
+								<div>
+									<p>{{totalAllApprovedWithdrawalRequestAmount}}</p>
+								</div>
+							</div>
+							{% comment %} <div class='activedeposection'>
+								<div class='activedeposectioninnner'>
+									<i class="dot dot--2"></i>
 									<p>All Withdrawn Req.</p>
 								</div>
 								<div>
 									<p>{{totalDueWithdrawalMain}}</p>
 								</div>
-							</div>
+							</div> {% endcomment %}
 						</div>
 					</div>
 				</div>

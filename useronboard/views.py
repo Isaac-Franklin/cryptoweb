@@ -11,6 +11,8 @@ from django.template.loader import render_to_string
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 from django.core.mail import send_mail
+from django.contrib.sites.shortcuts import get_current_site
+
 
 
 
@@ -94,10 +96,14 @@ def UserSignUpFxn(request):
         user = User.objects.create_user(password=password, username= username, email=email, first_name=fullname, last_name=phone)
         messages.success(request, 'Registration Successful')
         user = authenticate(request, username=username, password=password)
-        try:
-            activateEmail(request, user, email)
-        except:
-            print('Registration mail was not sent successfully')
+        print(user)
+        print(email)
+        # activateEmail(request, user, email)
+        # try:
+        #     activateEmail(request, user, email)
+        # except:
+        #     print('Registration mail was not sent successfully')
+            
         form.save()
         user.save()
         return redirect('Dashboard')
@@ -126,6 +132,7 @@ def UserSignUpFxn(request):
 
         if user is not None:
             login(request, user)
+            # notifyLoginEmail(request, user, email)
             if next == "":
                 return redirect('Dashboard')
             else:
@@ -162,14 +169,16 @@ def UserLogin(request):
         user = authenticate(request, username=user, password=password)
 
         if user is not None:
+            print('user exit')
             login(request, user)
+            notifyLoginEmail(request, user, email)
             if next == "":
                 return redirect('Dashboard')
             else:
                 return HttpResponseRedirect(next)
 
         else:
-            # print(error)
+            print(error)
             messages.error(request, 'Login Failed: Please Try Again!!')
             return render(request, 'useronboard/signup.html')
 
@@ -188,21 +197,20 @@ def UserLogout(request):
 
 
 
-# SEND EMAIL AFTER REGISTRATION
-def activateEmail(request, user, to_email):
-    mail_subject = "Welcome to Ceness Trade."
+def notifyLoginEmail(request, user, to_email):
+    mail_subject = "Someone logged into your Ceness Trade account."
     recipient_list = [to_email, ]
-    message = render_to_string("mailouts/account_verification_email.html", {
+    message = render_to_string("mailouts/account_login_email.html", {
         'user': user.email,
-        'domain': get_current_site(request).domain if request.is_secure() else 'http://127.0.0.1:8000/',
+        # 'domain': 'http://127.0.0.1:8000/',
+        'domain': 'https://app.ceness-trade.com/' if request.is_secure() else 'http://127.0.0.1:8000/',
         'uid': urlsafe_base64_encode(force_bytes(user.pk)),
         'token': account_activation_token.make_token(user),
         "protocol": 'https' if request.is_secure() else 'http'
     })
-    email = send_mail(mail_subject, message, 'dhmsinventoryapp@gmail.com', recipient_list)
+    email = send_mail(mail_subject, message, 'lucasceness@gmail.com', recipient_list)
     if email:
-        # messages.success(request, 'A confimation email was sent to your inb')
-        print('Sent a confirmation email')
+        print('Email sent')
     else:
         messages.error(request, f'Problem sending email to {to_email}, check if you typed it correctly')
 
@@ -210,7 +218,23 @@ def activateEmail(request, user, to_email):
 
 
 
-
-
-
-
+# SEND EMAIL AFTER REGISTRATION
+def activateEmail(request, user, to_email):
+    print("Welcome to Ceness Trade.")
+    mail_subject = "Welcome to Ceness Trade."
+    recipient_list = [to_email, ]
+    message = render_to_string("mailouts/account_verification_email.html", {
+        'user': user.email,
+        'domain': 'https://app.ceness-trade.com/' if request.is_secure() else 'http://127.0.0.1:8000/',
+        # 'domain': get_current_site(request).domain,
+        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+        'token': account_activation_token.make_token(user),
+        "protocol": 'https' if request.is_secure() else 'http'
+        
+    })
+    email = send_mail(mail_subject, message, 'lucasceness@gmail.com', recipient_list)
+    if email:
+        # messages.success(request, 'A confimation email was sent to your inb')
+        print('Sent a confirmation email')
+    else:
+        messages.error(request, f'Problem sending email to {to_email}, check if you typed it correctly')
