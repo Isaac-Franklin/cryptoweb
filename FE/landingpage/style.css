@@ -89,7 +89,7 @@ body{
 }
 .logo img{
     /* order: 1; */
-    width: 50px;
+    width: 70px;
     /* font-size: 2.3rem; */
 }
 
@@ -905,6 +905,7 @@ footer a:hover{
     .navbar{
         opacity: 0.95;
         color: black;
+        height: 70px;
         width: 100vw;
     }
 
@@ -1009,6 +1010,11 @@ footer a:hover{
         top: 10px;
         left: 15px;
         font-size: 2.5rem;
+    }
+    .logo img{
+        /* order: 1; */
+        width: 70px;
+        /* font-size: 2.3rem; */
     }
 
     .navbar-container input[type="checkbox"]:checked ~ .menu-items{

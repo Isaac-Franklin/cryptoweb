@@ -59,11 +59,24 @@ def Dashboard(request):
         totalAllPendingWithdrawalRequestMain = 0
 
     AllFreeWithdrawalBalance = totalAllPendingWithdrawalRequestMain + totalFretotalAllApprovedWithdrawalRequestMain
+    
+    # CHECK ACCOUNT BALANCE STARTS HERE
+    AllDueForWithdrawalAmount = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
+    totalDueWithdrawal = 0
+    if AllDueForWithdrawalAmount:
+        for i in AllDueForWithdrawalAmount:
+            totalDueWithdrawal = totalDueWithdrawal + int(float(i))
+
+
+    UserAccountBalance = totalDueWithdrawal - AllFreeWithdrawalBalance
+    UserAccountBalanceMain = "${:,.2f}".format(UserAccountBalance)
+    print(f'{UserAccountBalance}')
+    # CHECK ACCOUNT BALANCE ENDS HERE
 
     latestWithdrawalReq = WithdrawalRequest.objects.filter(user=request.user).values_list('withdrawamount', flat=True).first()
     latestPendingWithdrawalReqs = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Pending')).values_list('withdrawamount', flat=True)
+    totalPendingWithdrawalReqs = 0
     if latestPendingWithdrawalReqs:
-        totalPendingWithdrawalReqs = 0
         for i in latestPendingWithdrawalReqs:
             totalPendingWithdrawalReqs = totalPendingWithdrawalReqs + int(i)
         totalPendingWithdrawalReqsMain = "${:,.2f}".format(totalPendingWithdrawalReqs)
@@ -71,8 +84,8 @@ def Dashboard(request):
         totalPendingWithdrawalReqsMain = 0
 
     AllDueForWithdrawal = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
+    totalDueWithdrawal = 0
     if AllDueForWithdrawal:
-        totalDueWithdrawal = 0
         for i in AllDueForWithdrawal:
             totalDueWithdrawal = totalDueWithdrawal + int(float(i))
 
@@ -85,8 +98,8 @@ def Dashboard(request):
         totalDueWithdrawalDraft = 0
     
     ApprovedDeposites = PotentialDeposite.objects.filter(Q(user = request.user) & Q(depositestatus = 'Approved')).values_list('amount', flat=True)
+    totalApprovedDeposites = 0
     if ApprovedDeposites:
-        totalApprovedDeposites = 0
         for i in ApprovedDeposites:
             totalApprovedDeposites = totalApprovedDeposites + int(float(i))
         # print(totalApprovedDeposites)
@@ -97,8 +110,8 @@ def Dashboard(request):
 
     LatestDeposites = PotentialDeposite.objects.filter(user=request.user).values_list('amount', flat=True).first()
     AllDeposites = PotentialDeposite.objects.filter(Q(user=request.user) & Q(depositestatus = 'Approved')).values_list('amount', flat=True)
+    totalAllDeposites = 0
     if AllDeposites:
-        totalAllDeposites = 0
         for i in AllDeposites:
             totalAllDeposites = totalAllDeposites + int(float(i))
         # print(totalAllDeposites)
@@ -109,8 +122,8 @@ def Dashboard(request):
    
    
     PendingDeposites = PotentialDeposite.objects.filter(Q(user=request.user) & Q(depositestatus = 'Pending')).values_list('amount', flat=True)
+    totalPendingDeposites = 0
     if PendingDeposites:
-        totalPendingDeposites = 0
         for i in PendingDeposites:
             totalPendingDeposites = totalPendingDeposites + int(float(i))
         # print(totalPendingDeposites)
@@ -129,11 +142,24 @@ def Dashboard(request):
     user_IP_Self = request.META.get('REMOTE_ADDR')
     context = {'totalPendingDepositesMain':totalPendingDepositesMain, 'currentUser':currentUser, 'browser_type':browser_type, 'os_type':os_type, 'user_IP_Self':user_IP_Self, 'totalApprovedDepositesMain':totalApprovedDepositesMain,
      'totalAllDepositesMain':totalAllDepositesMain, 'totalDueWithdrawalMain':totalDueWithdrawalMain, 'LatestDeposites':LatestDeposites, 'ApprovedDeposites': ApprovedDeposites, 'totalAllApprovedWithdrawalRequestAmount':totalAllApprovedWithdrawalRequestAmount,
-     'latestWithdrawalReq':latestWithdrawalReq, 'totalPendingWithdrawalReqsMain' : totalPendingWithdrawalReqsMain}
+     'latestWithdrawalReq':latestWithdrawalReq, 'totalPendingWithdrawalReqsMain' : totalPendingWithdrawalReqsMain, 'UserAccountBalance':UserAccountBalance, 'UserAccountBalanceMain':UserAccountBalanceMain}
     return render(request, 'app/dashboard.html', context)
 
 
 def Nav(request):
+    
+    ApprovedDeposites = PotentialDeposite.objects.filter(Q(user = request.user) & Q(depositestatus = 'Approved')).values_list('amount', flat=True)
+    totalApprovedDeposites = 0
+    if ApprovedDeposites:
+        for i in ApprovedDeposites:
+            totalApprovedDeposites = totalApprovedDeposites + int(float(i))
+        # print(totalApprovedDeposites)
+        totalApprovedDepositesMain = "${:,.2f}".format(totalApprovedDeposites)
+    else:
+        ApprovedDeposites = 0
+        totalApprovedDepositesMain = 0
+    
+    # CHECK ACCOUNT BALANCE STARTS HERE
 
     AllApprovedWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Approved')).values_list('withdrawamount', flat=True)
     if AllApprovedWithdrawalRequest:
@@ -147,7 +173,30 @@ def Nav(request):
     totalAllApprovedWithdrawalRequestAmount = "${:,.2f}".format(totalFretotalAllApprovedWithdrawalRequestMain)
     print(f' here {totalAllApprovedWithdrawalRequestAmount}')
 
-    context = {'totalAllApprovedWithdrawalRequestAmount':totalAllApprovedWithdrawalRequestAmount}
+    AllPendingWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Pending')).values_list('withdrawamount', flat=True)
+    if AllPendingWithdrawalRequest:
+        totalAllPendingWithdrawalRequest = 0
+        for i in AllPendingWithdrawalRequest:
+            totalAllPendingWithdrawalRequest = totalAllPendingWithdrawalRequest + int(i)
+        totalAllPendingWithdrawalRequestMain = totalAllPendingWithdrawalRequest
+    else:
+        totalAllPendingWithdrawalRequestMain = 0
+
+    AllFreeWithdrawalBalance = totalAllPendingWithdrawalRequestMain + totalFretotalAllApprovedWithdrawalRequestMain
+
+    AllDueForWithdrawalAmount = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
+    totalDueWithdrawal = 0
+    if AllDueForWithdrawalAmount:
+        for i in AllDueForWithdrawalAmount:
+            totalDueWithdrawal = totalDueWithdrawal + int(float(i))
+
+
+    UserAccountBalance = totalDueWithdrawal - AllFreeWithdrawalBalance
+    UserAccountBalanceMain = "${:,.2f}".format(UserAccountBalance)
+    print(f'{UserAccountBalance}')
+    # CHECK ACCOUNT BALANCE ENDS HERE
+
+    context = {'UserAccountBalance':UserAccountBalance, 'UserAccountBalanceMain':UserAccountBalanceMain, 'totalApprovedDepositesMain':totalApprovedDepositesMain}
     return render(request, 'generalapp.html', context)
 
 
@@ -252,19 +301,17 @@ def Withdraw(request):
     # FIND ACCOUNT BALANCE BELOW
     AllApprovedWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Approved')).values_list('withdrawamount', flat=True)
     print(AllApprovedWithdrawalRequest)
+    totalAllApprovedWithdrawalRequest = 0
     if AllApprovedWithdrawalRequest:
-        totalAllApprovedWithdrawalRequest = 0
         for i in AllApprovedWithdrawalRequest:
             totalAllApprovedWithdrawalRequest = totalAllApprovedWithdrawalRequest + int(i)
-        print(totalAllApprovedWithdrawalRequest)
         totalFretotalAllApprovedWithdrawalRequestMain = totalAllApprovedWithdrawalRequest
     else:
         totalFretotalAllApprovedWithdrawalRequestMain = 0
 
     AllPendingWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Pending')).values_list('withdrawamount', flat=True)
-    print(AllPendingWithdrawalRequest)
+    totalAllPendingWithdrawalRequest = 0
     if AllPendingWithdrawalRequest:
-        totalAllPendingWithdrawalRequest = 0
         for i in AllPendingWithdrawalRequest:
             totalAllPendingWithdrawalRequest = totalAllPendingWithdrawalRequest + int(i)
         totalAllPendingWithdrawalRequestMain = totalAllPendingWithdrawalRequest
@@ -272,15 +319,12 @@ def Withdraw(request):
         totalAllPendingWithdrawalRequestMain = 0
 
     AllFreeWithdrawalBalance = totalAllPendingWithdrawalRequestMain + totalFretotalAllApprovedWithdrawalRequestMain
-    print(f'{AllFreeWithdrawalBalance} 272')
 
     AllDueForWithdrawalAmount = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
-    print(f'{AllDueForWithdrawalAmount} here')
+    totalDueWithdrawal = 0
     if AllDueForWithdrawalAmount:
-        totalDueWithdrawal = 0
         for i in AllDueForWithdrawalAmount:
             totalDueWithdrawal = totalDueWithdrawal + int(float(i))
-        print(f'{totalDueWithdrawal} total')
 
 
     UserAccountBalance = totalDueWithdrawal - AllFreeWithdrawalBalance

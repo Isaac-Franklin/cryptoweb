@@ -630,7 +630,12 @@
 				<div class='balanceboxinner2'>
 					<h5>ACCOUNT BALANCE</h5><br/>
 					<div class='balanceboxinner2traffic'>
-						<h2 >{{totalAllApprovedWithdrawalRequestAmount}}</h2>
+						{% if UserAccountBalance > 0 %}
+						<h2 >{{UserAccountBalanceMain}}</h2>
+						{% else %}
+						<h2 >{{totalApprovedDepositesMain}}</h2>
+						{% endif %}
+						{% comment %} <h2 >{{totalAllApprovedWithdrawalRequestAmount}}</h2> {% endcomment %}
 						{% comment %} <h2 >{{totalDueWithdrawalMain}}</h2> {% endcomment %}
 						<div class="dots">
 							<i class="dot dot--1"></i>

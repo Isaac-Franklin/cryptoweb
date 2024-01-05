@@ -3,8 +3,8 @@
     <div>
         <div class='navsection'>
             <div class='intrologo'>
-                <img src={% static 'general/img/etlogowhite2.png' %} />
-                <h4>Exness<br/>Finance </h4>
+                <img src={% static 'onboard/img/newlogowhite.png' %} />
+                <h4>Ceness<br/>Trade </h4>
             </div>
             <div class='dateandprofile'>
                 <div>
@@ -28,8 +28,8 @@
        <div class='responsivenav'>
             <div class='responsivenavsection1'>
                 <div class='intrologo'>
-                    <img src={% static 'general/img/etlogowhite2.png' %} />
-                    <h4>Exness<br/>Finance </h4>
+                    <img src={% static 'onboard/img/newlogowhite.png' %} />
+                    <h4>Ceness<br/>Trade </h4>
                 </div>
                 <div class='hamburgerMain'>
                     <a class="hamburger" href="#"><span></span></a>
@@ -110,7 +110,13 @@
                 <div class='sidebarsectioninner sidebarsectioninner2'>
                     <div class='acctbalance acctbalance2'>
                         <div>
-                            <h1>{{totalAllApprovedWithdrawalRequestAmount}}</h1>
+                            {% comment %} <h1>{{totalAllApprovedWithdrawalRequestAmount}}</h1> {% endcomment %}
+                            
+                            {% if UserAccountBalance > 0 %}
+                            <h2 >{{UserAccountBalanceMain}}</h2>
+                            {% else %}
+                            <h2 >{{totalApprovedDepositesMain}}</h2>
+                            {% endif %}
                             <p>Account Balance</p>
                         </div>
                         <div class='acctbalanceimg'>
@@ -193,7 +199,12 @@
                 <div class='sidebarsectioninner'>
                     <div class='acctbalance'>
                         <div>
-                            <h1>{{totalAllApprovedWithdrawalRequestAmount}}</h1>
+                            {% comment %} <h1>{{totalAllApprovedWithdrawalRequestAmount}}</h1> {% endcomment %}                            
+                            {% if UserAccountBalance > 0 %}
+                            <h2 >{{UserAccountBalanceMain}}</h2>
+                            {% else %}
+                            <h2 >{{totalApprovedDepositesMain}}</h2>
+                            {% endif %}
                             <p>Account Balance</p>
                         </div>
                         <div class='acctbalanceimg'>
