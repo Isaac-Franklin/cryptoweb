@@ -132,3 +132,20 @@ class WithdrawalRequest(models.Model):
         
     def __str__(self):
         return self.withdrawalID
+
+
+
+class UserAccountBalanceModel(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    useremail = models.CharField(max_length=200, null=True, blank=True)
+    useraccountbalance = models.IntegerField(null=True, blank=True)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    edited_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['-edited_at', '-created_at']
+        
+        
+    def __str__(self):
+        return self.useremail

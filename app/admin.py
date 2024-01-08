@@ -7,4 +7,5 @@ admin.site.register(PotentialDeposite)
 admin.site.register(ReferalData)
 admin.site.register(DueForWithdrawal)
 admin.site.register(WithdrawalRequest)
+admin.site.register(UserAccountBalanceModel)
 

@@ -133,6 +133,10 @@ def UserSignUpFxn(request):
         if user is not None:
             login(request, user)
             # notifyLoginEmail(request, user, email)
+            try:
+                notifyLoginEmail(request, user, email)
+            except:
+                print('Registration mail was not sent successfully')
             if next == "":
                 return redirect('Dashboard')
             else:
@@ -182,7 +186,6 @@ def UserLogin(request):
             messages.error(request, 'Login Failed: Please Try Again!!')
             return render(request, 'useronboard/signup.html')
 
-    context = {'errorsection':errorsection}
     return render(request, 'useronboard/signup.html')
 
 

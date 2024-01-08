@@ -112,11 +112,12 @@
                         <div>
                             {% comment %} <h1>{{totalAllApprovedWithdrawalRequestAmount}}</h1> {% endcomment %}
                             
-                            {% if UserAccountBalance > 0 %}
+                            {% comment %} {% if UserAccountBalance > 0 %}
                             <h2 >{{UserAccountBalanceMain}}</h2>
                             {% else %}
                             <h2 >{{totalApprovedDepositesMain}}</h2>
-                            {% endif %}
+                            {% endif %} {% endcomment %}
+                            <h2>{{CurrentUserAccountBalanceMain}}</h2>
                             <p>Account Balance</p>
                         </div>
                         <div class='acctbalanceimg'>
@@ -200,11 +201,12 @@
                     <div class='acctbalance'>
                         <div>
                             {% comment %} <h1>{{totalAllApprovedWithdrawalRequestAmount}}</h1> {% endcomment %}                            
-                            {% if UserAccountBalance > 0 %}
+                            {% comment %} {% if UserAccountBalance > 0 %}
                             <h2 >{{UserAccountBalanceMain}}</h2>
                             {% else %}
                             <h2 >{{totalApprovedDepositesMain}}</h2>
-                            {% endif %}
+                            {% endif %} {% endcomment %}
+                            <h2>{{CurrentUserAccountBalanceMain}}</h2>
                             <p>Account Balance</p>
                         </div>
                         <div class='acctbalanceimg'>

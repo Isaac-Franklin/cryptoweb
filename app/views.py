@@ -35,8 +35,7 @@ current_time = time.ctime()
 import requests
 @login_required(login_url='UserSignUpFxn')
 def Dashboard(request):
-    currentUser = UserSignUp.objects.get(email = request.user.email)
-
+    currentUser = UserSignUp.objects.filter(email = request.user.email)
     AllApprovedWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Approved')).values_list('withdrawamount', flat=True)
     if AllApprovedWithdrawalRequest:
         totalAllApprovedWithdrawalRequest = 0
@@ -72,6 +71,11 @@ def Dashboard(request):
     UserAccountBalanceMain = "${:,.2f}".format(UserAccountBalance)
     print(f'{UserAccountBalance}')
     # CHECK ACCOUNT BALANCE ENDS HERE
+    CurrentUserAccountBalance = UserAccountBalanceModel.objects.filter(user = request.user).values_list('useraccountbalance', flat=True).first()
+    if CurrentUserAccountBalance:
+        CurrentUserAccountBalanceMain = "${:,.2f}".format(CurrentUserAccountBalance)
+    else:
+        CurrentUserAccountBalanceMain = '$0'
 
     latestWithdrawalReq = WithdrawalRequest.objects.filter(user=request.user).values_list('withdrawamount', flat=True).first()
     latestPendingWithdrawalReqs = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Pending')).values_list('withdrawamount', flat=True)
@@ -142,12 +146,12 @@ def Dashboard(request):
     user_IP_Self = request.META.get('REMOTE_ADDR')
     context = {'totalPendingDepositesMain':totalPendingDepositesMain, 'currentUser':currentUser, 'browser_type':browser_type, 'os_type':os_type, 'user_IP_Self':user_IP_Self, 'totalApprovedDepositesMain':totalApprovedDepositesMain,
      'totalAllDepositesMain':totalAllDepositesMain, 'totalDueWithdrawalMain':totalDueWithdrawalMain, 'LatestDeposites':LatestDeposites, 'ApprovedDeposites': ApprovedDeposites, 'totalAllApprovedWithdrawalRequestAmount':totalAllApprovedWithdrawalRequestAmount,
-     'latestWithdrawalReq':latestWithdrawalReq, 'totalPendingWithdrawalReqsMain' : totalPendingWithdrawalReqsMain, 'UserAccountBalance':UserAccountBalance, 'UserAccountBalanceMain':UserAccountBalanceMain}
+     'latestWithdrawalReq':latestWithdrawalReq, 'totalPendingWithdrawalReqsMain' : totalPendingWithdrawalReqsMain, 'UserAccountBalance':UserAccountBalance, 'UserAccountBalanceMain':UserAccountBalanceMain,
+     'CurrentUserAccountBalanceMain':CurrentUserAccountBalanceMain}
     return render(request, 'app/dashboard.html', context)
 
 
-def Nav(request):
-    
+def Nav(request):    
     ApprovedDeposites = PotentialDeposite.objects.filter(Q(user = request.user) & Q(depositestatus = 'Approved')).values_list('amount', flat=True)
     totalApprovedDeposites = 0
     if ApprovedDeposites:
@@ -172,6 +176,9 @@ def Nav(request):
     
     totalAllApprovedWithdrawalRequestAmount = "${:,.2f}".format(totalFretotalAllApprovedWithdrawalRequestMain)
     print(f' here {totalAllApprovedWithdrawalRequestAmount}')
+    # CHECK ACCOUNT BALANCE ENDS HERE
+    CurrentUserAccountBalance = UserAccountBalanceModel.objects.filter(user = request.user).values_list('useraccountbalance', flat=True).first()
+    CurrentUserAccountBalanceMain = "${:,.2f}".format(CurrentUserAccountBalance)
 
     AllPendingWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Pending')).values_list('withdrawamount', flat=True)
     if AllPendingWithdrawalRequest:
@@ -196,7 +203,8 @@ def Nav(request):
     print(f'{UserAccountBalance}')
     # CHECK ACCOUNT BALANCE ENDS HERE
 
-    context = {'UserAccountBalance':UserAccountBalance, 'UserAccountBalanceMain':UserAccountBalanceMain, 'totalApprovedDepositesMain':totalApprovedDepositesMain}
+    context = {'UserAccountBalance':UserAccountBalance, 'UserAccountBalanceMain':UserAccountBalanceMain, 'totalApprovedDepositesMain':totalApprovedDepositesMain,
+    'CurrentUserAccountBalanceMain':CurrentUserAccountBalanceMain}
     return render(request, 'generalapp.html', context)
 
 
@@ -298,7 +306,7 @@ def Withdraw(request):
     AllDueForWithdrawal = DueForWithdrawal.objects.filter(user=request.user)
     AllWithdrawalRequest = WithdrawalRequest.objects.filter(user=request.user)
     
-    # FIND ACCOUNT BALANCE BELOW
+    # FIND ACCOUNT BALANCE STARTS BELOW 
     AllApprovedWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Approved')).values_list('withdrawamount', flat=True)
     print(AllApprovedWithdrawalRequest)
     totalAllApprovedWithdrawalRequest = 0
@@ -328,7 +336,8 @@ def Withdraw(request):
 
 
     UserAccountBalance = totalDueWithdrawal - AllFreeWithdrawalBalance
-    print(f'{UserAccountBalance}')
+    # FIND ACCOUNT BALANCE ENDS ABOVE
+    CurrentUserAccountBalance = UserAccountBalanceModel.objects.filter(user = request.user).values_list('useraccountbalance', flat=True).first()
 
     
     findAmountForWithdrawal = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
@@ -344,16 +353,63 @@ def Withdraw(request):
                 totalDueForWithdrawal = totalDueForWithdrawal + int(float(i))
 
             # if int(amountEntered) > int(totalDueForWithdrawal):
-            if int(amountEntered) > int(UserAccountBalance):
-                messages.success(request, f'ERROR: You entered an amount greater than the amount in your wallet. Your account balance is ${UserAccountBalance}')
+            if int(amountEntered) > int(CurrentUserAccountBalance):
+                messages.success(request, f'ERROR: You entered an amount greater than the amount in your wallet. Your account balance is ${CurrentUserAccountBalance}')
                 return redirect('Withdraw')
             else:
                 WithdrawalRequestForm = WithdrawalRequest(user=request.user, withdrawalID=withdrawalIDMain, withdrawamount=amountEntered, withdrawcrptocurrency=walletSelected,
                 withdrawalRequestStatus='Pending', cryptowalletID=cryptowalletID)
-                WithdrawalRequestForm.save()
                 messages.success(request, 'Success! An admin will review your withdrawal request within the next 12 working hours.')
+                WithdrawalRequestForm.save()
+
+                
+
+                # FIND ACCOUNT BALANCE STARTS BELOW 
+                AllApprovedWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Approved')).values_list('withdrawamount', flat=True)
+                print(AllApprovedWithdrawalRequest)
+                totalAllApprovedWithdrawalRequest = 0
+                if AllApprovedWithdrawalRequest:
+                    for i in AllApprovedWithdrawalRequest:
+                        totalAllApprovedWithdrawalRequest = totalAllApprovedWithdrawalRequest + int(i)
+                    totalFretotalAllApprovedWithdrawalRequestMain = totalAllApprovedWithdrawalRequest
+                else:
+                    totalFretotalAllApprovedWithdrawalRequestMain = 0
+
+                AllPendingWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Pending')).values_list('withdrawamount', flat=True)
+                totalAllPendingWithdrawalRequest = 0
+                if AllPendingWithdrawalRequest:
+                    for i in AllPendingWithdrawalRequest:
+                        totalAllPendingWithdrawalRequest = totalAllPendingWithdrawalRequest + int(i)
+                    totalAllPendingWithdrawalRequestMain = totalAllPendingWithdrawalRequest
+                else:
+                    totalAllPendingWithdrawalRequestMain = 0
+
+                AllFreeWithdrawalBalance = totalAllPendingWithdrawalRequestMain + totalFretotalAllApprovedWithdrawalRequestMain
+
+                AllDueForWithdrawalAmount = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
+                totalDueWithdrawal = 0
+                if AllDueForWithdrawalAmount:
+                    for i in AllDueForWithdrawalAmount:
+                        totalDueWithdrawal = totalDueWithdrawal + int(float(i))
+
+
+                UserAccountBalance = totalDueWithdrawal - AllFreeWithdrawalBalance
+                if UserAccountBalance <= 0:
+                    UserAccountBalanceSave = 0
+                else:
+                    UserAccountBalanceSave = UserAccountBalance
+                # UPDATE ACCOUNT BALANCE BELOW
+                UserAccountBalanceModelForm = UserAccountBalanceModel(user = request.user, useremail = request.user.email, useraccountbalance = UserAccountBalanceSave)
+                UserAccountBalanceModelForm.save()
+                print(f'{UserAccountBalance}')
+                # FIND ACCOUNT BALANCE ENDS ABOVE
+                
+                # CHECK ACCOUNT BALANCE ENDS HERE
+                CurrentUserAccountBalance = UserAccountBalanceModel.objects.filter(user = request.user).values_list('useraccountbalance', flat=True).first()
+                CurrentUserAccountBalanceMain = "${:,.2f}".format(CurrentUserAccountBalance)
+
                 return redirect('Withdraw')
-    context = {'UserAccountBalance':UserAccountBalance, 'AllDueForWithdrawal':AllDueForWithdrawal, 'AllWithdrawalRequest':AllWithdrawalRequest}
+    context = {'UserAccountBalance':UserAccountBalance, 'AllDueForWithdrawal':AllDueForWithdrawal, 'AllWithdrawalRequest':AllWithdrawalRequest, 'CurrentUserAccountBalance':CurrentUserAccountBalance}
     return render(request, 'app/Withdraw.html', context)
 
 
@@ -362,7 +418,6 @@ def History(request):
     # AllOrders = ConfrimedOrdersStatuses.objects.filter(user = request.user)
     OrderDetails = PotentialDeposite.objects.filter(user = request.user)
     if request.method == 'POST':
-        print('form is checked')
         orderID = request.POST['orderID']
         orderamount = request.POST['orderamount']
         earnedamount = request.POST['earnedamount']
@@ -376,6 +431,42 @@ def History(request):
             messages.success(request, 'You can request withdrawal for this deposite now.')
             DueForWithdrawalForm = DueForWithdrawal(user = request.user, plan = plan, orderID = orderID, orderamount = orderamount, earnedamount = earnedamount, ordercrptocurrency = ordercrptocurrency)
             DueForWithdrawalForm.save()
+
+            # FIND ACCOUNT BALANCE STARTS BELOW 
+            AllApprovedWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Approved')).values_list('withdrawamount', flat=True)
+            print(AllApprovedWithdrawalRequest)
+            totalAllApprovedWithdrawalRequest = 0
+            if AllApprovedWithdrawalRequest:
+                for i in AllApprovedWithdrawalRequest:
+                    totalAllApprovedWithdrawalRequest = totalAllApprovedWithdrawalRequest + int(i)
+                totalFretotalAllApprovedWithdrawalRequestMain = totalAllApprovedWithdrawalRequest
+            else:
+                totalFretotalAllApprovedWithdrawalRequestMain = 0
+
+            AllPendingWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Pending')).values_list('withdrawamount', flat=True)
+            totalAllPendingWithdrawalRequest = 0
+            if AllPendingWithdrawalRequest:
+                for i in AllPendingWithdrawalRequest:
+                    totalAllPendingWithdrawalRequest = totalAllPendingWithdrawalRequest + int(i)
+                totalAllPendingWithdrawalRequestMain = totalAllPendingWithdrawalRequest
+            else:
+                totalAllPendingWithdrawalRequestMain = 0
+
+            AllFreeWithdrawalBalance = totalAllPendingWithdrawalRequestMain + totalFretotalAllApprovedWithdrawalRequestMain
+
+            AllDueForWithdrawalAmount = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
+            totalDueWithdrawal = 0
+            if AllDueForWithdrawalAmount:
+                for i in AllDueForWithdrawalAmount:
+                    totalDueWithdrawal = totalDueWithdrawal + int(float(i))
+
+
+            UserAccountBalance = totalDueWithdrawal - AllFreeWithdrawalBalance
+            # UPDATE ACCOUNT BALANCE BELOW
+            UserAccountBalanceModelForm = UserAccountBalanceModel(user = request.user, useremail = request.user.email, useraccountbalance = UserAccountBalance)
+            UserAccountBalanceModelForm.save()
+            print(f'{UserAccountBalance}')
+            # FIND ACCOUNT BALANCE ENDS ABOVE
 
     context = { 'OrderDetails':OrderDetails}
     return render(request, 'app/history.html', context)
