@@ -120,6 +120,7 @@ def UserSignUpFxn(request):
         print('login activated')
         email = request.POST['userloginemail']
         password = request.POST['passwordlogin']
+
         try:
             user = User.objects.get(email=email)
             if user:
@@ -127,16 +128,22 @@ def UserSignUpFxn(request):
         except:
             messages.error(request, 'We can not find an account attached to your email address, create an account to continue.')
             return redirect('UserSignUpFxn')
+
+        CheckUserAccountStatus = UserSignUp.objects.get(email = email).accountstatus
+        print(CheckUserAccountStatus)
+        if CheckUserAccountStatus == 'BANNED':
+            messages.error(request, 'Your account was BANNED. Kindly contact support at lucasceness@gmail.com for more information.')
+            return redirect('UserSignUpFxn')
         
         user = authenticate(request, username=user, password=password)
-
+        
         if user is not None:
             login(request, user)
             # notifyLoginEmail(request, user, email)
-            try:
-                notifyLoginEmail(request, user, email)
-            except:
-                print('Registration mail was not sent successfully')
+            # try:
+            #     notifyLoginEmail(request, user, email)
+            # except:
+            #     print('Registration mail was not sent successfully')
             if next == "":
                 return redirect('Dashboard')
             else:
@@ -153,40 +160,40 @@ def UserSignUpFxn(request):
 
 
 
-def UserLogin(request):
-    if request.method == 'POST' and 'userloginemail' in request.POST:        
-        next = ""
-        if request.GET:  
-            next = request.GET['next']
+# def UserLogin(request):
+#     if request.method == 'POST' and 'userloginemail' in request.POST:        
+#         next = ""
+#         if request.GET:  
+#             next = request.GET['next']
 
-        print('login activated')
-        email = request.POST['userloginemail']
-        password = request.POST['passwordlogin']
-        try:
-            user = User.objects.get(email=email)
-            if user:
-                userEmail = user.email
-        except:
-            messages.error(request, 'We can not find an account attached to your email address, create an account to continue.')
-            return redirect('UserSignUpFxn')
+#         print('login activated')
+#         email = request.POST['userloginemail']
+#         password = request.POST['passwordlogin']
+#         try:
+#             user = User.objects.get(email=email)
+#             if user:
+#                 userEmail = user.email
+#         except:
+#             messages.error(request, 'We can not find an account attached to your email address, create an account to continue.')
+#             return redirect('UserSignUpFxn')
         
-        user = authenticate(request, username=user, password=password)
+#         user = authenticate(request, username=user, password=password)
 
-        if user is not None:
-            print('user exit')
-            login(request, user)
-            notifyLoginEmail(request, user, email)
-            if next == "":
-                return redirect('Dashboard')
-            else:
-                return HttpResponseRedirect(next)
+#         if user is not None:
+#             print('user exit')
+#             login(request, user)
+#             notifyLoginEmail(request, user, email)
+#             if next == "":
+#                 return redirect('Dashboard')
+#             else:
+#                 return HttpResponseRedirect(next)
 
-        else:
-            print(error)
-            messages.error(request, 'Login Failed: Please Try Again!!')
-            return render(request, 'useronboard/signup.html')
+#         else:
+#             print(error)
+#             messages.error(request, 'Login Failed: Please Try Again!!')
+#             return render(request, 'useronboard/signup.html')
 
-    return render(request, 'useronboard/signup.html')
+#     return render(request, 'useronboard/signup.html')
 
 
 

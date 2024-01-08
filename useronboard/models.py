@@ -4,6 +4,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
+ACCOUNT_STATUS = (
+    ("LIVE", "LIVE"),
+    ("BANNED", "BANNED"),
+)
+
+
 class UserSignUp(models.Model):
     # user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     fullname = models.CharField(max_length=200, null=True, blank=True)
@@ -13,6 +19,7 @@ class UserSignUp(models.Model):
     country = models.CharField(max_length=200, null=True, blank=True)
     password = models.CharField(max_length=200, null=True, blank=True)
     retypepassword = models.CharField(max_length=200, null=True, blank=True)
+    accountstatus = models.CharField(max_length= 300,choices = ACCOUNT_STATUS, default = 'LIVE', null=True, blank = True)
     created_at = models.DateTimeField(auto_now_add=True)
     edited_at = models.DateTimeField(auto_now=True)
     
