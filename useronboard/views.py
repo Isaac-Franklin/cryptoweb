@@ -12,6 +12,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 from django.core.mail import send_mail
 from django.contrib.sites.shortcuts import get_current_site
+from app.models import ReferalData
 
 
 
@@ -94,7 +95,7 @@ def UserSignUpFxn(request):
         password=password, retypepassword=retypepassword, country=country)
 
         user = User.objects.create_user(password=password, username= username, email=email, first_name=fullname, last_name=phone)
-        messages.success(request, 'Registration Successful')
+        messages.success(request, 'Registration Successfull')
         user = authenticate(request, username=username, password=password)
         print(user)
         print(email)
@@ -160,43 +161,6 @@ def UserSignUpFxn(request):
 
 
 
-# def UserLogin(request):
-#     if request.method == 'POST' and 'userloginemail' in request.POST:        
-#         next = ""
-#         if request.GET:  
-#             next = request.GET['next']
-
-#         print('login activated')
-#         email = request.POST['userloginemail']
-#         password = request.POST['passwordlogin']
-#         try:
-#             user = User.objects.get(email=email)
-#             if user:
-#                 userEmail = user.email
-#         except:
-#             messages.error(request, 'We can not find an account attached to your email address, create an account to continue.')
-#             return redirect('UserSignUpFxn')
-        
-#         user = authenticate(request, username=user, password=password)
-
-#         if user is not None:
-#             print('user exit')
-#             login(request, user)
-#             notifyLoginEmail(request, user, email)
-#             if next == "":
-#                 return redirect('Dashboard')
-#             else:
-#                 return HttpResponseRedirect(next)
-
-#         else:
-#             print(error)
-#             messages.error(request, 'Login Failed: Please Try Again!!')
-#             return render(request, 'useronboard/signup.html')
-
-#     return render(request, 'useronboard/signup.html')
-
-
-
 
 def UserLogout(request):
     logout(request)
@@ -248,3 +212,117 @@ def activateEmail(request, user, to_email):
         print('Sent a confirmation email')
     else:
         messages.error(request, f'Problem sending email to {to_email}, check if you typed it correctly')
+
+
+
+
+
+def ReferedUser(request, username):
+    findReferer = User.objects.filter(username = username)
+    print(findReferer)
+    if request.method == 'POST' and 'fullname' in request.POST:
+        if findReferer:
+            findRefererEmail = findReferer.email
+            # SIGNUP FORM STARTS HERE
+            fullname = request.POST['fullname']
+            usernamemain = request.POST['username']
+            email = request.POST['email']
+            phone = request.POST['phone'] 
+            country = request.POST['country'] 
+            password = request.POST['password'] 
+            retypepassword = request.POST['retypepassword']       
+            
+            
+            if not request.POST['fullname']:
+                messages.error(request, 'Registration Failed: Enter Your Full Name')
+                return redirect('ReferedUser', username=username)
+            
+            
+            if not request.POST['username']:
+                messages.error(request, 'Registration Failed: Enter Your User Name')
+                return redirect('ReferedUser', username=username)
+            
+            
+            if not request.POST['email']:
+                messages.error(request, 'Registration Failed: Enter An Email Address')
+                return redirect('ReferedUser', username=username)
+            
+            
+            if not request.POST['phone']:
+                messages.error(request, 'Registration Failed: Enter Your Phone Number')
+                return redirect('ReferedUser', username=username)
+            
+            
+            if not request.POST['country']:
+                messages.error(request, 'Registration Failed: Select A Country')
+                return redirect('ReferedUser', username=username)
+            
+            
+            if not request.POST['password']:
+                messages.error(request, 'Registration Failed: No Password Entered')
+                return redirect('ReferedUser', username=username)
+            
+            
+            if not request.POST['retypepassword']:
+                messages.error(request, 'Registration Failed: You did not retype your password')
+                return redirect('ReferedUser', username=username)           
+
+
+            if (password != retypepassword):
+                messages.error(request, 'Password & Retype-Password Do Not Match!')
+                return redirect('ReferedUser', username=username)
+            else:
+                errorsection = 'default'
+
+
+            checkFullName = UserSignUp.objects.filter(fullname=fullname)
+            checkEmail = UserSignUp.objects.filter(email=email)
+            dataPhoneCheck = UserSignUp.objects.filter(phone=phone)
+            datausernameCheck = UserSignUp.objects.filter(username=usernamemain)
+            UserData = User.objects.filter(username=usernamemain)
+            UserDataEmail = User.objects.filter(email=email)
+            UserDataPhone = User.objects.filter(last_name = phone)
+
+            if checkFullName or UserData:            
+                messages.error(request, 'Sorry, User Name Is Already Taken, Please Use Another User Name')
+                return redirect('ReferedUser', username=username)  
+
+            if checkEmail or UserDataEmail:
+                messages.error(request, 'Sorry, Email Address Is Already Taken')
+                return redirect('ReferedUser', username=username) 
+
+            if dataPhoneCheck or UserDataPhone:
+                messages.error(request, 'Sorry, Phone Number Is Already Taken')
+                return redirect('ReferedUser', username=username)
+
+            form = UserSignUp(fullname=fullname, phone=phone, username=usernamemain, email=email,
+            password=password, retypepassword=retypepassword, country=country)
+
+            user = User.objects.create_user(password=password, username= usernamemain, email=email, first_name=fullname, last_name=phone)
+            user.save()
+            ReferalDataForm = ReferalData(user = user, refererUsername = usernamemain, refererEmail = findRefererEmail)
+            messages.success(request, 'Registration Successful, login to continue.')
+            user = authenticate(request, username=username, password=password)
+            print(user)
+            print(email)
+            # activateEmail(request, user, email)
+            # try:
+            #     activateEmail(request, user, email)
+            # except:
+            #     print('Registration mail was not sent successfully')
+                
+            form.save()
+            ReferalDataForm.save()
+            return redirect('UserSignUpFxn')
+        # SIGNUP FORM ENDS HERE
+        else:
+            messages.error(request, "Referer's data was not found. Kindly try again")
+            return redirect('UserSignUpFxn')
+
+    return render(request, 'useronboard/referalsignup.html')
+
+
+
+
+
+

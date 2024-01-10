@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 ACCOUNT_STATUS = (
-    ("LIVE", "LIVE"),
+    ("LlVE", "LIVE"),
     ("BANNED", "BANNED"),
 )
 

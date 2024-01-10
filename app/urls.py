@@ -16,7 +16,6 @@ urlpatterns = [
     path('referal', views.ReferalFxn, name="ReferalFxn"),
     path('profile', views.Profile, name="Profile"),
     path('confirmdeposite/<str:pk>/', views.ConfirmDeposite, name="ConfirmDeposite"),
-    path('<str:username>', views.ReferedUser, name="ReferedUser"),
     # path('maintenancedetails/<str:name>/', views.MaintainanceDetails, name="MaintainanceDetails"),
 ]
 

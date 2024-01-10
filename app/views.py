@@ -32,7 +32,7 @@ current_time = time.ctime()
 
 
 
-import requests
+# import requests
 @login_required(login_url='UserSignUpFxn')
 def Dashboard(request):
     currentUser = UserSignUp.objects.filter(email = request.user.email)
@@ -391,9 +391,12 @@ def Withdraw(request):
                 if AllDueForWithdrawalAmount:
                     for i in AllDueForWithdrawalAmount:
                         totalDueWithdrawal = totalDueWithdrawal + int(float(i))
+                    totalDueWithdrawalMain = totalAllPendingWithdrawalRequest
+                else:
+                    totalDueWithdrawalMain = 0
 
 
-                UserAccountBalance = totalDueWithdrawal - AllFreeWithdrawalBalance
+                UserAccountBalance = totalDueWithdrawalMain - AllFreeWithdrawalBalance
                 if UserAccountBalance <= 0:
                     UserAccountBalanceSave = 0
                 else:
@@ -496,18 +499,6 @@ def ReferalFxn(request):
 
 def Profile(request):
     return render(request, 'app/profile.html')
-
-
-@login_required(login_url='UserSignUpFxn')
-def ReferedUser(request, username):
-    findReferer = UserSignUp.objects.get(username = username)
-    # FindDeviceUserEmail = FamilyMemberReg.objects.filter(Q(user = request.user) & Q(memberid = request.POST['deviceUserID']))
-    # FindDeviceUserEmailMain = FindDeviceUserEmail.values_list('memberemail', flat=True)
-    findRefererEmail = findReferer.email
-    if findReferer:
-        ReferalDataForm = ReferalData(user = request.user, refererUsername = username, refererEmail = findRefererEmail)
-        ReferalDataForm.save()
-    return render(request, 'app/dashboard.html')
 
 
 
