@@ -61,9 +61,16 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     #
     'django_user_agents.middleware.UserAgentMiddleware',
-    # 'django_auto_logout.middleware.auto_logout',
+    'django_auto_logout.middleware.auto_logout',
 ]
 
+
+
+from datetime import timedelta
+AUTO_LOGOUT = {
+    'IDLE_TIME': timedelta(minutes=10),
+    'Login': True,
+}
 
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -83,6 +90,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_auto_logout.context_processors.auto_logout_client',
             ],
         },
     },

@@ -338,7 +338,7 @@ def Withdraw(request):
     UserAccountBalance = totalDueWithdrawal - AllFreeWithdrawalBalance
     # FIND ACCOUNT BALANCE ENDS ABOVE
     CurrentUserAccountBalance = UserAccountBalanceModel.objects.filter(user = request.user).values_list('useraccountbalance', flat=True).first()
-
+    
     
     findAmountForWithdrawal = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
     # print(findAmountForWithdrawal)
@@ -365,46 +365,47 @@ def Withdraw(request):
                 
 
                 # FIND ACCOUNT BALANCE STARTS BELOW 
-                AllApprovedWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Approved')).values_list('withdrawamount', flat=True)
-                print(AllApprovedWithdrawalRequest)
-                totalAllApprovedWithdrawalRequest = 0
-                if AllApprovedWithdrawalRequest:
-                    for i in AllApprovedWithdrawalRequest:
-                        totalAllApprovedWithdrawalRequest = totalAllApprovedWithdrawalRequest + int(i)
-                    totalFretotalAllApprovedWithdrawalRequestMain = totalAllApprovedWithdrawalRequest
+                # AllApprovedWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Approved')).values_list('withdrawamount', flat=True)
+                # print(AllApprovedWithdrawalRequest)
+                # totalAllApprovedWithdrawalRequest = 0
+                # if AllApprovedWithdrawalRequest:
+                #     for i in AllApprovedWithdrawalRequest:
+                #         totalAllApprovedWithdrawalRequest = totalAllApprovedWithdrawalRequest + int(i)
+                #     totalFretotalAllApprovedWithdrawalRequestMain = totalAllApprovedWithdrawalRequest
+                # else:
+                #     totalFretotalAllApprovedWithdrawalRequestMain = 0
+
+                # AllPendingWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Pending')).values_list('withdrawamount', flat=True)
+                # totalAllPendingWithdrawalRequest = 0
+                # if AllPendingWithdrawalRequest:
+                #     for i in AllPendingWithdrawalRequest:
+                #         totalAllPendingWithdrawalRequest = totalAllPendingWithdrawalRequest + int(i)
+                #     totalAllPendingWithdrawalRequestMain = totalAllPendingWithdrawalRequest
+                # else:
+                #     totalAllPendingWithdrawalRequestMain = 0
+
+                # AllFreeWithdrawalBalance = totalAllPendingWithdrawalRequestMain + totalFretotalAllApprovedWithdrawalRequestMain
+
+                # AllDueForWithdrawalAmount = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
+                # totalDueWithdrawal = 0
+                # if AllDueForWithdrawalAmount:
+                #     for i in AllDueForWithdrawalAmount:
+                #         totalDueWithdrawal = totalDueWithdrawal + int(float(i))
+                #     totalDueWithdrawalMain = totalAllPendingWithdrawalRequest
+                # else:
+                #     totalDueWithdrawalMain = 0
+
+
+                # UserAccountBalance = totalDueWithdrawalMain - AllFreeWithdrawalBalance
+                NewAccountBalance = CurrentUserAccountBalance - amountEntered
+                if NewAccountBalance <= 0:
+                    NewAccountBalanceSave = 0
                 else:
-                    totalFretotalAllApprovedWithdrawalRequestMain = 0
-
-                AllPendingWithdrawalRequest = WithdrawalRequest.objects.filter(Q(user=request.user) & Q(withdrawalRequestStatus = 'Pending')).values_list('withdrawamount', flat=True)
-                totalAllPendingWithdrawalRequest = 0
-                if AllPendingWithdrawalRequest:
-                    for i in AllPendingWithdrawalRequest:
-                        totalAllPendingWithdrawalRequest = totalAllPendingWithdrawalRequest + int(i)
-                    totalAllPendingWithdrawalRequestMain = totalAllPendingWithdrawalRequest
-                else:
-                    totalAllPendingWithdrawalRequestMain = 0
-
-                AllFreeWithdrawalBalance = totalAllPendingWithdrawalRequestMain + totalFretotalAllApprovedWithdrawalRequestMain
-
-                AllDueForWithdrawalAmount = DueForWithdrawal.objects.filter(user=request.user).values_list('earnedamount', flat=True)
-                totalDueWithdrawal = 0
-                if AllDueForWithdrawalAmount:
-                    for i in AllDueForWithdrawalAmount:
-                        totalDueWithdrawal = totalDueWithdrawal + int(float(i))
-                    totalDueWithdrawalMain = totalAllPendingWithdrawalRequest
-                else:
-                    totalDueWithdrawalMain = 0
-
-
-                UserAccountBalance = totalDueWithdrawalMain - AllFreeWithdrawalBalance
-                if UserAccountBalance <= 0:
-                    UserAccountBalanceSave = 0
-                else:
-                    UserAccountBalanceSave = UserAccountBalance
+                    NewAccountBalanceSave = NewAccountBalance
                 # UPDATE ACCOUNT BALANCE BELOW
-                UserAccountBalanceModelForm = UserAccountBalanceModel(user = request.user, useremail = request.user.email, useraccountbalance = UserAccountBalanceSave)
-                UserAccountBalanceModelForm.save()
-                print(f'{UserAccountBalance}')
+                NewAccountBalanceModelForm = UserAccountBalanceModel(user = request.user, useremail = request.user.email, useraccountbalance = NewAccountBalanceSave)
+                NewAccountBalanceModelForm.save()
+                print(f'{NewAccountBalanceSave}')
                 # FIND ACCOUNT BALANCE ENDS ABOVE
                 
                 # CHECK ACCOUNT BALANCE ENDS HERE

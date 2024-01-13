@@ -13,6 +13,9 @@ from django.utils.encoding import force_bytes
 from django.core.mail import send_mail
 from django.contrib.sites.shortcuts import get_current_site
 from app.models import ReferalData
+from django.core.mail import EmailMultiAlternatives
+from django.utils.html import strip_tags
+
 
 
 
@@ -97,16 +100,13 @@ def UserSignUpFxn(request):
         user = User.objects.create_user(password=password, username= username, email=email, first_name=fullname, last_name=phone)
         messages.success(request, 'Registration Successfull')
         user = authenticate(request, username=username, password=password)
-        print(user)
-        print(email)
         # activateEmail(request, user, email)
-        # try:
-        #     activateEmail(request, user, email)
-        # except:
-        #     print('Registration mail was not sent successfully')
-            
+        try:
+            activateEmail(request, user, email)
+        except:
+            print('Registration mail was not sent successfully')            
         form.save()
-        user.save()
+        login(request, user)
         return redirect('Dashboard')
 
 
@@ -141,10 +141,10 @@ def UserSignUpFxn(request):
         if user is not None:
             login(request, user)
             # notifyLoginEmail(request, user, email)
-            # try:
-            #     notifyLoginEmail(request, user, email)
-            # except:
-            #     print('Registration mail was not sent successfully')
+            try:
+                notifyLoginEmail(request, user, email)
+            except:
+                print('Registration mail was not sent successfully')
             if next == "":
                 return redirect('Dashboard')
             else:
@@ -174,16 +174,33 @@ def UserLogout(request):
 def notifyLoginEmail(request, user, to_email):
     mail_subject = "Someone logged into your Ceness Trade account."
     recipient_list = [to_email, ]
-    message = render_to_string("mailouts/account_login_email.html", {
-        'user': user.email,
-        # 'domain': 'http://127.0.0.1:8000/',
-        'domain': 'https://app.ceness-trade.com/' if request.is_secure() else 'http://127.0.0.1:8000/',
-        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-        'token': account_activation_token.make_token(user),
-        "protocol": 'https' if request.is_secure() else 'http'
-    })
-    email = send_mail(mail_subject, message, 'lucasceness@gmail.com', recipient_list)
-    if email:
+    findUser = User.objects.get(email = to_email)
+    findUsername = User.objects.get(email = to_email).username
+    # message = render_to_string("mailouts/account_login_email.html", {
+    #     'user': user.email,
+    #     'domain': 'http://127.0.0.1:8000/',
+    #     # 'domain': 'https://app.ceness-trade.com/' if request.is_secure() else 'http://127.0.0.1:8000/',
+    #     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+    #     'token': account_activation_token.make_token(user),
+    #     "protocol": 'https' if request.is_secure() else 'http'
+    # })
+
+    context = {'findUsername':findUsername}
+    html_message = render_to_string("mailouts/account_login_email.html", context=context)
+    plain_message = strip_tags(html_message)
+
+    message = EmailMultiAlternatives(
+        subject = mail_subject,
+        body = plain_message,
+        from_email = 'lucasceness@gmail.com',
+        to = recipient_list
+    )
+
+    message.attach_alternative(html_message, "text/html")
+    message.send()
+
+    # email = send_mail(mail_subject, message, 'lucasceness@gmail.com', recipient_list)
+    if message:
         print('Email sent')
     else:
         messages.error(request, f'Problem sending email to {to_email}, check if you typed it correctly')
@@ -197,17 +214,24 @@ def activateEmail(request, user, to_email):
     print("Welcome to Ceness Trade.")
     mail_subject = "Welcome to Ceness Trade."
     recipient_list = [to_email, ]
-    message = render_to_string("mailouts/account_verification_email.html", {
-        'user': user.email,
-        'domain': 'https://app.ceness-trade.com/' if request.is_secure() else 'http://127.0.0.1:8000/',
-        # 'domain': get_current_site(request).domain,
-        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-        'token': account_activation_token.make_token(user),
-        "protocol": 'https' if request.is_secure() else 'http'
-        
-    })
-    email = send_mail(mail_subject, message, 'lucasceness@gmail.com', recipient_list)
-    if email:
+    findUser = User.objects.get(email = to_email)
+    findUsername = User.objects.get(email = to_email).username
+
+    context = {'findUsername':findUsername}
+    html_message = render_to_string("mailouts/account_verification_email.html", context=context)
+    plain_message = strip_tags(html_message)
+
+    message = EmailMultiAlternatives(
+        subject = mail_subject,
+        body = plain_message,
+        from_email = 'lucassceness@gmail.com',
+        to = recipient_list
+    )
+    message.attach_alternative(html_message, "text/html")
+    message.send()
+
+    # email = send_mail(mail_subject, message, 'lucasceness@gmail.com', recipient_list)
+    if message:
         # messages.success(request, 'A confimation email was sent to your inb')
         print('Sent a confirmation email')
     else:
@@ -303,13 +327,10 @@ def ReferedUser(request, username):
             ReferalDataForm = ReferalData(user = user, refererUsername = usernamemain, refererEmail = findRefererEmail)
             messages.success(request, 'Registration Successful, login to continue.')
             user = authenticate(request, username=username, password=password)
-            print(user)
-            print(email)
-            # activateEmail(request, user, email)
-            # try:
-            #     activateEmail(request, user, email)
-            # except:
-            #     print('Registration mail was not sent successfully')
+            try:
+                activateEmail(request, user, email)
+            except:
+                print('Registration mail was not sent successfully')
                 
             form.save()
             ReferalDataForm.save()
