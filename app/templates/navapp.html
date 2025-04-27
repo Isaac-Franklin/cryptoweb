@@ -3,7 +3,7 @@
     <div>
         <div class='navsection'>
             <div class='intrologo'>
-                <img src={% static 'onboard/img/newlogowhite.png' %} />
+                <img src={% static 'general/img/etlogowhite2.png' %} />
                 <h4>Ceness<br/>Trade </h4>
             </div>
             <div class='dateandprofile'>
@@ -11,10 +11,10 @@
                     <p class='datehere'></p>
                 </div>
                 <div class='profilesection'>
-                    <div class='profilesectioninner'><img src={% static 'general/img/user.jpg' %} /></div>
+                    <div class='profilesectioninner'><img style="width: 25px" src={% static 'general/img/profile.png' %} /></div>
                     <div class='profilesectionmain'>
                         <p>{{ request.user }}</p>
-                        <div class='profilesectioninner'><img src={% static 'general/img/arrow.png' %} /></div>
+                        <div class='profilesectioninner'><img src={% static 'general/img/viewmore.png' %} /></div>
                     </div>
                 </div>
                 
@@ -28,7 +28,7 @@
        <div class='responsivenav'>
             <div class='responsivenavsection1'>
                 <div class='intrologo'>
-                    <img src={% static 'onboard/img/newlogowhite.png' %} />
+                    <img src={% static 'general/img/etlogowhite2.png' %} />
                     <h4>Ceness<br/>Trade </h4>
                 </div>
                 <div class='hamburgerMain'>
@@ -42,9 +42,9 @@
                         <p class='dateheremobile'></p>
                     </div>
                     <div class='profilesection profilesectionmobile'>
-                        <div class='profilesectioninner profilesectioninner2'><img src={% static 'general/img/user.jpg' %} /></div>
+                        <div class='profilesectioninner profilesectioninner2'><img src={% static 'general/img/profile.png' %} /></div>
                         <div class='profilesectionmain'>
-                            <div class='profilesectioninner profilesectioninner2'><img src={% static 'general/img/arrow.png' %} /></div>
+                            <div class='profilesectioninner profilesectioninner2'><img src={% static 'general/img/viewmore.png' %} /></div>
                         </div>
                     </div>
                     <div class='logoutboxmobile'>
@@ -60,47 +60,47 @@
                 <ul>
                     <a href={% url 'Dashboard' %}>
                         <li>
-                            <img src={% static 'general/img/dashboard.png' %} />
+                            <img src={% static 'general/img/dashboardwhite.png' %} />
                         </li>
                     </a>
                     <a href={% url 'Deposite' %}>
                         <li>
-                            <img src={% static 'general/img/handcash.png' %} />
+                            <img src={% static 'general/img/handcashwhite.png' %} />
                         </li>
                     </a>
                     <a href={% url 'Withdraw' %}>
                         <li>
-                            <img src={% static 'general/img/withdraw.png' %} />
+                            <img src={% static 'general/img/withdrawwhite.png' %} />
                         </li>
                     </a>
                     <a href={% url 'Deposite' %}>
                         <li>
-                            <img src={% static 'general/img/cash.png' %} />
+                            <img src={% static 'general/img/handcashwhite.png' %} />
                         </li>
                     </a>
                     <a href={% url 'History' %}>
                         <li>
-                            <img src={% static 'general/img/cashturn.png' %} />
+                            <img src={% static 'general/img/historywhite.png' %} />
                         </li>
                     </a>
                     <a href={% url 'ReferalFxn' %}>
                         <li>
-                            <img src={% static 'general/img/partner.png' %} />
+                            <img src={% static 'general/img/referalwhite.png' %} />
                         </li>
                     </a>
                     <a href={% url 'BannerAd' %}>
                         <li>
-                            <img src={% static 'general/img/banner.png' %} />
+                            <img src={% static 'general/img/bannerwhite.png' %} />
                         </li>
                     </a>
                     <a href="https://ceness-trade.com/#faq" target="_blank">
                         <li>
-                            <img src={% static 'general/img/qa.png' %} />
+                            <img src={% static 'general/img/faqwhite.png' %} />
                         </li>
                     </a>
                     <a href="https://t.me/httpstmehttpstmeCenesstrade" target="_blank">
                         <li>
-                            <img src={% static 'general/img/support.png' %} />
+                            <img src={% static 'general/img/supportwhite.png' %} />
                         </li>
                     </a>
                 </ul>
@@ -120,8 +120,8 @@
                             <h2>{{CurrentUserAccountBalanceMain}}</h2>
                             <p>Account Balance</p>
                         </div>
-                        <div class='acctbalanceimg'>
-                            <img src={% static 'general/img/rightarrow.png' %} />
+                        <div class='acctbalanceimg' >
+                            <img src={% static 'general/img/openarrow.png' %} />
                         </div>
                     </div>
                     <hr/>
@@ -131,19 +131,19 @@
                             <ul>
                                 <a href={% url 'Dashboard' %}>
                                     <li>
-                                        <img src={% static 'general/img/dashboard.png' %} />
+                                        <img src={% static 'general/img/dashboardwhite.png' %} />
                                         <p>Dashboard</p>
                                     </li>
                                 </a>
                                 <a href={% url 'Deposite' %}>
                                     <li>
-                                        <img src={% static 'general/img/handcash.png' %} />
+                                        <img src={% static 'general/img/handcashwhite.png' %} />
                                         <p>Make A Deposite</p>
                                     </li>
                                 </a>
                                 <a href={% url 'Withdraw' %}>
                                     <li>
-                                        <img src={% static 'general/img/withdraw.png' %} />
+                                        <img src={% static 'general/img/withdrawwhite.png' %} />
                                         <p>Withdrawal</p>
                                     </li>
                                 </a>
@@ -155,31 +155,31 @@
                                 </a> {% endcomment %}
                                 <a href={% url 'History' %}>
                                     <li>
-                                        <img src={% static 'general/img/cashturn.png' %} />
+                                        <img src={% static 'general/img/historywhite.png' %} />
                                         <p>Account History</p>
                                     </li>
                                 </a>
                                 <a href={% url 'ReferalFxn' %}>
                                     <li>
-                                        <img src={% static 'general/img/partner.png' %} />
+                                        <img src={% static 'general/img/referalwhite.png' %} />
                                         <p>Referal Program</p>
                                     </li>
                                 </a>
                                 <a href={% url 'BannerAd' %}>
                                     <li>
-                                        <img src={% static 'general/img/banner.png' %} />
+                                        <img src={% static 'general/img/bannerwhite.png' %} />
                                         <p>Banner Ads</p>
                                     </li>
                                 </a>
                                 <a href="https://ceness-trade.com/#faq" target="_blank">
                                     <li>
-                                        <img src={% static 'general/img/qa.png' %} />
+                                        <img src={% static 'general/img/faqwhite.png' %} />
                                         <p>FAQs</p>
                                     </li>
                                 </a>
                                 <a href="https://t.me/httpstmehttpstmeCenesstrade" target="_blank">
                                     <li>
-                                        <img src={% static 'general/img/support.png' %} />
+                                        <img src={% static 'general/img/supportwhite.png' %} />
                                         <p>Support</p>
                                     </li>
                                 </a>
@@ -210,7 +210,7 @@
                             <p>Account Balance</p>
                         </div>
                         <div class='acctbalanceimg'>
-                            <img src={% static 'general/img/rightarrow.png' %} />
+                            {% comment %} <img src={% static 'general/img/dollar.png' %} /> {% endcomment %}
                         </div>
                     </div>
                     <hr/>
@@ -244,7 +244,7 @@
                                 </a> {% endcomment %}
                                 <a href={% url 'History' %}>
                                     <li>
-                                        <img src={% static 'general/img/cashturn.png' %} />
+                                        <img src={% static 'general/img/history.png' %} />
                                         <p>Account History</p>
                                     </li>
                                 </a>
@@ -262,7 +262,7 @@
                                 </a>
                                 <a href="https://ceness-trade.com/#faq" target="_blank">
                                 <li>
-                                    <img src={% static 'general/img/qa.png' %} />
+                                    <img src={% static 'general/img/faq.png' %} />
                                     <p>FAQs</p>
                                 </li>
                                 </a>
@@ -301,7 +301,7 @@
                     </a>
                     <a href={% url 'History' %}>
                         <li>
-                            <img src={% static 'general/img/cashturn.png' %} />
+                            <img src={% static 'general/img/history.png' %} />
                         </li>
                     </a>
                     <a href={% url 'ReferalFxn' %}>
@@ -316,7 +316,7 @@
                     </a>
                     <a href="https://ceness-trade.com/#faq" target="_blank">
                         <li>
-                            <img src={% static 'general/img/qa.png' %} />
+                            <img src={% static 'general/img/faq.png' %} />
                         </li>
                     </a>
                     <a href="https://t.me/httpstmehttpstmeCenesstrade" target="_blank">

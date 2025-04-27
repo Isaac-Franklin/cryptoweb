@@ -84,7 +84,7 @@ class ReferalData(models.Model):
 class ConfrimedOrdersStatuses(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     depositeID = models.CharField(max_length=200, null=True, blank=True)
-    depositestatus = models.CharField(max_length= 300,choices = DEPOSITE_STATUS, default = 'Payment have been made', null=True, blank = True)
+    depositestatus = models.CharField(max_length= 300,choices = DEPOSITE_STATUS, default = 'Pending', null=True, blank = True)
     
     created_at = models.DateTimeField(auto_now_add=True)
     edited_at = models.DateTimeField(auto_now=True)
@@ -149,3 +149,59 @@ class UserAccountBalanceModel(models.Model):
         
     def __str__(self):
         return self.useremail
+
+
+
+class AllAppPlans(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    PlanName = models.CharField(max_length=200, null=True, blank=True)
+    minamount = models.CharField(max_length=200, null=True, blank=True)
+    maxamount = models.CharField(max_length=200, null=True, blank=True)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    edited_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['-edited_at', '-created_at']
+        
+        
+    def __str__(self):
+        return self.PlanName
+
+
+
+class AdminWalletIds(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    walletType = models.CharField(max_length=200, null=True, blank=True)
+    walletID = models.CharField(max_length=200, null=True, blank=True)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    edited_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['-edited_at', '-created_at']
+        
+        
+    def __str__(self):
+        return self.walletType
+
+
+
+
+
+class UserAccountBalanceModel(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    useremail = models.CharField(max_length=200, null=True, blank=True)
+    useraccountbalance = models.IntegerField(null=True, blank=True)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    edited_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['-edited_at', '-created_at']
+        
+        
+    def __str__(self):
+        return self.useremail
+
+

@@ -3,22 +3,26 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import *
 from useronboard.models import UserSignUp
-from adminapp.models import *
+# from adminapp.models import *
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.utils.crypto import get_random_string
 from django.db.models import Q
 import math 
-from .tokens import account_activation_token
+# from .tokens import account_activation_token
 from django.template.loader import render_to_string
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 from django.core.mail import send_mail
+from django.shortcuts import redirect
+
 
 # Create your views here.
 
-
+def custom_csrf_failure(request, reason=""):
+    # You can log the reason here if you want
+    return redirect('/') 
 
 
 import platform
@@ -210,24 +214,23 @@ def Nav(request):
 
 @login_required(login_url='UserSignUpFxn')
 def Deposite(request):
-    AllAppPlans = AppPlans.objects.all()
-
-    BronzePlan = AppPlans.objects.get(planname = 'Bronze Plan')
-    BronzePlanMinValue = AppPlans.objects.filter(planname = 'Bronze Plan').values_list('minamount', flat=True)[0]
-    BronzePlanMaxValue = AppPlans.objects.filter(planname = 'Bronze Plan').values_list('maxamount', flat=True)[0]
+    FetchAllAppPlans = AllAppPlans.objects.all()
+    BronzePlan = AllAppPlans.objects.get(PlanName = 'Bronze Plan')
+    BronzePlanMinValue = AllAppPlans.objects.filter(PlanName = 'Bronze Plan').values_list('minamount', flat=True)[0]
+    BronzePlanMaxValue = AllAppPlans.objects.filter(PlanName = 'Bronze Plan').values_list('maxamount', flat=True)[0]
     print(type(int(BronzePlanMinValue)))
     
-    SilverPlan = AppPlans.objects.get(planname = 'Silver plan')
-    SilverPlanMinValue = AppPlans.objects.filter(planname = 'Silver plan').values_list('minamount', flat=True)[0]
-    SilverPlanMaxValue = AppPlans.objects.filter(planname = 'Silver plan').values_list('maxamount', flat=True)[0]
+    SilverPlan = AllAppPlans.objects.get(PlanName = 'Silver plan')
+    SilverPlanMinValue = AllAppPlans.objects.filter(PlanName = 'Silver plan').values_list('minamount', flat=True)[0]
+    SilverPlanMaxValue = AllAppPlans.objects.filter(PlanName = 'Silver plan').values_list('maxamount', flat=True)[0]
 
-    GoldPlan = AppPlans.objects.get(planname = 'Gold plan')
-    GoldPlanMinValue = AppPlans.objects.filter(planname = 'Gold plan').values_list('minamount', flat=True)[0]
-    GoldPlanMaxValue = AppPlans.objects.filter(planname = 'Gold plan').values_list('maxamount', flat=True)[0]
+    GoldPlan = AllAppPlans.objects.get(PlanName = 'Gold plan')
+    GoldPlanMinValue = AllAppPlans.objects.filter(PlanName = 'Gold plan').values_list('minamount', flat=True)[0]
+    GoldPlanMaxValue = AllAppPlans.objects.filter(PlanName = 'Gold plan').values_list('maxamount', flat=True)[0]
     
-    DiamondPlan = AppPlans.objects.filter(planname = 'Diamond plan')
-    DiamondPlanMinValue = AppPlans.objects.filter(planname = 'Diamond plan').values_list('minamount', flat=True)[0]
-    DiamondPlanMaxValue = AppPlans.objects.filter(planname = 'Diamond plan').values_list('maxamount', flat=True)[0]
+    DiamondPlan = AllAppPlans.objects.filter(PlanName = 'Diamond plan')
+    DiamondPlanMinValue = AllAppPlans.objects.filter(PlanName = 'Diamond plan').values_list('minamount', flat=True)[0]
+    DiamondPlanMaxValue = AllAppPlans.objects.filter(PlanName = 'Diamond plan').values_list('maxamount', flat=True)[0]
 
     if request.method == 'POST':
         planselected = request.POST['planselected']
@@ -279,22 +282,27 @@ def Deposite(request):
 @login_required(login_url='UserSignUpFxn')
 def ConfirmDeposite(request, pk):
     neworder = PotentialDeposite.objects.get(depositeID=pk)
-    BTCWalletID = list(WalletIDs.objects.all().values_list('btc', flat=True))
-    BTCWalletIDMain = BTCWalletID[0]
-    BNBWalletID = WalletIDs.objects.all().values_list('bnb', flat=True)
-    BNBWalletIDMain = BNBWalletID[0]
-    USDTWalletID = WalletIDs.objects.all().values_list('usdt', flat=True)
-    USDTWalletIDMain = USDTWalletID[0]
-    TRONWalletID = WalletIDs.objects.all().values_list('tron', flat=True)
-    TRONWalletIDMain = TRONWalletID[0]
-    if request.method == 'POST':
-        ConfrimedOrdersForm =  ConfrimedOrdersStatuses(user = request.user, depositeID = pk, depositestatus = 'Payment is made')
-        ConfrimedOrdersForm.save()
-        messages.success(request, 'Your deposite is currently pending and will be approved when confirmed.')
-        return redirect('History')
+    print('neworder')
+    print(neworder)
+    BTCWalletID = AdminWalletIds.objects.filter(walletType = 'btc').values_list('walletID', flat = True)[0]
+    BNBWalletID = AdminWalletIds.objects.filter(walletType = 'bnb').values_list('walletID', flat = True)[0]
+    USDTWalletID = AdminWalletIds.objects.filter(walletType = 'usdt').values_list('walletID', flat = True)[0]
+    TRONWalletID = AdminWalletIds.objects.filter(walletType = 'tron').values_list('walletID', flat = True)[0]
+    if request.method == 'POST' and 'depositeconfirmed' in request.POST:
+        checkDepositStatus = ConfrimedOrdersStatuses.objects.filter(depositeID = pk)
+        if checkDepositStatus:
+            messages.error(request, 'This deposit has already been recorded.')
+            return redirect('Deposite')
+            # return redirect('ConfirmDeposite', pk=pk)
+        else:
+            ConfrimedOrdersForm =  ConfrimedOrdersStatuses(user = request.user, depositeID = pk, depositestatus = 'Payment is made')
+            ConfrimedOrdersForm.save()
+            messages.success(request, 'Your deposite is currently pending and will be approved when confirmed.')
+            return redirect('History')
 
-    context = {'neworder': neworder, 'BTCWalletIDMain':BTCWalletIDMain, 'BNBWalletIDMain':BNBWalletIDMain, 'USDTWalletIDMain':USDTWalletIDMain, 'TRONWalletIDMain':TRONWalletIDMain}
+    context = {'neworder': neworder, 'BTCWalletID':BTCWalletID, 'BNBWalletID':BNBWalletID, 'USDTWalletID':USDTWalletID, 'TRONWalletID':TRONWalletID}
     return render(request, 'app/confirmdeposite.html', context)
+
 
 
 @login_required(login_url='UserSignUpFxn')

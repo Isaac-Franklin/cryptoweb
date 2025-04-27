@@ -1,251 +1,270 @@
-
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-body{
-    /* background: url("/static/general/img/whitebackground.png") no-repeat fixed; */
-    background-color: #233239;
-    height: 120vh;
-    width: 100%;
-    background-size: cover;
-    /* background-color: black; */
-    background-repeat: no-repeat;
-    object-fit: contain;
+body {
+  /* background: url("/static/general/img/whitebackground.png") no-repeat fixed; */
+  background-color: #233239;
+  height: 120vh;
+  width: 100%;
+  background-size: cover;
+  /* background-color: black; */
+  background-repeat: no-repeat;
+  object-fit: contain;
 }
 
-
-.backgroundingout{
-    position: fixed;
-    background-image: linear-gradient(105deg, #233239f1 0%, #233239d3 100%);
-    width: 100%;
-    height: 100%;
-    z-index: 3;
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid white;
+  border-top-color: #233239;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
-.navmainmenu{
-    z-index: 10;
+/* Spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.navmainmenumini{
-    z-index: 10;
+.backgroundingout {
+  position: fixed;
+  background-image: linear-gradient(105deg, #233239f1 0%, #233239d3 100%);
+  width: 100%;
+  height: 100%;
+  z-index: 3;
 }
 
-.nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    position: fixed;
-    top: 0px;
-    width: 100vw;
-    z-index: 10;
-    /* margin-top: 100px; */
-    color: white;
-    transition: ease-in-out .3s;
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 0px solid rgba(255, 255, 255, 0.3);
+.navmainmenu {
+  z-index: 10;
 }
 
-.navtowhite{
-    background-color: white;
-    color: #0275be;
+.navmainmenumini {
+  z-index: 10;
 }
 
-input, textarea:focus{
-    outline: none;
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  z-index: 10;
+  /* margin-top: 100px; */
+  color: white;
+  transition: ease-in-out 0.3s;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 0px solid rgba(255, 255, 255, 0.3);
 }
 
-.translateactivestyle{
-    margin-top: 25px;
+.navtowhite {
+  background-color: white;
+  color: #0275be;
 }
 
-.nav button{
-    background-color: white;
-    padding: 10px;
-    color: #0275be;
-    border: none;
-    font-size: 1.4rem;
-    margin-left: 10px;
-    border-radius: 5%;
-    font-weight: bold;
-    transition: ease-in-out .2s;
+input,
+textarea:focus {
+  outline: none;
 }
 
-.nav button:hover{
-    transform: scale(1.1);
-    /* background-color: transparent;
+.translateactivestyle {
+  margin-top: 25px;
+}
+
+.nav button {
+  background-color: white;
+  padding: 10px;
+  color: #0275be;
+  border: none;
+  font-size: 1.4rem;
+  margin-left: 10px;
+  border-radius: 5%;
+  font-weight: bold;
+  transition: ease-in-out 0.2s;
+}
+
+.nav button:hover {
+  transform: scale(1.1);
+  /* background-color: transparent;
     border-bottom: 1px solid white;
     color: white; */
 }
 
-.navmenu ul{
-    display: flex;
-
+.navmenu ul {
+  display: flex;
 }
 
-.navmenu ul li{
-    list-style: none;
-    margin-right: 20px;
-    font-size: 1.6rem;
-    cursor: pointer;
-    transition: ease-in-out .3s;
+.navmenu ul li {
+  list-style: none;
+  margin-right: 20px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
 }
 
-.navmenu ul li:hover{
-    transform: scale(1.1);
-    border-bottom: 1px solid white;
+.navmenu ul li:hover {
+  transform: scale(1.1);
+  border-bottom: 1px solid white;
 }
 
 /* .nav-colored { background-color:white; color: #0275be } */
-.nav-colored { background-color: #233239; }
-.nav-transparent { background-color:transparent;}
-
-.backgrounding img{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    object-position: right;
-    /* display: none; */
+.nav-colored {
+  background-color: #233239;
+}
+.nav-transparent {
+  background-color: transparent;
 }
 
-
-.hamburgerMain{
-    display: none;
-    z-index: 10;
+.backgrounding img {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  object-position: right;
+  /* display: none; */
 }
 
-.hamburger{
-    display: none;
-    z-index: 10;
+.hamburgerMain {
+  display: none;
+  z-index: 10;
 }
 
-.userSectionResponsiveOut{
-    display: none;
+.hamburger {
+  display: none;
+  z-index: 10;
 }
 
-.scrollbar{
-    z-index: 20;
-    background-color: white;
-    position: fixed;
-    bottom: 0px;
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
-    padding: 5px;
+.userSectionResponsiveOut {
+  display: none;
 }
 
-marquee{
-    display: flex;
-    align-items: center;
+.scrollbar {
+  z-index: 20;
+  background-color: white;
+  position: fixed;
+  bottom: 0px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  padding: 5px;
 }
 
-.coinandimage{
-    color: green;
+marquee {
+  display: flex;
+  align-items: center;
 }
 
-.coinandimage img{
-    width: 30px;
-    margin-right: 5px;
+.coinandimage {
+  color: green;
 }
 
-.cryptoprize{
-    margin-left: 10px;
-    margin-right: 10px;
-    color: black;
-    font-weight: bolder;
+.coinandimage img {
+  width: 30px;
+  margin-right: 5px;
 }
 
-.alert strong{
-    font-size: 1.3rem;
+.cryptoprize {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;
+  font-weight: bolder;
 }
 
-
-.google_element_local::-webkit-scrollbar{
-    display: none;
+.alert strong {
+  font-size: 1.3rem;
 }
 
-
-.cryptorank{
-    margin-left: 10px;
-    margin-right: 10px;
-    color: black;
+.google_element_local::-webkit-scrollbar {
+  display: none;
 }
 
-.cryptocap{
-    margin-left: 10px;
-    color: green;
+.cryptorank {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;
 }
 
-.cryptochange{
-    margin-left: 10px;
-    margin-right: 10px;
-    color: black;
-    font-weight: bolder;
+.cryptocap {
+  margin-left: 10px;
+  color: green;
 }
 
-.navlogo img{
-    width: 60px;
+.cryptochange {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;
+  font-weight: bolder;
 }
 
-.cryptoprize{
-    margin-left: 10px;
-    margin-right: 10px;
-    color: black;
+.navlogo img {
+  width: 60px;
 }
 
-.allscrollsection{
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
+.cryptoprize {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;
 }
 
-.allscrollsection2{
-    display: flex;
-    align-items: center;
+.allscrollsection {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
 }
 
-.google_element_local{
-    overflow: scroll;
+.allscrollsection2 {
+  display: flex;
+  align-items: center;
+}
+
+.google_element_local {
+  overflow: scroll;
 }
 
 @media only screen and (max-width: 1102px) {
-    .navmenu, .navbtns{
-        display: none;
-    }
-/* 
+  .navmenu,
+  .navbtns {
+    display: none;
+  }
+  /* 
     .nav{
         padding: 0px;
     } */
 
-    .backgrounding img{
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        z-index: 2;
-        object-fit: cover;
-        /* object-position: ; */
-    }
+  .backgrounding img {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    object-fit: cover;
+    /* object-position: ; */
+  }
 
+  /* HAMBURGER MENU STARTS HERE */
+  .hamburger,
+  .hamburgerMain {
+    z-index: 10;
+    display: block;
+  }
 
-
-
-    /* HAMBURGER MENU STARTS HERE */
-    .hamburger, .hamburgerMain{ 
-        z-index: 10;
-        display: block;
-    }
-
-    .hamburger { cursor: pointer; padding: 10px 35px 16px 0px; }
-    .hamburger span, .hamburger span:before, .hamburger span:after {
+  .hamburger {
+    cursor: pointer;
+    padding: 10px 35px 16px 0px;
+  }
+  .hamburger span,
+  .hamburger span:before,
+  .hamburger span:after {
     cursor: pointer;
     border-radius: 1px;
     height: 3px;
@@ -253,169 +272,170 @@ marquee{
     background: black;
     position: absolute;
     display: inline-block;
-    content: '';
-    }
-    .hamburger span:before {
-    top: -10px; 
-    }
-    .hamburger span:after {
+    content: "";
+  }
+  .hamburger span:before {
+    top: -10px;
+  }
+  .hamburger span:after {
     bottom: -10px;
-    }
-    
-    .hamburger span, .hamburger span:before, .hamburger span:after {
-    -webkit-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1.000); 
-    -moz-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1.000); 
-        -o-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1.000); 
-            transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1.000); /* easeInOutCubic */
-    }
-    .hamburger.active span {
+  }
+
+  .hamburger span,
+  .hamburger span:before,
+  .hamburger span:after {
+    -webkit-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1); /* easeInOutCubic */
+  }
+  .hamburger.active span {
     background-color: transparent;
-    }
-    .hamburger.active span:before, .hamburger.active span:after {
+  }
+  .hamburger.active span:before,
+  .hamburger.active span:after {
     top: 0;
-    }
-    .hamburger.active span:before {
+  }
+  .hamburger.active span:before {
     transform: rotate(45deg);
-    }
-    .hamburger.active span:after {
+  }
+  .hamburger.active span:after {
     transform: translateY(-10px) rotate(-45deg);
     top: 10px;
-    }
+  }
 
+  /* RESPONSIVE SETTINGS STARTS HERE */
+  .userSectionResponsive {
+    background-color: transparent;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    margin-bottom: -30px;
+  }
 
-    /* RESPONSIVE SETTINGS STARTS HERE */
-    .userSectionResponsive{
-        background-color: transparent;
-        width: 150px;
-        display: flex;
-        align-items: center;
-        margin-bottom: -30px;
-    }
+  .userSectionResponsive p {
+    margin-top: 10px;
+  }
 
-    .userSectionResponsive p{
-        margin-top: 10px;
-    }
+  .userSectionResponsive img {
+    margin-left: 10px;
+  }
 
-    .userSectionResponsive img{
-        margin-left: 10px;
-    }
+  .userSectionResponsiveOut p:hover {
+    color: white;
+    background-color: rgba(215, 215, 215, 0.56);
+  }
 
-    .userSectionResponsiveOut p:hover{
-        color: white;
-        background-color: rgba(215, 215, 215, 0.56);
-    }
+  .userSectionResponsiveOut p {
+    padding: 5px;
+    transition: ease-in-out 0.3s;
+    margin-bottom: 2px;
+    font-size: 1.4rem;
+    padding-left: 10px;
+  }
 
-    .userSectionResponsiveOut p{
-        padding: 5px;
-        transition: ease-in-out .3s;
-        margin-bottom: 2px;
-        font-size: 1.4rem;
-        padding-left: 10px;
-    }
+  .userSectionResponsiveOut p a {
+    color: #0275be;
+    font-weight: bold;
+  }
 
-    .userSectionResponsiveOut p a{
-        color: #0275be;
-        font-weight: bold;
-    }
-    
-    .userSectionResponsiveOut{
-        background-color: white;
-        width: 100vw;
-        padding: 0px;
-        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
-        display: block;
-        left: -950px;
-        position: absolute;
-        z-index: 20;
-        margin-top: 100px;
-        transition: ease-in-out .4s;
-    }
-
-    .showIt{
-        display: block;
-        left: 0px;
-        position: absolute;
-    }
-
-    .userSectionResponsiveOut button{
-        padding: 5px;
-        font-size: 1.3rem;
-        font-size: 1.3rem;
-        background-color: #233239b5;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        margin-left: 10px;
-        margin-bottom: 10px;
-    }
-
-    .showIt{
-        display: block;
-    }
-
-    .mainNavBar .menuSection, .userSectionOut{
-        display: none;
-    }
-
-    .hamburgerMain{
-        margin-top: 0px;
-    }
-
-
-    .userSectionResponsiveuser{
-        display: block;
-    }
-
-    .userSectionResponsiveuser{
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    .userSectionResponsiveuser p{
-        margin-top: 15px;
-    }
-}
-
-body{
-    width: 100%;
-  
-    overflow-x: hidden;
-}
-
-.spinner{
-    width: 80px;
-    height: 80px;
-    
-    border: 2px solid #f3f3f3;
-    border-top:3px solid #f25a41;
-    border-radius: 100%;
-    
+  .userSectionResponsiveOut {
+    background-color: white;
+    width: 100vw;
+    padding: 0px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    display: block;
+    left: -950px;
     position: absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right: 0;
-    margin: auto;
-    
-    animation: spin 1s infinite linear;
+    z-index: 20;
+    margin-top: 100px;
+    transition: ease-in-out 0.4s;
+  }
+
+  .showIt {
+    display: block;
+    left: 0px;
+    position: absolute;
+  }
+
+  .userSectionResponsiveOut button {
+    padding: 5px;
+    font-size: 1.3rem;
+    font-size: 1.3rem;
+    background-color: #233239b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .showIt {
+    display: block;
+  }
+
+  .mainNavBar .menuSection,
+  .userSectionOut {
+    display: none;
+  }
+
+  .hamburgerMain {
+    margin-top: 0px;
+  }
+
+  .userSectionResponsiveuser {
+    display: block;
+  }
+
+  .userSectionResponsiveuser {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .userSectionResponsiveuser p {
+    margin-top: 15px;
+  }
+}
+
+body {
+  width: 100%;
+
+  overflow-x: hidden;
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid #f25a41;
+  border-radius: 100%;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  animation: spin 1s infinite linear;
 }
 
 @keyframes spin {
-    from{
-        transform: rotate(0deg);
-    }to{
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-#overlay{
-  height:100%;
-  width:100%;
-  background:rgba(0, 0, 0, 1);
-  position:fixed;
-  left:0;
-  top:0;
- }
-
- 
+#overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 1);
+  position: fixed;
+  left: 0;
+  top: 0;
+}

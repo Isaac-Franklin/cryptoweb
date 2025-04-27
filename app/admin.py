@@ -8,4 +8,7 @@ admin.site.register(ReferalData)
 admin.site.register(DueForWithdrawal)
 admin.site.register(WithdrawalRequest)
 admin.site.register(UserAccountBalanceModel)
+admin.site.register(AllAppPlans)
+admin.site.register(AdminWalletIds)
+admin.site.register(ConfrimedOrdersStatuses)
 

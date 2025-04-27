@@ -135,15 +135,15 @@
                                     <div class='planselectedselected'>
                                         <input hidden name='planselected' type='text' />
                                     </div>
-                                    <select name='wallet'>
+                                    <select required name='wallet'>
                                         <option value='Bitcoin'>Bitcoin</option>
                                         <option value='USDT'>USDT Bep20</option>
                                         <option value='Tron'>Tron Address</option>
                                         <option value='bnb'>BnB</option>
                                     </select>
                                     <div class='walletselectamount'>
-                                        <div class='walletselectamountimg'><img src={% static 'deposite/img/dollar.png' %} /></div>
-                                        <input name='amount' type='number' placeholder='min: $40' />
+                                        <div class='walletselectamountimg'><img src={% static 'general/img/dollar.png' %} /></div>
+                                        <input required name='amount' type='number' placeholder='Enter Investment Amount' />
                                     </div>
                                     <div class='walletselectproperbtn'>
                                         <button type='submit'>Make a deposite</button>

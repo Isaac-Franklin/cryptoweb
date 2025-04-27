@@ -43,8 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'useronboard.apps.UseronboardConfig',
-    'adminapp.apps.AdminappConfig',
+    # 'adminapp.apps.AdminappConfig',
     'app.apps.AppConfig',
+    'adminapp.apps.AdminappConfig',
     'corsheaders',
     'django_user_agents',
 ]
@@ -72,6 +73,7 @@ AUTO_LOGOUT = {
     'Login': True,
 }
 
+CSRF_FAILURE_VIEW = 'app.views.custom_csrf_failure'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
